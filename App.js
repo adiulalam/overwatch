@@ -1,5 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { Platform, Text, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  Platform,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 import { NativeWindStyleSheet } from "nativewind";
 
 NativeWindStyleSheet.setOutput({
@@ -7,10 +14,24 @@ NativeWindStyleSheet.setOutput({
 });
 
 export default function App() {
+  const location = "OW2_Dva.png";
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar hidden />
+      <ScrollView>
+        <View className="flex flex-row flex-wrap justify-around bg-white max-h-full py-2">
+          <View className="bg-amber-500 h-96 w-72 m-2 rounded-xl">
+            <Image
+              className="object-contain h-full w-full rounded-xl"
+              resizeMode="contain"
+              source={require(`./assets/overwatch/${location}`)}
+            />
+          </View>
+          <View className="bg-amber-500 h-96 w-72 m-2 rounded-xl"></View>
+          <View className="bg-amber-500 h-96 w-72 m-2 rounded-xl"></View>
+          <View className="bg-amber-500 h-96 w-72 m-2 rounded-xl"></View>
+        </View>
+      </ScrollView>
+    </>
   );
 }
