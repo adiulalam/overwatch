@@ -1,6 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
-import "./main.css";
+import { Platform, Text, View } from "react-native";
+import { NativeWindStyleSheet } from "nativewind";
+
+NativeWindStyleSheet.setOutput({
+  default: "native",
+});
 
 export default function App() {
   return (
@@ -10,12 +14,3 @@ export default function App() {
     </View>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#fff",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-// });
