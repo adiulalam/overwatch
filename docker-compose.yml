@@ -1,0 +1,20 @@
+version: '2.4'
+
+services:
+  overwatch:
+    build:
+      context: .
+    tty: true
+    ports:
+      - '8079:19006'
+    expose:
+      - "8079"
+    volumes:
+      - ./:/overwatch:delegated
+      - ./package.json:/overwatch/package.json
+      - notused:/overwatch/node_modules
+    healthcheck:
+      disable: true
+
+volumes:
+  notused:
