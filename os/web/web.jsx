@@ -1,6 +1,6 @@
 import { Image, View } from "react-native";
 
-export const Web = () => {
+export const WebVersion = () => {
   const location = "OW2_Dva.png";
 
   return (
