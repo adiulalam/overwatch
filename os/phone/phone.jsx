@@ -1,18 +1,13 @@
 import { StatusBar } from "expo-status-bar";
-import { useRef } from "react";
-import {
-  Dimensions,
-  Image,
-  Pressable,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
-import Carousel from "react-native-snap-carousel";
+import { useRef, useState } from "react";
+import { Dimensions, Image, Pressable, Text, View } from "react-native";
+import Carousel, { Pagination } from "react-native-snap-carousel";
 import tw from "twrnc";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 export const PhoneVersion = () => {
+  const [index, setIndex] = useState(0);
+
   const cardsData = [
     {
       name: "Ana",
@@ -70,9 +65,9 @@ export const PhoneVersion = () => {
               uri: roleIcon[item?.type],
             }}
             resizeMode="contain"
-            style={tw`w-[${(SLIDER_WIDTH / 100) * 10 + "px"}] h-[${
-              (SLIDER_WIDTH / 100) * 10 + "px"
-            }]`}
+            style={tw`w-[${(SLIDER_WIDTH / 100) * 10}px] h-[${
+              (SLIDER_WIDTH / 100) * 10
+            }px]`}
           />
           <View style={tw`flex flex-row justify-around bg-white max-h-full`}>
             {[...Array(item.difficulty)].map((e, i) => (
@@ -118,6 +113,22 @@ export const PhoneVersion = () => {
         itemWidth={ITEM_WIDTH}
         useScrollView={true}
         loop={true}
+        onSnapToItem={(index) => setIndex(index)}
+      />
+      <Pagination
+        dotsLength={cardsData.length}
+        activeDotIndex={index}
+        carouselRef={isCarousel}
+        dotStyle={{
+          width: 8,
+          height: 8,
+          borderRadius: 2,
+          marginHorizontal: -3,
+          backgroundColor: "rgba(0, 0, 0, 0.92)",
+        }}
+        inactiveDotOpacity={0.4}
+        inactiveDotScale={0.6}
+        tappableDots={true}
       />
     </>
   );
