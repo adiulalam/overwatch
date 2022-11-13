@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { useRef, useState } from "react";
-import { Dimensions, Image, Pressable, Text, View } from "react-native";
+import { Button, Dimensions, Image, Pressable, Text, View } from "react-native";
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import tw from "twrnc";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -130,6 +130,14 @@ export const PhoneVersion = () => {
         inactiveDotScale={0.6}
         tappableDots={true}
       />
+      {/* <Button
+        onPress={() => {
+          isCarousel.current.snapToItem(1);
+          console.log(isCarousel.current.currentIndex);
+        }}
+        title="Learn More"
+        color="#841584"
+      /> */}
     </>
   );
 };
