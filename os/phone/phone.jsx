@@ -1,48 +1,17 @@
 import { StatusBar } from "expo-status-bar";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button, Dimensions, Image, Pressable, Text, View } from "react-native";
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import tw from "twrnc";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-export const PhoneVersion = () => {
+export const PhoneVersion = ({ route }) => {
+  // console.log(route.params.cardsData);
   const [index, setIndex] = useState(0);
 
-  const cardsData = [
-    {
-      name: "Ana",
-      hero_image:
-        "https://static.wikia.nocookie.net/overwatch_gamepedia/images/7/76/Ana.png",
-      difficulty: 3,
-      type: "support",
-    },
-    {
-      name: "Ashe",
-      hero_image:
-        "https://static.wikia.nocookie.net/overwatch_gamepedia/images/4/4f/Ashe-portrait.png",
-      difficulty: 2,
-      type: "damage",
-    },
-    {
-      name: "Baptiste",
-      hero_image:
-        "https://static.wikia.nocookie.net/overwatch_gamepedia/images/0/01/Baptiste-portrait.png",
-      difficulty: 1,
-      type: "tank",
-    },
-    {
-      name: "Bastion",
-      hero_image:
-        "https://static.wikia.nocookie.net/overwatch_gamepedia/images/d/d0/Bastion-portrait.png",
-      difficulty: 1,
-      type: "damage",
-    },
-  ];
-
-  const isCarousel = useRef(null);
-
+  const cardsData = route.params.cardsData;
+  const isCarousel = route.params.isCarousel;
   const SLIDER_WIDTH = Dimensions.get("window").width;
-
   const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
 
   const roleIcon = {
@@ -134,6 +103,7 @@ export const PhoneVersion = () => {
         onPress={() => {
           isCarousel.current.snapToItem(1);
           console.log(isCarousel.current.currentIndex);
+          navigation.openDrawer();
         }}
         title="Learn More"
         color="#841584"
