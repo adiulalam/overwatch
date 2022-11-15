@@ -36,7 +36,7 @@ export const PhoneVersion = ({ navigation, route }) => {
 					height: 8,
 					borderRadius: 2,
 					marginHorizontal: -3,
-					backgroundColor: "rgba(0, 0, 0, 0.92)",
+					backgroundColor: "#000000",
 				}}
 				inactiveDotOpacity={0.4}
 				inactiveDotScale={0.6}
