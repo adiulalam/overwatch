@@ -10,6 +10,9 @@ import { useRef } from "react";
 import tw from "twrnc";
 import { HeroesDetail } from "./os/phone/components/heroesDetail";
 import { cardsData } from "./os/phone/data/data";
+import { LogBox } from "react-native";
+
+LogBox.ignoreLogs(["Non-serializable values were found in the navigation state"]);
 
 NativeWindStyleSheet.setOutput({
 	default: "native",
