@@ -5,11 +5,11 @@ import { Button, Dimensions, Image, Pressable, Text, View } from "react-native";
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import tw from "twrnc";
 import { CarouselCardItem } from "./components/card";
+import { cardsData } from "./data/data";
 
 export const PhoneVersion = ({ navigation, route }) => {
 	const [index, setIndex] = useState(0);
 
-	const cardsData = route.params.cardsData;
 	const isCarousel = route.params.isCarousel;
 	const SLIDER_WIDTH = Dimensions.get("window").width;
 	const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
