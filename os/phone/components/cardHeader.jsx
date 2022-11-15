@@ -16,7 +16,7 @@ export const CardHeader = (item) => {
 	return (
 		<>
 			<Text style={tw`text-3xl font-bold text-center`}>{item?.name}</Text>
-			<View style={tw`flex flex-row flex-wrap justify-around bg-white max-h-full`}>
+			<View style={tw`flex flex-row flex-wrap py-2 justify-around max-h-full`}>
 				<Image
 					source={{
 						uri: roleIcon[item?.type],
@@ -24,7 +24,7 @@ export const CardHeader = (item) => {
 					resizeMode="contain"
 					style={tw`w-[${Size}px] h-[${Size}px]`}
 				/>
-				<View style={tw`flex flex-row justify-around bg-white max-h-full`}>
+				<View style={tw`flex flex-row justify-around max-h-full`}>
 					{[...Array(item?.difficulty)].map((e, i) => (
 						<Ionicons name="star" size={Size} color="orange" key={i} />
 					))}
