@@ -42,15 +42,6 @@ export const PhoneVersion = ({ navigation, route }) => {
 				inactiveDotScale={0.6}
 				tappableDots={true}
 			/>
-			{/* <Button
-        onPress={() => {
-          // isCarousel.current.snapToItem(1);
-          // console.log(isCarousel.current.currentIndex);
-          // navigation.openDrawer();
-        }}
-        title="Learn More"
-        color="#841584"
-      /> */}
 		</>
 	);
 };

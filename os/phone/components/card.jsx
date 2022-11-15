@@ -10,7 +10,13 @@ export const CarouselCardItem = ({ item, index }, navigation) => {
 
 			<View style={tw`flex-1`}>
 				<Pressable
-					onPress={() => alert("Pressed!")}
+					onPress={() => {
+						navigation.navigate("Heroes Detail", {
+							item: item,
+							index: index,
+							name: item.name,
+						});
+					}}
 					style={({ pressed }) => tw`p-5 rounded-lg ${pressed ? "bg-slate-200" : "bg-white"}`}
 				>
 					<Image
@@ -22,17 +28,6 @@ export const CarouselCardItem = ({ item, index }, navigation) => {
 					/>
 				</Pressable>
 			</View>
-			<Button
-				onPress={() => {
-					navigation.navigate("Heroes Detail", {
-						item: item,
-						index: index,
-						name: item.name,
-					});
-				}}
-				title="Learn More"
-				color="#841584"
-			/>
 		</View>
 	);
 };
