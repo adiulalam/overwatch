@@ -3,8 +3,6 @@ import { Dimensions, View, ScrollView, Text, Image } from "react-native";
 import tw from "twrnc";
 
 export const HeroesDetail = ({ route }) => {
-	// console.log(route.params.item);
-
 	const SLIDER_WIDTH = Dimensions.get("window").width;
 	const Size = (num) => (SLIDER_WIDTH / 100) * num;
 
