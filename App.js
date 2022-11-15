@@ -10,8 +10,8 @@ import {
 } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { useRef } from "react";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import tw from "twrnc";
+import { HeroesDetail } from "./os/phone/components/heroesDetail";
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -71,6 +71,7 @@ export default function App() {
                     onPress={() => {
                       isCarousel?.current?.snapToItem(i);
                       props.navigation.closeDrawer();
+                      props.navigation.navigate("Heroes");
                     }}
                     activeTintColor="#f32121"
                     focused={i === isCarousel?.current?.currentIndex}
@@ -96,6 +97,17 @@ export default function App() {
                 </View>
               ),
             }}
+          />
+          <Drawer.Screen
+            name="Heroes Detail"
+            component={HeroesDetail}
+            initialParams={{ cardsData: cardsData }}
+            options={({ route }) => ({
+              title: route.params.name,
+              drawerItemStyle: {
+                display: "none",
+              },
+            })}
           />
         </Drawer.Navigator>
       </NavigationContainer>
