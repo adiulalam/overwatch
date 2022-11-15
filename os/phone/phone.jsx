@@ -1,9 +1,8 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { useEffect, useRef, useState } from "react";
-import { Button, Dimensions, Image, Pressable, Text, View } from "react-native";
+import { useState } from "react";
+import { Dimensions } from "react-native";
 import Carousel, { Pagination } from "react-native-snap-carousel";
-import tw from "twrnc";
 import { CarouselCardItem } from "./components/card";
 import { cardsData } from "./data/data";
 
