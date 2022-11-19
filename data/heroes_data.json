@@ -386,7 +386,7 @@
 	},
 	{
 		"name": "Junker Queen",
-		"hero_image": "junker_queen/profile_pic.jpg",
+		"hero_image": "junker_queen/profile_pic.png",
 		"type": "tank",
 		"difficulty": 3,
 		"description": "The Junker Queen is designed to take part in close combat with enemy heroes. Many of her abilities apply wounds that cause enemies to slowly drain health. This life-steal passive adds to her survivability and aggression. Pushing the boundaries of brawling, Junker Queen can be considered a 'berserker tank,' whose survivability is directly connected to how many enemies she's wounding.",
