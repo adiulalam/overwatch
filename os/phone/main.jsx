@@ -1,13 +1,13 @@
 import "react-native-gesture-handler";
 import React from "react";
 import { Dimensions, Image, View } from "react-native";
-import { PhoneVersion } from "../phone";
+import { PhoneVersion } from "./phone";
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { useRef } from "react";
 import tw from "twrnc";
-import { HeroesDetail } from "../components/heroesDetail";
-import { cardsData } from "./data";
+import { HeroesDetail } from "./components/heroesDetail";
+import { cardsData } from "./data/data";
 import { LogBox } from "react-native";
 
 LogBox.ignoreLogs(["Non-serializable values were found in the navigation state"]);
@@ -55,7 +55,7 @@ export const PhoneMain = () => {
 									style={tw`w-[${(Dimensions.get("window").width / 100) * 10}px] h-[${
 										(Dimensions.get("window").width / 100) * 10
 									}px]`}
-									source={require("../../../assets/overwatch/icons/heroes_icon.png")}
+									source={require("../../assets/overwatch/icons/heroes_icon.png")}
 								/>
 							</View>
 						),

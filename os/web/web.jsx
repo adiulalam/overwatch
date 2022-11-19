@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, Pressable, Text, TouchableHighlight, TouchableOpacity, View } from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
 import tw from "twrnc";
 import { cardsData } from "../phone/data/data";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -20,13 +20,13 @@ export const WebVersion = () => {
 		<View style={tw`flex flex-row flex-wrap justify-evenly bg-black p-2 h-full`}>
 			{cardsData?.map((hero, index) => (
 				<View key={index} style={tw`flex bg-amber-500 h-96 w-69 rounded-xl m-2`}>
-					<View style={tw`flex h-fit w-fit `}>
+					<View style={tw`flex h-auto w-auto `}>
 						<Text adjustsFontSizeToFit style={tw`text-3xl font-bold text-center`}>
 							{hero?.name}
 						</Text>
 					</View>
 					<Pressable key={index} onHoverIn={() => setShowHeroDetailKey(index)} onHoverOut={() => setShowHeroDetailKey(null)}>
-						<View onenter style={tw`flex h-full h-76 w-69 p-2 cursor-auto`}>
+						<View onenter style={tw`flex h-full h-76 w-69 p-2`}>
 							{showTextKey === index ? (
 								<Text adjustsFontSizeToFit style={tw`text-l font-bold text-center`}>
 									{hero?.description}
@@ -43,7 +43,7 @@ export const WebVersion = () => {
 							)}
 						</View>
 					</Pressable>
-					<View style={tw`flex flex-row flex-wrap justify-around h-10 w-fit`}>
+					<View style={tw`flex flex-row flex-wrap justify-around h-10 w-auto`}>
 						<Image
 							source={{
 								uri: roleIcon[hero?.type],
