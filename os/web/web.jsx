@@ -17,27 +17,48 @@ export const WebVersion = () => {
 	const location = "OW2_Dva.png";
 
 	return (
-		<View style={tw`flex flex-row flex-wrap justify-evenly bg-black p-2 h-full`}>
+		<View style={tw`flex flex-row flex-wrap justify-evenly bg-white p-2`}>
 			{cardsData?.map((hero, index) => (
-				<View key={index} style={tw`flex bg-amber-500 h-96 w-69 rounded-xl m-2`}>
+				<View key={index} style={tw`flex bg-amber-500 h-119 w-69 rounded-xl m-2`}>
 					<View style={tw`flex h-auto w-auto `}>
 						<Text adjustsFontSizeToFit style={tw`text-3xl font-bold text-center`}>
 							{hero?.name}
 						</Text>
 					</View>
 					<Pressable key={index} onHoverIn={() => setShowHeroDetailKey(index)} onHoverOut={() => setShowHeroDetailKey(null)}>
-						<View onenter style={tw`flex h-full h-76 w-69 p-2`}>
+						<View style={tw`flex h-99 w-69`}>
 							{showTextKey === index ? (
 								<Text adjustsFontSizeToFit style={tw`text-l font-bold text-center`}>
 									{hero?.description}
 								</Text>
+							) : showHeroDetailKey === index ? (
+								<View style={tw`flex flex-row flex-wrap justify-evenly bg-black h-full w-full `}>
+									{hero?.abilities?.map((ability, abilityIndex) => (
+										<View style={tw`flex h-33 w-23 border border-white rounded-xl`}>
+											<Text adjustsFontSizeToFit style={tw`text-sm font-bold text-white text-center`}>
+												{ability?.name}
+											</Text>
+											<Text adjustsFontSizeToFit style={tw`text-xs text-white text-center`}>
+												{`(${ability?.type})`}
+											</Text>
+											<Image
+												source={{
+													uri: ability?.ability_image,
+												}}
+												resizeMode="contain"
+												style={tw`h-23 w-23 rounded-lg`}
+												key={abilityIndex}
+											/>
+										</View>
+									))}
+								</View>
 							) : (
 								<Image
 									source={{
 										uri: hero?.hero_image,
 									}}
 									resizeMode="contain"
-									style={tw`h-full w-full rounded-lg `}
+									style={tw`h-full w-full rounded-lg`}
 									key={index}
 								/>
 							)}
