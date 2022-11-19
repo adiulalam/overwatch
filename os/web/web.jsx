@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import tw from "twrnc";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import randomColor from "randomcolor";
 
 // import { cardsData } from "../phone/data/data";
 
@@ -27,9 +28,9 @@ export const WebVersion = () => {
 	};
 
 	return (
-		<View style={tw`flex flex-row flex-wrap justify-evenly bg-white p-2`}>
+		<View style={tw`flex flex-row flex-wrap justify-evenly bg-black p-2`}>
 			{cardsData?.map((hero, index) => (
-				<View key={index} style={tw`flex bg-amber-500 h-119 w-69 rounded-xl m-2`}>
+				<View key={index} style={tw`flex h-119 w-69 rounded-xl m-2 bg-[${randomColor({ luminosity: "light" })}]`}>
 					<View style={tw`flex h-auto w-auto `}>
 						<Text adjustsFontSizeToFit style={tw`text-3xl font-bold text-center`}>
 							{hero?.name}
@@ -42,9 +43,12 @@ export const WebVersion = () => {
 									{hero?.description}
 								</Text>
 							) : showHeroDetailKey === index ? (
-								<View style={tw`flex flex-row flex-wrap justify-evenly bg-black h-full w-full `}>
+								<View style={tw`flex flex-row flex-wrap justify-evenly h-full w-full`}>
 									{hero?.abilities?.data?.map((ability, abilityIndex) => (
-										<View style={tw`flex h-33 w-23 border border-white rounded-xl`}>
+										<View
+											style={tw`flex h-33 w-23 rounded-xl bg-[${randomColor({ luminosity: "dark" })}]`}
+											key={abilityIndex}
+										>
 											<Text adjustsFontSizeToFit style={tw`text-sm font-bold text-white text-center`}>
 												{ability?.name}
 											</Text>
