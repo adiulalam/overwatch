@@ -23,7 +23,6 @@ export const PhoneMain = () => {
 				useLegacyImplementation
 				initialRouteName="Heroes"
 				drawerContent={(props) => {
-					// console.log(props.state.routeNames);
 					return (
 						<DrawerContentScrollView {...props}>
 							<DrawerItemList {...props} />

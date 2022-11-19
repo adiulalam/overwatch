@@ -4,7 +4,7 @@ import { Platform } from "react-native";
 import { NativeWindStyleSheet } from "nativewind";
 import { WebVersion } from "./os/web/web";
 import { PhoneMain } from "./os/phone/main";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DarkTheme } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 NativeWindStyleSheet.setOutput({
@@ -15,9 +15,15 @@ const Drawer = createDrawerNavigator();
 
 export default function App() {
 	return Platform.OS === "web" ? (
-		<NavigationContainer>
-			<Drawer.Navigator screenOptions={{ swipeEnabled: true }} initialRouteName="Home">
-				<Drawer.Screen name="Home" component={WebVersion} />
+		<NavigationContainer theme={DarkTheme}>
+			<Drawer.Navigator screenOptions={{ swipeEnabled: true }} initialRouteName="Heroes">
+				<Drawer.Screen
+					name="Heroes"
+					component={WebVersion}
+					options={{
+						headerTintColor: "white",
+					}}
+				/>
 			</Drawer.Navigator>
 		</NavigationContainer>
 	) : (
