@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import tw from "twrnc";
-import { cardsData } from "../phone/data/data";
 import Ionicons from "@expo/vector-icons/Ionicons";
+
+// import { cardsData } from "../phone/data/data";
+
+const cardsData = require("../../data/heroes_data.json");
 
 export const WebVersion = () => {
 	const [showTextKey, setShowTextKey] = useState(null);
 	const [showHeroDetailKey, setShowHeroDetailKey] = useState(null);
 
 	const roleIcon = {
-		damage: "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/1c/New_Damage_Icon.png",
-		support: "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/f7/New_Support_Icon.png",
-		tank: "https://static.wikia.nocookie.net/overwatch_gamepedia/images/d/d4/New_Tank_Icon.png",
+		damage: "damage_icon.png",
+		support: "support_icon.png",
+		tank: "tank_icon.png",
 	};
 
 	const weaponMap = {
@@ -22,8 +25,6 @@ export const WebVersion = () => {
 		Ultimate: "Ultimate",
 		Passive: "Passive",
 	};
-
-	const location = "OW2_Dva.png";
 
 	return (
 		<View style={tw`flex flex-row flex-wrap justify-evenly bg-white p-2`}>
@@ -42,7 +43,7 @@ export const WebVersion = () => {
 								</Text>
 							) : showHeroDetailKey === index ? (
 								<View style={tw`flex flex-row flex-wrap justify-evenly bg-black h-full w-full `}>
-									{hero?.abilities?.map((ability, abilityIndex) => (
+									{hero?.abilities?.data?.map((ability, abilityIndex) => (
 										<View style={tw`flex h-33 w-23 border border-white rounded-xl`}>
 											<Text adjustsFontSizeToFit style={tw`text-sm font-bold text-white text-center`}>
 												{ability?.name}
@@ -51,11 +52,9 @@ export const WebVersion = () => {
 												{`(${weaponMap[ability?.type] ?? ability?.type})`}
 											</Text>
 											<Image
-												source={{
-													uri: ability?.ability_image,
-												}}
+												source={require(`../../assets/overwatch/heroes/${ability?.ability_image}`)}
 												resizeMode="contain"
-												style={tw`${ability?.name?.split("").length > 12 ? "h-19 w-19" : "h-23 w-23"} rounded-lg`}
+												style={tw`${ability?.name?.split("").length > 10 ? "h-19 w-19" : "h-23 w-23"} rounded-lg`}
 												key={abilityIndex}
 											/>
 										</View>
@@ -63,9 +62,7 @@ export const WebVersion = () => {
 								</View>
 							) : (
 								<Image
-									source={{
-										uri: hero?.hero_image,
-									}}
+									source={require(`../../assets/overwatch/heroes/${hero?.hero_image}`)}
 									resizeMode="contain"
 									style={tw`h-full w-full rounded-lg`}
 									key={index}
@@ -75,9 +72,7 @@ export const WebVersion = () => {
 					</Pressable>
 					<View style={tw`flex flex-row flex-wrap justify-around h-10 w-auto`}>
 						<Image
-							source={{
-								uri: roleIcon[hero?.type],
-							}}
+							source={require(`../../assets/overwatch/roles/${roleIcon[hero?.type]}`)}
 							resizeMode="contain"
 							style={tw`w-10 h-full`}
 						/>
