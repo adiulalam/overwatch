@@ -14,6 +14,15 @@ export const WebVersion = () => {
 		tank: "https://static.wikia.nocookie.net/overwatch_gamepedia/images/d/d4/New_Tank_Icon.png",
 	};
 
+	const weaponMap = {
+		"Primary Weapon": "Primary",
+		"Secondary Weapon": "Secondary",
+		"Weapon Two": "Weapon Two",
+		Ability: "Ability",
+		Ultimate: "Ultimate",
+		Passive: "Passive",
+	};
+
 	const location = "OW2_Dva.png";
 
 	return (
@@ -39,14 +48,14 @@ export const WebVersion = () => {
 												{ability?.name}
 											</Text>
 											<Text adjustsFontSizeToFit style={tw`text-xs text-white text-center`}>
-												{`(${ability?.type})`}
+												{`(${weaponMap[ability?.type] ?? ability?.type})`}
 											</Text>
 											<Image
 												source={{
 													uri: ability?.ability_image,
 												}}
 												resizeMode="contain"
-												style={tw`h-23 w-23 rounded-lg`}
+												style={tw`${ability?.name?.split("").length > 12 ? "h-19 w-19" : "h-23 w-23"} rounded-lg`}
 												key={abilityIndex}
 											/>
 										</View>
