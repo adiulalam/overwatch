@@ -3,7 +3,7 @@ import React from "react";
 import { Dimensions, Image, View } from "react-native";
 import { PhoneVersion } from "./phone";
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList } from "@react-navigation/drawer";
-import { NavigationContainer, DarkTheme } from "@react-navigation/native";
+import { NavigationContainer, DarkTheme, useRoute } from "@react-navigation/native";
 import { useRef } from "react";
 import tw from "twrnc";
 import { HeroesDetail } from "./components/heroesDetail";
@@ -18,6 +18,8 @@ const Drawer = createDrawerNavigator();
 export const PhoneMain = () => {
 	const isCarousel = useRef(null);
 
+	// const route = useRoute();
+
 	return (
 		<NavigationContainer theme={DarkTheme}>
 			<Drawer.Navigator
@@ -27,19 +29,21 @@ export const PhoneMain = () => {
 					return (
 						<DrawerContentScrollView {...props}>
 							<DrawerItemList {...props} />
-							{cardsData.map((e, i) => (
-								<DrawerItem
-									label={e.name}
-									onPress={() => {
-										isCarousel?.current?.scrollTo({ index: i });
-										props.navigation.closeDrawer();
-										props.navigation.navigate("Heroes");
-									}}
-									activeTintColor="#f32121"
-									focused={i === isCarousel?.current?.getCurrentIndex()}
-									key={i}
-								/>
-							))}
+							{props.state.index === 0 || props.state.index === 1
+								? cardsData.map((e, i) => (
+										<DrawerItem
+											label={e.name}
+											onPress={() => {
+												isCarousel?.current?.scrollTo({ index: i });
+												props.navigation.closeDrawer();
+												props.navigation.navigate("Heroes");
+											}}
+											activeTintColor="#f32121"
+											focused={i === isCarousel?.current?.getCurrentIndex()}
+											key={i}
+										/>
+								  ))
+								: null}
 						</DrawerContentScrollView>
 					);
 				}}
