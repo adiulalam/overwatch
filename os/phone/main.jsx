@@ -3,11 +3,12 @@ import React from "react";
 import { Dimensions, Image, View } from "react-native";
 import { PhoneVersion } from "./phone";
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList } from "@react-navigation/drawer";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DarkTheme } from "@react-navigation/native";
 import { useRef } from "react";
 import tw from "twrnc";
 import { HeroesDetail } from "./components/heroesDetail";
-import { cardsData } from "./data/data";
+// import { cardsData } from "./data/data";
+const cardsData = require("../../data/heroes_data.json");
 import { LogBox } from "react-native";
 
 LogBox.ignoreLogs(["Non-serializable values were found in the navigation state"]);
@@ -18,7 +19,7 @@ export const PhoneMain = () => {
 	const isCarousel = useRef(null);
 
 	return (
-		<NavigationContainer>
+		<NavigationContainer theme={DarkTheme}>
 			<Drawer.Navigator
 				useLegacyImplementation
 				initialRouteName="Heroes"
@@ -48,6 +49,7 @@ export const PhoneMain = () => {
 					component={PhoneVersion}
 					initialParams={{ isCarousel }}
 					options={{
+						headerTintColor: "white",
 						drawerIcon: () => (
 							<View>
 								<Image
@@ -63,9 +65,9 @@ export const PhoneMain = () => {
 				<Drawer.Screen
 					name="Heroes Detail"
 					component={HeroesDetail}
-					// initialParams={{ cardsData: cardsData }}
 					options={({ route }) => ({
 						title: route?.params?.name,
+						headerTintColor: "white",
 						drawerItemStyle: {
 							display: "none",
 						},

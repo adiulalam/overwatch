@@ -4,7 +4,8 @@ import { useState } from "react";
 import { Dimensions } from "react-native";
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import { CarouselCardItem } from "./components/card";
-import { cardsData } from "./data/data";
+// import { cardsData } from "./data/data";
+const cardsData = require("../../data/heroes_data.json");
 
 export const PhoneVersion = ({ navigation, route }) => {
 	const [index, setIndex] = useState(0);
@@ -31,12 +32,14 @@ export const PhoneVersion = ({ navigation, route }) => {
 				dotsLength={cardsData.length}
 				activeDotIndex={index}
 				carouselRef={isCarousel}
+				containerStyle={{ flexWrap: "wrap", padding: 2 }}
 				dotStyle={{
 					width: 8,
 					height: 8,
 					borderRadius: 2,
 					marginHorizontal: -3,
-					backgroundColor: "#000000",
+					margin: 2,
+					backgroundColor: "#ffffff",
 				}}
 				inactiveDotOpacity={0.4}
 				inactiveDotScale={0.6}

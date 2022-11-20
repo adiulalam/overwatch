@@ -3,29 +3,13 @@ import { Image, Pressable, Text, View } from "react-native";
 import tw from "twrnc";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import randomColor from "randomcolor";
-
 // import { cardsData } from "../phone/data/data";
-
 const cardsData = require("../../data/heroes_data.json");
+import { heroMap, roleMap, weaponMap } from "../imageMap";
 
 export const WebVersion = () => {
 	const [showTextKey, setShowTextKey] = useState(null);
 	const [showHeroDetailKey, setShowHeroDetailKey] = useState(null);
-
-	const roleIcon = {
-		damage: "damage_icon.png",
-		support: "support_icon.png",
-		tank: "tank_icon.png",
-	};
-
-	const weaponMap = {
-		"Primary Weapon": "Primary",
-		"Secondary Weapon": "Secondary",
-		"Weapon Two": "Weapon Two",
-		Ability: "Ability",
-		Ultimate: "Ultimate",
-		Passive: "Passive",
-	};
 
 	return (
 		<View style={tw`flex flex-row flex-wrap justify-evenly bg-black p-2`}>
@@ -56,7 +40,7 @@ export const WebVersion = () => {
 												{`(${weaponMap[ability?.type] ?? ability?.type})`}
 											</Text>
 											<Image
-												source={require(`../../assets/overwatch/heroes/${ability?.ability_image}`)}
+												source={heroMap[ability?.ability_image]}
 												resizeMode="contain"
 												style={tw`${ability?.name?.split("").length > 10 ? "h-19 w-19" : "h-23 w-23"} rounded-lg`}
 												key={abilityIndex}
@@ -66,7 +50,7 @@ export const WebVersion = () => {
 								</View>
 							) : (
 								<Image
-									source={require(`../../assets/overwatch/heroes/${hero?.hero_image}`)}
+									source={heroMap[hero?.hero_image]}
 									resizeMode="contain"
 									style={tw`h-full w-full rounded-lg`}
 									key={index}
@@ -75,11 +59,7 @@ export const WebVersion = () => {
 						</View>
 					</Pressable>
 					<View style={tw`flex flex-row flex-wrap justify-around h-10 w-auto`}>
-						<Image
-							source={require(`../../assets/overwatch/roles/${roleIcon[hero?.type]}`)}
-							resizeMode="contain"
-							style={tw`w-10 h-full`}
-						/>
+						<Image source={roleMap[hero?.type]} resizeMode="contain" style={tw`w-10 h-full`} />
 
 						<View style={tw`flex flex-row`}>
 							{[...Array(hero?.difficulty)].map((e, i) => (
