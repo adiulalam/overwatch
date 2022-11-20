@@ -5,12 +5,12 @@ import { CardHeader } from "./cardHeader";
 import { heroMap } from "../../imageMap";
 import randomColor from "randomcolor";
 
-export const CarouselCardItem = ({ item, index }, navigation) => {
+export const CarouselCardItem = ({ item, index }, navigation, colourArray) => {
 	return (
 		<View style={tw`flex-1`} key={index}>
 			<CardHeader {...item} />
 
-			<View style={tw`flex-1 rounded-lg bg-[${randomColor({ luminosity: "light" })}]`}>
+			<View style={tw`flex-1 rounded-lg bg-[${colourArray[index] ?? "#FFFFFF"}]`}>
 				<Pressable
 					onPress={() => {
 						navigation.navigate("Heroes Detail", {

@@ -31,12 +31,12 @@ export const PhoneMain = () => {
 								<DrawerItem
 									label={e.name}
 									onPress={() => {
-										isCarousel?.current?.snapToItem(i);
+										isCarousel?.current?.scrollTo({ index: i });
 										props.navigation.closeDrawer();
 										props.navigation.navigate("Heroes");
 									}}
 									activeTintColor="#f32121"
-									focused={i === isCarousel?.current?.currentIndex}
+									focused={i === isCarousel?.current?.getCurrentIndex()}
 									key={i}
 								/>
 							))}
