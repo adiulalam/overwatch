@@ -629,11 +629,6 @@
 					"ability_image": "moira/biotic_grasp.png"
 				},
 				{
-					"name": "Biotic Grasp",
-					"type": "Secondary Weapon",
-					"ability_image": "moira/biotic_grasp.png"
-				},
-				{
 					"name": "Biotic Orb",
 					"type": "Ability",
 					"ability_image": "moira/biotic_orb.png"
