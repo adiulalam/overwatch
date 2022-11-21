@@ -9,10 +9,13 @@ import randomColor from "randomcolor";
 const cardsData = require("../../data/heroes_data.json");
 
 export const PhoneVersion = ({ navigation, route }) => {
-	const [index, setIndex] = useState(0);
+	const isCarousel = route?.params?.isCarousel;
 	const [colourArray, setColourArray] = useState([]);
+	const [index, setIndex] = useState(route?.params?.currentIndex?.current);
 
-	const isCarousel = route.params.isCarousel;
+	useEffect(() => {
+		setIndex(route?.params?.currentIndex?.current);
+	}, [route?.params?.currentIndex?.current]);
 
 	const SLIDER_WIDTH = Dimensions.get("window").width;
 	const ITEM_WIDTH = Math.round(SLIDER_WIDTH);

@@ -16,6 +16,7 @@ const Drawer = createDrawerNavigator();
 
 export const PhoneMain = () => {
 	const isCarousel = useRef(null);
+	const currentIndex = useRef(0);
 
 	return (
 		<NavigationContainer theme={DarkTheme}>
@@ -32,6 +33,7 @@ export const PhoneMain = () => {
 											label={e.name}
 											onPress={() => {
 												isCarousel?.current?.scrollTo({ index: i });
+												currentIndex.current = i;
 												props.navigation.closeDrawer();
 												props.navigation.navigate("Heroes");
 											}}
@@ -48,7 +50,7 @@ export const PhoneMain = () => {
 				<Drawer.Screen
 					name="Heroes"
 					component={PhoneVersion}
-					initialParams={{ isCarousel }}
+					initialParams={{ isCarousel, currentIndex }}
 					options={{
 						headerTintColor: "white",
 						drawerIcon: () => (
