@@ -5,7 +5,6 @@ import { Dimensions } from "react-native";
 import { Pagination } from "react-native-snap-carousel";
 import Carousel from "react-native-reanimated-carousel";
 import { CarouselCardItem } from "./components/card";
-// import { cardsData } from "./data/data";
 import randomColor from "randomcolor";
 const cardsData = require("../../data/heroes_data.json");
 
