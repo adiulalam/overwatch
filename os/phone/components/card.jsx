@@ -3,7 +3,6 @@ import { Image, Pressable, View } from "react-native";
 import tw from "twrnc";
 import { CardHeader } from "./cardHeader";
 import { heroMap } from "../../imageMap";
-import randomColor from "randomcolor";
 
 export const CarouselCardItem = ({ item, index }, navigation, colourArray) => {
 	return (
