@@ -1,0 +1,210 @@
+[
+	{
+		"type": "Escort",
+		"description": "Escort maps have a payload that the attackers must escort across three checkpoints.",
+		"maps": {
+			"data": [
+				{
+					"name": "Circuit Royal",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/10/Monte_Carlo.jpg"
+				},
+				{
+					"name": "Dorado",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/e/ec/Dorado-streets2.jpg"
+				},
+				{
+					"name": "Havana",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/93/Havana.png"
+				},
+				{
+					"name": "Junkertown",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/e/e3/Junkertown.jpg"
+				},
+				{
+					"name": "Rialto",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/ff/Rialto.jpg"
+				},
+				{
+					"name": "Route 66",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/a/a6/Route_66.jpg"
+				},
+				{
+					"name": "Watchpoint: Gibraltar",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/8/8b/Gibraltar.jpg"
+				}
+			]
+		}
+	},
+	{
+		"type": "Hybrid",
+		"description": "Hybrid maps are a mixture of Assault and Escort maps. There is an Objective A for attackers to capture, and after it is captured, attackers must escort a payload across two checkpoints.",
+		"maps": {
+			"data": [
+				{
+					"name": "Blizzard World",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/f8/Blizzard_World.jpg"
+				},
+				{
+					"name": "Eichenwalde",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/a/aa/Eichenwalde.png"
+				},
+				{
+					"name": "Hollywood",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/2/26/Hollywood-set.jpg"
+				},
+				{
+					"name": "King's Row",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/1b/King%27s_Row_concept.jpg"
+				},
+				{
+					"name": "Midtown",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/4/4e/N18S6DCTDPG81613669123002.png"
+				},
+				{
+					"name": "Numbani",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/1b/Numbani_Loading_Screen.jpg"
+				},
+				{
+					"name": "Paraíso",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/90/Para%C3%ADso_pvp.jpg"
+				}
+			]
+		}
+	},
+	{
+		"type": "Control",
+		"description": "Control maps are unique because they are essentially three different smaller maps that all co-exist in one larger area.",
+		"maps": {
+			"data": [
+				{
+					"name": "Busan",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/0/09/Overwatch_Busan.jpg"
+				},
+				{
+					"name": "Ilios",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/4/45/Ilios.jpg"
+				},
+				{
+					"name": "Lijiang Tower",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/9b/Lijiang_Tower_loading_screen.jpg"
+				},
+				{
+					"name": "Nepal",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/f3/Nepal_loading_screen.jpg"
+				},
+				{
+					"name": "Oasis",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/fc/Oasis.jpg"
+				}
+			]
+		}
+	},
+	{
+		"type": "Push",
+		"description": "Push maps are the newest additions to Overwatch, released with Overwatch 2. They are symmetrical with a robot at the center of the map. Each team has a block that the robot has to push to their respective ends, but only 1 team can control the robot at a time and the opposing team has to take control of the robot to push their own block.",
+		"maps": {
+			"data": [
+				{
+					"name": "Colosseo",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/1e/Blizzconline_rome_01.png"
+				},
+				{
+					"name": "Esperança",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/f5/PortugalPush.jpg"
+				},
+				{
+					"name": "New Queen Street",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/91/Toronto.jpg"
+				}
+			]
+		}
+	},
+	{
+		"type": "Assault (Only Custom Games)",
+		"description": "Assault maps have two rectangular areas that the attackers must capture: Objective A and Objective B. Objective A is between the attacker and defender spawn rooms, and Objective B is in front of the defender spawn room.",
+		"maps": {
+			"data": [
+				{
+					"name": "Hanamura",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/4/46/Hanamura_concept.jpg"
+				},
+				{
+					"name": "Horizon Lunar Colony",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/7/7c/Horizon_Lunar_Colony2.jpg"
+				},
+				{
+					"name": "Paris",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/1e/Paris_map.jpg"
+				},
+				{
+					"name": "Temple of Anubis",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/d/de/Anubis_concept.jpg"
+				},
+				{
+					"name": "Volskaya Industries",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/d/de/Volskaya_Industries.jpg"
+				}
+			]
+		}
+	},
+	{
+		"type": "Elimination",
+		"description": "Elimination maps, or Arena maps, are small, symmetrical maps with a spawn room at each end. They are designed for intense straightforward combat. They are also used for 1v1 Duels.",
+		"maps": {
+			"data": [
+				{
+					"name": "Black Forest",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/98/Black-Forest.jpg"
+				},
+				{
+					"name": "Castillo",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/e/e8/Castillo.jpg"
+				},
+				{
+					"name": "Ecopoint: Antarctica",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/0/00/Ecopoint_Antarctica_BlizzCon_2016.png"
+				},
+				{
+					"name": "Necropolis",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/6/69/Necropolis.jpg"
+				}
+			]
+		}
+	},
+	{
+		"type": "Deathmatch",
+		"description": "Deathmatch maps are unique because they have no spawn room. They are designed to accommodate as many fighting styles as possible. ",
+		"maps": {
+			"data": [
+				{
+					"name": "Château Guillard",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/9b/Chateau_Guillard.jpg"
+				},
+				{
+					"name": "Kanezaka",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/f7/Kanezaka.jpg"
+				},
+				{
+					"name": "Malevento",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/7/7b/Malevento.jpg"
+				},
+				{
+					"name": "Petra",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/18/Petra.jpg"
+				}
+			]
+		}
+	},
+	{
+		"type": "Capture the Flag",
+		"description": "Capture the Flag maps are large, symmetrical maps with a spawn room at each end. Near each spawn room is the flag area with a flag that the other team must steal and bring to their own area.",
+		"maps": {
+			"data": [
+				{
+					"name": "Ayutthaya",
+					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/9d/Ayutthaya.png"
+				}
+			]
+		}
+	}
+]
