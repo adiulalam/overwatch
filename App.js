@@ -1,6 +1,6 @@
 import "react-native-gesture-handler";
 import React from "react";
-import { Platform, Text, View, ActivityIndicator, StyleSheet } from "react-native";
+import { Platform, Text, View, ActivityIndicator } from "react-native";
 import { NativeWindStyleSheet } from "nativewind";
 import { WebMain } from "./os/web/main";
 import { PhoneMain } from "./os/phone/main";
@@ -32,7 +32,9 @@ export default function App() {
 
 	return (
 		<ApolloProvider client={client}>
-			<HeroesContext.Provider value={data}>{Platform.OS === "web" ? <WebMain /> : <PhoneMain />}</HeroesContext.Provider>
+			<HeroesContext.Provider value={data}>
+				{Platform.OS === "web" ? <WebMain /> : <PhoneMain />}
+			</HeroesContext.Provider>
 		</ApolloProvider>
 	);
 }
