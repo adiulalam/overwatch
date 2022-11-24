@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { Dimensions } from "react-native";
@@ -6,12 +6,14 @@ import { Pagination } from "react-native-snap-carousel";
 import Carousel from "react-native-reanimated-carousel";
 import { CarouselCardItem } from "./components/card";
 import randomColor from "randomcolor";
-const cardsData = require("../../data/heroes_data.json");
+import { HeroesContext } from "./../../connection/client";
 
 export const PhoneVersion = ({ navigation, route }) => {
 	const isCarousel = route?.params?.isCarousel;
 	const [colourArray, setColourArray] = useState([]);
 	const [index, setIndex] = useState(route?.params?.currentIndex?.current);
+
+	const { overwatch_heroes } = useContext(HeroesContext);
 
 	useEffect(() => {
 		setIndex(route?.params?.currentIndex?.current);
@@ -35,7 +37,7 @@ export const PhoneVersion = ({ navigation, route }) => {
 			<Carousel
 				layout="default"
 				ref={isCarousel}
-				data={cardsData}
+				data={overwatch_heroes}
 				renderItem={(carousel) => CarouselCardItem(carousel, navigation, colourArray)}
 				width={SLIDER_WIDTH}
 				sliderWidth={SLIDER_WIDTH}
@@ -46,7 +48,7 @@ export const PhoneVersion = ({ navigation, route }) => {
 				style={{ height: "90%" }}
 			/>
 			<Pagination
-				dotsLength={cardsData.length}
+				dotsLength={overwatch_heroes?.length}
 				activeDotIndex={index}
 				containerStyle={{ flexWrap: "wrap", padding: 3, height: "10%" }}
 				dotStyle={{

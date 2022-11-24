@@ -9,6 +9,7 @@
 		"web": "expo start --web"
 	},
 	"dependencies": {
+		"@apollo/client": "^3.7.1",
 		"@expo/webpack-config": "^0.17.2",
 		"@react-navigation/drawer": "^6.5.0",
 		"@react-navigation/native": "^6.0.13",
@@ -16,6 +17,7 @@
 		"autoprefixer": "^10.4.13",
 		"expo": "~47.0.3",
 		"expo-status-bar": "~1.4.2",
+		"graphql": "^15.8.0",
 		"nativewind": "^2.0.11",
 		"postcss": "^8.4.18",
 		"postcss-loader": "^4.2.0",

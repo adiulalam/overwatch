@@ -13,7 +13,7 @@ export const CardBody = (props) => {
 				</Text>
 			) : props.showHeroDetailKey === props.index ? (
 				<View style={tw`flex flex-row flex-wrap justify-evenly h-full w-full`}>
-					{props?.hero?.abilities?.data?.map((ability, abilityIndex) => (
+					{props?.hero?.abilities?.map((ability, abilityIndex) => (
 						<View style={tw`flex h-33 w-23 rounded-xl bg-[${randomColor({ luminosity: "dark" })}]`} key={abilityIndex}>
 							<Text adjustsFontSizeToFit style={tw`text-sm font-bold text-white text-center`}>
 								{ability?.name}

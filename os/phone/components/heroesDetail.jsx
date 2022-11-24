@@ -15,7 +15,7 @@ export const HeroesDetail = ({ route }) => {
 				<Text style={tw`text-xl font-bold text-center px-2 text-white`}>{route?.params?.item?.description}</Text>
 				<Text style={tw`text-3xl font-bold text-left px-2 pt-10 text-white`}>{"Abilities:"}</Text>
 				<View style={tw`flex flex-row flex-wrap justify-evenly `}>
-					{route?.params?.item?.abilities?.data?.map((ability, index) => (
+					{route?.params?.item?.abilities?.map((ability, index) => (
 						<View key={index} style={tw`flex flex-col justify-evenly rounded-lg m-2 bg-[${randomColor({ luminosity: "dark" })}]`}>
 							<Text adjustsFontSizeToFit style={tw`text-[${Size(4.5)}px] font-bold text-center text-white`}>
 								{ability?.name}
