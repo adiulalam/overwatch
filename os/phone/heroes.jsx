@@ -6,9 +6,9 @@ import { Pagination } from "react-native-snap-carousel";
 import Carousel from "react-native-reanimated-carousel";
 import { CarouselCardItem } from "./components/card";
 import randomColor from "randomcolor";
-import { HeroesContext } from "./../../connection/client";
+import { HeroesContext } from "../../connection/client";
 
-export const PhoneVersion = ({ navigation, route }) => {
+export const Heroes = ({ navigation, route }) => {
 	const isCarousel = route?.params?.isCarousel;
 	const [colourArray, setColourArray] = useState([]);
 	const [index, setIndex] = useState(route?.params?.currentIndex?.current);

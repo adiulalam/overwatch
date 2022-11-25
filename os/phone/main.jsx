@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 import React, { useContext } from "react";
 import { Dimensions, Image, View } from "react-native";
-import { PhoneVersion } from "./phone";
+import { Heroes } from "./heroes";
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList } from "@react-navigation/drawer";
 import { NavigationContainer, DarkTheme } from "@react-navigation/native";
 import { useRef } from "react";
@@ -51,7 +51,7 @@ export const PhoneMain = () => {
 			>
 				<Drawer.Screen
 					name="Heroes"
-					component={PhoneVersion}
+					component={Heroes}
 					initialParams={{ isCarousel, currentIndex }}
 					options={{
 						headerTintColor: "white",
