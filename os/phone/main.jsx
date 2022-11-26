@@ -9,6 +9,7 @@ import tw from "twrnc";
 import { HeroesDetail } from "./components/heroesDetail";
 import { LogBox } from "react-native";
 import { HeroesContext } from "./../../connection/client";
+import { Maps } from "../multi-platform/maps";
 
 LogBox.ignoreLogs(["Non-serializable values were found in the navigation state"]);
 
@@ -77,6 +78,25 @@ export const PhoneMain = () => {
 							display: "none",
 						},
 					})}
+				/>
+				<Drawer.Screen
+					name="Maps"
+					component={Maps}
+					options={{
+						headerTintColor: "white",
+						drawerIcon: () => (
+							<View>
+								<Image
+									style={tw`w-[${(Dimensions.get("window").width / 100) * 3}px] h-[${
+										(Dimensions.get("window").width / 100) * 3
+									}px]`}
+									source={{
+										uri: "https://cdn.dribbble.com/users/825214/screenshots/4212974/attachments/962927/kings_row-02.jpg",
+									}}
+								/>
+							</View>
+						),
+					}}
 				/>
 			</Drawer.Navigator>
 		</NavigationContainer>

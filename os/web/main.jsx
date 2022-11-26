@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 import React from "react";
 import { Heroes } from "./heroes";
-import { Maps } from "./maps";
+import { Maps } from "../multi-platform/maps";
 import { NavigationContainer, DarkTheme } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Dimensions, Image, View } from "react-native";
@@ -12,7 +12,7 @@ const Drawer = createDrawerNavigator();
 export const WebMain = () => {
 	return (
 		<NavigationContainer theme={DarkTheme}>
-			<Drawer.Navigator initialRouteName="Heroes">
+			<Drawer.Navigator initialRouteName="Maps">
 				<Drawer.Screen
 					name="Heroes"
 					component={Heroes}
