@@ -10,13 +10,13 @@ import { StyleSheet, View, ActivityIndicator, StyleProp, ViewStyle, Image, Image
 export const SBImageItem = ({ style, index: _index, showIndex = true }) => {
 	const index = (_index || 0) + 1;
 	const source = useRef({
-		uri: `https://picsum.photos/id/${index}/400/300`,
+		uri: `https://picsum.photos/id/${index}/400/225`,
 	}).current;
 
 	return (
 		<View style={[styles.container, style]}>
 			<ActivityIndicator size="small" />
-			<Image key={index} style={styles.image} source={source} />
+			<Image key={index} style={styles.image} resizeMode="contain" source={source} />
 			<Text
 				style={{
 					position: "absolute",

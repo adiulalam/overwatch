@@ -8,11 +8,11 @@ export const Maps = () => {
 	const progressValue = useSharedValue(0);
 
 	const window =
-		Platform.OS === "web"
+		Platform.OS === "web" && Dimensions.get("window").width > Dimensions.get("window").height
 			? {
-					width: Dimensions.get("window").width * 0.6,
-					height: Dimensions.get("window").height * 0.4,
-					parallaxScrollingOffset: Dimensions.get("window").width * 0.072,
+					width: Dimensions.get("window").height * 0.6,
+					height: Dimensions.get("window").height * 0.6 * 0.56,
+					parallaxScrollingOffset: Dimensions.get("window").height * 0.6 * 0.12,
 			  }
 			: {
 					width: Dimensions.get("window").width,
