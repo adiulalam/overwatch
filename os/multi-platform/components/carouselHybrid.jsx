@@ -1,14 +1,11 @@
-import * as React from "react";
+import React, { useCallback } from "react";
 import { View, Dimensions, Platform } from "react-native";
 import { interpolate } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
-import type { TAnimationStyle } from "../../customCarouselAnimation/layouts/BaseLayout";
-import { SBItem } from "../components/SBItem";
+import { SBItem } from "./SBItem";
 import tw from "twrnc";
 
 export const CarouselHybrid = () => {
-	// const PAGE_WIDTH = Dimensions.get("window").width;
-
 	const window =
 		Platform.OS === "web" && Dimensions.get("window").width > Dimensions.get("window").height
 			? {
@@ -20,7 +17,7 @@ export const CarouselHybrid = () => {
 					height: Dimensions.get("window").width * 0.5625 * 0.9,
 			  };
 
-	const animationStyle: TAnimationStyle = React.useCallback((value: number) => {
+	const animationStyle = useCallback((value) => {
 		"worklet";
 
 		const zIndex = interpolate(value, [-1, 0, 1], [10, 20, 30]);
