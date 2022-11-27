@@ -11,9 +11,9 @@ export const CarouselPush = () => {
 	const window =
 		Platform.OS === "web" && Dimensions.get("window").width > Dimensions.get("window").height
 			? {
-					width: Dimensions.get("window").height * 0.6,
-					height: Dimensions.get("window").height * 0.6 * 0.5625,
-					parallaxScrollingOffset: Dimensions.get("window").height * 0.6 * 0.12,
+					width: Dimensions.get("window").height * 0.7,
+					height: Dimensions.get("window").height * 0.7 * 0.5625,
+					parallaxScrollingOffset: Dimensions.get("window").height * 0.7 * 0.12,
 			  }
 			: {
 					width: Dimensions.get("window").width * 0.98,
@@ -24,7 +24,7 @@ export const CarouselPush = () => {
 	const colors = ["#26292E", "#899F9C", "#B3C680", "#5C6265", "#F5D399", "#F1F1F1"];
 
 	return (
-		<View style={tw`flex py-10`}>
+		<View style={tw`flex py-2`}>
 			<Carousel
 				width={window.width}
 				height={window.height}
