@@ -10,11 +10,11 @@ export const CarouselEscort = () => {
 		Platform.OS === "web" && Dimensions.get("window").width > Dimensions.get("window").height
 			? {
 					width: Dimensions.get("window").height * 0.6,
-					height: Dimensions.get("window").height * 0.6 * 0.56,
+					height: Dimensions.get("window").height * 0.6 * 0.5625,
 			  }
 			: {
-					width: Dimensions.get("window").width,
-					height: Dimensions.get("window").width * 0.6,
+					width: Dimensions.get("window").width * 0.9,
+					height: Dimensions.get("window").width * 0.5625 * 0.9,
 			  };
 
 	return (
