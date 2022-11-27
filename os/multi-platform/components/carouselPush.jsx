@@ -26,7 +26,7 @@ export const CarouselPush = () => {
 		<Carousel
 			width={window.width}
 			height={window.height}
-			loop
+			loop={true}
 			pagingEnabled={true}
 			snapEnabled={true}
 			onProgressChange={(_, absoluteProgress) => (progressValue.value = absoluteProgress)}
