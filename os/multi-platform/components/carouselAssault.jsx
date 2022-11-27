@@ -4,7 +4,7 @@ import Animated, { Extrapolate, interpolate, useAnimatedStyle } from "react-nati
 import Carousel from "react-native-reanimated-carousel";
 import tw from "twrnc";
 
-export const CarouselAssult = () => {
+export const CarouselAssault = () => {
 	const animationStyle = useCallback((value) => {
 		"worklet";
 

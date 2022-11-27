@@ -5,7 +5,7 @@ import { CarouselPush } from "./components/carouselPush";
 import tw from "twrnc";
 import { CarouselHybrid } from "./components/carouselHybrid";
 import { CarouselControl } from "./components/carouselControl";
-import { CarouselAssult } from "./components/carouselAssult";
+import { CarouselAssault } from "./components/carouselAssault";
 
 export const Maps = () => {
 	return (
@@ -14,7 +14,7 @@ export const Maps = () => {
 			<CarouselEscort />
 			<CarouselHybrid />
 			<CarouselControl />
-			<CarouselAssult />
+			<CarouselAssault />
 		</View>
 	);
 };
