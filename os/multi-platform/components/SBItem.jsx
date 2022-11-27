@@ -3,15 +3,7 @@ import { LongPressGestureHandler } from "react-native-gesture-handler";
 import { SBImageItem } from "./SBImageItem";
 import { SBTextItem } from "./SBTextItem";
 import Constants from "expo-constants";
-import Animated, { AnimateProps } from "react-native-reanimated";
-// import type { StyleProp, ViewStyle } from 'react-native';
-// import type { ViewProps } from 'react-native';
-
-// interface Props extends AnimateProps<ViewProps> {
-//     style?: StyleProp<ViewStyle>;
-//     index: number;
-//     pretty?: boolean;
-// }
+import Animated from "react-native-reanimated";
 
 export const SBItem = (props) => {
 	const { style, index, pretty, ...animatedViewProps } = props;

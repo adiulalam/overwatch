@@ -2,14 +2,8 @@ import React, { useCallback } from "react";
 import { Dimensions, Platform, View } from "react-native";
 import { interpolate } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
-// import type { TAnimationStyle } from '../../../src/layouts/BaseLayout';
 import { SBItem } from "./SBItem";
-// import { ElementsText, window } from "../constants";
 import tw from "twrnc";
-
-// const scale = 0.8;
-// const PAGE_WIDTH = Dimensions.get("window").width * scale;
-// const PAGE_HEIGHT = 240 * scale;
 
 export const CarouselControl = () => {
 	const window =

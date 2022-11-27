@@ -1,11 +1,5 @@
 import React, { useRef } from "react";
-import { StyleSheet, View, ActivityIndicator, StyleProp, ViewStyle, Image, ImageURISource, Text } from "react-native";
-
-// interface Props {
-//     style?: StyleProp<ViewStyle>;
-//     index?: number;
-//     showIndex?: boolean;
-// }
+import { StyleSheet, View, ActivityIndicator, Image, Text } from "react-native";
 
 export const SBImageItem = ({ style, index: _index, showIndex = true }) => {
 	const index = (_index || 0) + 1;

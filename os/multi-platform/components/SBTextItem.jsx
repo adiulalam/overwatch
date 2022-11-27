@@ -1,10 +1,5 @@
 import React from "react";
-import { StyleProp, StyleSheet, Text, View, ViewStyle } from "react-native";
-
-// interface Props {
-//     style?: StyleProp<ViewStyle>;
-//     index: number;
-// }
+import { StyleSheet, Text, View } from "react-native";
 
 export const SBTextItem = ({ style, index }) => {
 	return (

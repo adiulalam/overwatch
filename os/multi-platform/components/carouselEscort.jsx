@@ -3,7 +3,6 @@ import { Dimensions, Platform, View } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 import { SBItem } from "./SBItem";
 import { FadeInRight } from "react-native-reanimated";
-import tw from "twrnc";
 
 export const CarouselEscort = () => {
 	const data = useRef([...new Array(6).keys()]).current;
