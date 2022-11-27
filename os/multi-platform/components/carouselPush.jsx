@@ -28,7 +28,6 @@ export const CarouselPush = () => {
 			<Carousel
 				width={window.width}
 				height={window.height}
-				// style={tw`flex py-10`}
 				loop={true}
 				pagingEnabled={true}
 				snapEnabled={true}
