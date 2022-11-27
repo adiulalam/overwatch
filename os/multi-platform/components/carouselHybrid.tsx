@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Dimensions } from "react-native";
+import { View, Dimensions, Platform } from "react-native";
 import { interpolate } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
 import type { TAnimationStyle } from "../../customCarouselAnimation/layouts/BaseLayout";
@@ -7,7 +7,18 @@ import { SBItem } from "../components/SBItem";
 import tw from "twrnc";
 
 export const CarouselHybrid = () => {
-	const PAGE_WIDTH = Dimensions.get("window").width;
+	// const PAGE_WIDTH = Dimensions.get("window").width;
+
+	const window =
+		Platform.OS === "web" && Dimensions.get("window").width > Dimensions.get("window").height
+			? {
+					width: Dimensions.get("window").height * 0.7,
+					height: Dimensions.get("window").height * 0.7 * 0.5625,
+			  }
+			: {
+					width: Dimensions.get("window").width * 0.9,
+					height: Dimensions.get("window").width * 0.5625 * 0.9,
+			  };
 
 	const animationStyle: TAnimationStyle = React.useCallback((value: number) => {
 		"worklet";
@@ -28,13 +39,11 @@ export const CarouselHybrid = () => {
 			<Carousel
 				loop
 				style={{
-					width: PAGE_WIDTH,
-					height: 240,
 					justifyContent: "center",
 					alignItems: "center",
 				}}
-				width={PAGE_WIDTH * 0.7}
-				height={240 * 0.7}
+				width={window.width}
+				height={window.height}
 				data={[...new Array(6).keys()]}
 				renderItem={({ index }) => {
 					return <SBItem key={index} index={index} />;

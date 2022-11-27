@@ -8,8 +8,8 @@ import { CarouselHybrid } from "./components/carouselHybrid";
 export const Maps = () => {
 	return (
 		<View style={tw`flex items-center bg-black`}>
-			{/* <CarouselPush /> */}
-			{/* <CarouselEscort /> */}
+			<CarouselPush />
+			<CarouselEscort />
 			<CarouselHybrid />
 		</View>
 	);

@@ -19,34 +19,33 @@ export const CarouselEscort = () => {
 			  };
 
 	return (
-		<View style={tw`flex py-2`}>
-			<Carousel
-				style={{
-					width: "100%",
-					height: window.height,
-					alignItems: "center",
-					justifyContent: "center",
-				}}
-				width={window.width}
-				height={window.height}
-				pagingEnabled={true}
-				snapEnabled={true}
-				mode={"horizontal-stack"}
-				loop={true}
-				data={data}
-				modeConfig={{
-					snapDirection: "left",
-					stackInterval: data.length * 3,
-				}}
-				customConfig={() => ({ type: "positive", viewCount: data.length })}
-				renderItem={({ index }) => (
-					<SBItem
-						index={index}
-						key={index}
-						entering={FadeInRight.delay((data.length - index) * 100).duration(200)}
-					/>
-				)}
-			/>
-		</View>
+		<Carousel
+			style={{
+				width: "100%",
+				height: window.height,
+				alignItems: "center",
+				justifyContent: "center",
+				padding: 2,
+			}}
+			width={window.width}
+			height={window.height}
+			pagingEnabled={true}
+			snapEnabled={true}
+			mode={"horizontal-stack"}
+			loop={true}
+			data={data}
+			modeConfig={{
+				snapDirection: "left",
+				stackInterval: data.length * 3,
+			}}
+			customConfig={() => ({ type: "positive", viewCount: data.length })}
+			renderItem={({ index }) => (
+				<SBItem
+					index={index}
+					key={index}
+					entering={FadeInRight.delay((data.length - index) * 100).duration(200)}
+				/>
+			)}
+		/>
 	);
 };
