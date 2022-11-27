@@ -24,7 +24,7 @@ export const CarouselPush = () => {
 	const colors = ["#26292E", "#899F9C", "#B3C680", "#5C6265", "#F5D399", "#F1F1F1"];
 
 	return (
-		<View style={tw`flex py-2`}>
+		<View style={tw`flex py-5`}>
 			<Carousel
 				width={window.width}
 				height={window.height}
