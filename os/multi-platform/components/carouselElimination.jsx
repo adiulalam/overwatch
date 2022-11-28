@@ -18,8 +18,8 @@ export const CarouselElimination = () => {
 					height: Dimensions.get("window").height * 0.7 * 0.5625,
 			  }
 			: {
-					width: Dimensions.get("window").width * 0.9,
-					height: Dimensions.get("window").width * 0.5625 * 0.9,
+					width: Dimensions.get("window").width * 0.98,
+					height: Dimensions.get("window").width * 0.5625 * 0.98,
 			  };
 
 	const pressAnim = useSharedValue(0);
