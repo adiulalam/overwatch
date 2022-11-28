@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Dimensions, Platform, View } from "react-native";
+import { Dimensions, Platform } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 import { SBItem } from "./SBItem";
 import { FadeInRight } from "react-native-reanimated";

@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Dimensions, ImageSourcePropType, Platform, View } from "react-native";
+import { Dimensions, Platform, View } from "react-native";
 import Animated, { Extrapolate, interpolate, useAnimatedStyle } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
 import tw from "twrnc";
@@ -35,7 +35,7 @@ export const CarouselAssault = () => {
 			  };
 
 	return (
-		<View style={tw`flex py-5`}>
+		<View style={tw`flex py-5 items-center`}>
 			<Carousel
 				loop={true}
 				style={{ width: window.width, backgroundColor: "white", borderRadius: 5 }}

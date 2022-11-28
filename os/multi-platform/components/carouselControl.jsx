@@ -34,7 +34,7 @@ export const CarouselControl = () => {
 	}, []);
 
 	return (
-		<View style={tw`flex py-5`}>
+		<View style={tw`flex py-5 items-center`}>
 			<Carousel
 				loop
 				style={{

@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { CarouselEscort } from "./components/carouselEscort";
 import { CarouselPush } from "./components/carouselPush";
 import tw from "twrnc";
@@ -9,12 +9,12 @@ import { CarouselAssault } from "./components/carouselAssault";
 
 export const Maps = () => {
 	return (
-		<View style={tw`flex items-center bg-black`}>
+		<ScrollView style={tw`flex bg-black`}>
 			<CarouselPush />
 			<CarouselEscort />
 			<CarouselHybrid />
 			<CarouselControl />
 			<CarouselAssault />
-		</View>
+		</ScrollView>
 	);
 };
