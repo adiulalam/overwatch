@@ -6,6 +6,7 @@ import tw from "twrnc";
 import { CarouselHybrid } from "./components/carouselHybrid";
 import { CarouselControl } from "./components/carouselControl";
 import { CarouselAssault } from "./components/carouselAssault";
+import { CarouselElimination } from "./components/carouselElimination";
 
 export const Maps = () => {
 	return (
@@ -15,6 +16,7 @@ export const Maps = () => {
 			<CarouselHybrid />
 			<CarouselControl />
 			<CarouselAssault />
+			<CarouselElimination />
 		</ScrollView>
 	);
 };
