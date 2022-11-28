@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import { Dimensions, Platform } from "react-native";
+import { Dimensions, Platform, View } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 import { SBItem } from "./SBItem";
 import { FadeInRight } from "react-native-reanimated";
+import tw from "twrnc";
 
 export const CarouselEscort = () => {
 	const data = useRef([...new Array(6).keys()]).current;
@@ -18,32 +19,33 @@ export const CarouselEscort = () => {
 			  };
 
 	return (
-		<Carousel
-			style={{
-				width: "100%",
-				height: window.height,
-				alignItems: "center",
-				justifyContent: "center",
-				padding: 2,
-			}}
-			width={window.width}
-			height={window.height}
-			snapEnabled={true}
-			mode={"horizontal-stack"}
-			loop={true}
-			data={data}
-			modeConfig={{
-				snapDirection: "left",
-				stackInterval: data.length * 3,
-			}}
-			customConfig={() => ({ type: "positive", viewCount: data.length })}
-			renderItem={({ index }) => (
-				<SBItem
-					index={index}
-					key={index}
-					entering={FadeInRight.delay((data.length - index) * 100).duration(200)}
-				/>
-			)}
-		/>
+		<View style={tw`flex items-center py-5`}>
+			<Carousel
+				style={{
+					width: "100%",
+					height: window.height,
+					alignItems: "center",
+					justifyContent: "center",
+				}}
+				width={window.width}
+				height={window.height}
+				snapEnabled={true}
+				mode={"horizontal-stack"}
+				loop={true}
+				data={data}
+				modeConfig={{
+					snapDirection: "left",
+					stackInterval: data.length * 3,
+				}}
+				customConfig={() => ({ type: "positive", viewCount: data.length })}
+				renderItem={({ index }) => (
+					<SBItem
+						index={index}
+						key={index}
+						entering={FadeInRight.delay((data.length - index) * 100).duration(200)}
+					/>
+				)}
+			/>
+		</View>
 	);
 };

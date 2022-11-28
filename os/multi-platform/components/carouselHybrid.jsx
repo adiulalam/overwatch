@@ -32,7 +32,7 @@ export const CarouselHybrid = () => {
 	}, []);
 
 	return (
-		<View style={tw`flex pt-10 pb-5 items-center`}>
+		<View style={tw`flex py-5 items-center`}>
 			<Carousel
 				loop
 				style={{
