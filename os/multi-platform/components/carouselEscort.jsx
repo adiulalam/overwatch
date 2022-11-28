@@ -28,7 +28,6 @@ export const CarouselEscort = () => {
 			}}
 			width={window.width}
 			height={window.height}
-			pagingEnabled={true}
 			snapEnabled={true}
 			mode={"horizontal-stack"}
 			loop={true}

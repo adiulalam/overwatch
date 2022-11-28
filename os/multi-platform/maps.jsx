@@ -8,6 +8,7 @@ import { CarouselControl } from "./components/carouselControl";
 import { CarouselAssault } from "./components/carouselAssault";
 import { CarouselElimination } from "./components/carouselElimination";
 import { CarouselDeathmatch } from "./components/carouselDeathmatch";
+import { CarouselCTF } from "./components/carouselCTF";
 
 export const Maps = () => {
 	return (
@@ -19,6 +20,7 @@ export const Maps = () => {
 			<CarouselAssault />
 			<CarouselElimination />
 			<CarouselDeathmatch />
+			<CarouselCTF />
 		</ScrollView>
 	);
 };
