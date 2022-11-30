@@ -3,6 +3,7 @@ import { Dimensions, Platform, View } from "react-native";
 import Animated, { Extrapolate, interpolate, useAnimatedStyle } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
 import tw from "twrnc";
+import { overwatchMap } from "../../../imageMap";
 import { CarouselHeader } from "../carouselHeader";
 
 export const CarouselAssault = (data) => {
@@ -81,7 +82,7 @@ const Item = ({ width, item, animationValue }) => {
 				]}
 			>
 				<Animated.Image
-					source={{ uri: item?.map_image ?? null }}
+					source={overwatchMap[item?.map_image] ?? null}
 					style={{
 						width: width,
 						height: "100%",
@@ -90,11 +91,6 @@ const Item = ({ width, item, animationValue }) => {
 					}}
 					resizeMode="cover"
 				/>
-				<Animated.Text
-					style={tw`absolute text-white overflow-hidden p-2 bg-[#333333] rounded-lg text-[${textSize}px]`}
-				>
-					{item?.name ?? ""}
-				</Animated.Text>
 			</Animated.View>
 			<Animated.View
 				style={[
@@ -109,7 +105,7 @@ const Item = ({ width, item, animationValue }) => {
 				]}
 			>
 				<Animated.Image
-					source={{ uri: item?.map_image ?? null }}
+					source={overwatchMap[item?.map_image] ?? null}
 					style={{
 						width: width,
 						height: "100%",
@@ -118,6 +114,11 @@ const Item = ({ width, item, animationValue }) => {
 					}}
 					resizeMode="cover"
 				/>
+				<Animated.Text
+					style={tw`absolute text-white overflow-hidden p-2 bottom-0 right-0 bg-[#333333] rounded-lg text-[${textSize}px]`}
+				>
+					{item?.name ?? ""}
+				</Animated.Text>
 			</Animated.View>
 		</View>
 	);

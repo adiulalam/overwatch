@@ -2,6 +2,7 @@ import React from "react";
 import { View, ActivityIndicator, Image, Text, Dimensions, Platform } from "react-native";
 import Animated from "react-native-reanimated";
 import tw from "twrnc";
+import { overwatchMap } from "../../imageMap";
 
 export const CarouselMain = (props) => {
 	const { item, index, ...animatedViewProps } = props;
@@ -21,15 +22,17 @@ export const CarouselMain = (props) => {
 
 	return (
 		<Animated.View style={{ flex: 1 }} {...animatedViewProps}>
-			<View style={tw`flex-1 py-5 items-start bg-white rounded-lg overflow-hidden`}>
+			<View style={tw`flex-1 items-start bg-white rounded-lg overflow-hidden`}>
 				<ActivityIndicator style={tw`absolute inset-0`} size="large" />
 				<Image
-					style={tw`absolute inset-0`}
+					style={tw`absolute inset-0 w-full h-full`}
 					key={index}
 					resizeMode="cover"
-					source={{ uri: item?.map_image ?? null }}
+					source={overwatchMap[item?.map_image] ?? null}
 				/>
-				<Text style={tw`absolute text-white overflow-hidden p-2 bg-[#333333] rounded-lg text-[${textSize}px]`}>
+				<Text
+					style={tw`absolute text-white overflow-hidden p-2 bottom-0 right-0 bg-[#333333] rounded-lg text-[${textSize}px]`}
+				>
 					{item?.name ?? ""}
 				</Text>
 			</View>

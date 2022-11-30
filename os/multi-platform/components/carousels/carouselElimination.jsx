@@ -3,6 +3,7 @@ import { Dimensions, Platform, View } from "react-native";
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
 import tw from "twrnc";
+import { overwatchMap } from "../../../imageMap";
 import { CarouselHeader } from "../carouselHeader";
 
 export const CarouselElimination = (data) => {
@@ -46,7 +47,7 @@ export const CarouselElimination = (data) => {
 					pressAnim.value = withTiming(0);
 				}}
 				renderItem={({ index, item }) => {
-					return <CustomItem item={item} key={index} pressAnim={pressAnim} />;
+					return <CustomItem item={item} key={index} pressAnim={pressAnim} width={window.width} />;
 				}}
 				customAnimation={animationStyle}
 				scrollAnimationDuration={1200}
@@ -55,7 +56,9 @@ export const CarouselElimination = (data) => {
 	);
 };
 
-const CustomItem = ({ pressAnim, item }) => {
+const CustomItem = ({ pressAnim, item, width }) => {
+	const textSize = Math.round(width / 20);
+
 	const animStyle = useAnimatedStyle(() => {
 		const scale = interpolate(pressAnim.value, [0, 1], [1, 0.9]);
 		const borderRadius = interpolate(pressAnim.value, [0, 1], [0, 30]);
@@ -69,10 +72,15 @@ const CustomItem = ({ pressAnim, item }) => {
 	return (
 		<Animated.View style={[{ flex: 1, overflow: "hidden" }, animStyle]}>
 			<Animated.Image
-				source={{ uri: item?.map_image ?? null }}
+				source={overwatchMap[item?.map_image] ?? null}
 				resizeMode="cover"
-				style={{ width: "100%", height: "100%", backgroundColor: "white" }}
+				style={tw`w-full h-full bg-white`}
 			/>
+			<Animated.Text
+				style={tw`absolute text-white overflow-hidden p-2 bottom-0 right-0 bg-[#333333] rounded-lg text-[${textSize}px]`}
+			>
+				{item?.name ?? ""}
+			</Animated.Text>
 		</Animated.View>
 	);
 };
