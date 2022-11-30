@@ -6,31 +6,31 @@
 			"data": [
 				{
 					"name": "Circuit Royal",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/10/Monte_Carlo.jpg"
+					"map_image": "escort/circuit_royal.jpg"
 				},
 				{
 					"name": "Dorado",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/e/ec/Dorado-streets2.jpg"
+					"map_image": "escort/dorado.jpg"
 				},
 				{
 					"name": "Havana",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/93/Havana.png"
+					"map_image": "escort/havana.png"
 				},
 				{
 					"name": "Junkertown",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/e/e3/Junkertown.jpg"
+					"map_image": "escort/junkertown.jpg"
 				},
 				{
 					"name": "Rialto",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/ff/Rialto.jpg"
+					"map_image": "escort/rialto.jpg"
 				},
 				{
 					"name": "Route 66",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/a/a6/Route_66.jpg"
+					"map_image": "escort/route_66.jpg"
 				},
 				{
 					"name": "Watchpoint: Gibraltar",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/8/8b/Gibraltar.jpg"
+					"map_image": "escort/watchpoint__gibraltar.jpg"
 				}
 			]
 		}
@@ -42,31 +42,31 @@
 			"data": [
 				{
 					"name": "Blizzard World",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/f8/Blizzard_World.jpg"
+					"map_image": "hybrid/blizzard_world.jpg"
 				},
 				{
 					"name": "Eichenwalde",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/a/aa/Eichenwalde.png"
+					"map_image": "hybrid/eichenwalde.png"
 				},
 				{
 					"name": "Hollywood",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/2/26/Hollywood-set.jpg"
+					"map_image": "hybrid/hollywood.jpg"
 				},
 				{
 					"name": "King's Row",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/1b/King%27s_Row_concept.jpg"
+					"map_image": "hybrid/king_s_row.jpg"
 				},
 				{
 					"name": "Midtown",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/4/4e/N18S6DCTDPG81613669123002.png"
+					"map_image": "hybrid/midtown.png"
 				},
 				{
 					"name": "Numbani",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/1b/Numbani_Loading_Screen.jpg"
+					"map_image": "hybrid/numbani.jpg"
 				},
 				{
 					"name": "Paraíso",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/90/Para%C3%ADso_pvp.jpg"
+					"map_image": "hybrid/para_so.jpg"
 				}
 			]
 		}
@@ -78,23 +78,23 @@
 			"data": [
 				{
 					"name": "Busan",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/0/09/Overwatch_Busan.jpg"
+					"map_image": "control/busan.jpg"
 				},
 				{
 					"name": "Ilios",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/4/45/Ilios.jpg"
+					"map_image": "control/ilios.jpg"
 				},
 				{
 					"name": "Lijiang Tower",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/9b/Lijiang_Tower_loading_screen.jpg"
+					"map_image": "control/lijiang_tower.jpg"
 				},
 				{
 					"name": "Nepal",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/f3/Nepal_loading_screen.jpg"
+					"map_image": "control/nepal.jpg"
 				},
 				{
 					"name": "Oasis",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/fc/Oasis.jpg"
+					"map_image": "control/oasis.jpg"
 				}
 			]
 		}
@@ -106,15 +106,15 @@
 			"data": [
 				{
 					"name": "Colosseo",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/1e/Blizzconline_rome_01.png"
+					"map_image": "push/colosseo.png"
 				},
 				{
 					"name": "Esperança",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/f5/PortugalPush.jpg"
+					"map_image": "push/esperan_a.jpg"
 				},
 				{
 					"name": "New Queen Street",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/91/Toronto.jpg"
+					"map_image": "push/new_queen_street.jpg"
 				}
 			]
 		}
@@ -126,23 +126,23 @@
 			"data": [
 				{
 					"name": "Hanamura",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/4/46/Hanamura_concept.jpg"
+					"map_image": "assault/hanamura.jpg"
 				},
 				{
 					"name": "Horizon Lunar Colony",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/7/7c/Horizon_Lunar_Colony2.jpg"
+					"map_image": "assault/horizon_lunar_colony.jpg"
 				},
 				{
 					"name": "Paris",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/1e/Paris_map.jpg"
+					"map_image": "assault/paris.jpg"
 				},
 				{
 					"name": "Temple of Anubis",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/d/de/Anubis_concept.jpg"
+					"map_image": "assault/temple_of_anubis.jpg"
 				},
 				{
 					"name": "Volskaya Industries",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/d/de/Volskaya_Industries.jpg"
+					"map_image": "assault/volskaya_industries.jpg"
 				}
 			]
 		}
@@ -154,19 +154,19 @@
 			"data": [
 				{
 					"name": "Black Forest",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/98/Black-Forest.jpg"
+					"map_image": "elimination/black_forest.jpg"
 				},
 				{
 					"name": "Castillo",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/e/e8/Castillo.jpg"
+					"map_image": "elimination/castillo.jpg"
 				},
 				{
 					"name": "Ecopoint: Antarctica",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/0/00/Ecopoint_Antarctica_BlizzCon_2016.png"
+					"map_image": "elimination/ecopoint__antarctica.png"
 				},
 				{
 					"name": "Necropolis",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/6/69/Necropolis.jpg"
+					"map_image": "elimination/necropolis.jpg"
 				}
 			]
 		}
@@ -178,19 +178,19 @@
 			"data": [
 				{
 					"name": "Château Guillard",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/9b/Chateau_Guillard.jpg"
+					"map_image": "deathmatch/ch_teau_guillard.jpg"
 				},
 				{
 					"name": "Kanezaka",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/f/f7/Kanezaka.jpg"
+					"map_image": "deathmatch/kanezaka.jpg"
 				},
 				{
 					"name": "Malevento",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/7/7b/Malevento.jpg"
+					"map_image": "deathmatch/malevento.jpg"
 				},
 				{
 					"name": "Petra",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/1/18/Petra.jpg"
+					"map_image": "deathmatch/petra.jpg"
 				}
 			]
 		}
@@ -202,7 +202,7 @@
 			"data": [
 				{
 					"name": "Ayutthaya",
-					"map_image": "https://static.wikia.nocookie.net/overwatch_gamepedia/images/9/9d/Ayutthaya.png"
+					"map_image": "capture_the_flag/ayutthaya.png"
 				}
 			]
 		}
