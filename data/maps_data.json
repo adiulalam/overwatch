@@ -2,6 +2,7 @@
 	{
 		"type": "Escort",
 		"description": "Escort maps have a payload that the attackers must escort across three checkpoints.",
+		"index": 1,
 		"maps": {
 			"data": [
 				{
@@ -38,6 +39,7 @@
 	{
 		"type": "Hybrid",
 		"description": "Hybrid maps are a mixture of Assault and Escort maps. There is an Objective A for attackers to capture, and after it is captured, attackers must escort a payload across two checkpoints.",
+		"index": 2,
 		"maps": {
 			"data": [
 				{
@@ -74,6 +76,7 @@
 	{
 		"type": "Control",
 		"description": "Control maps are unique because they are essentially three different smaller maps that all co-exist in one larger area.",
+		"index": 3,
 		"maps": {
 			"data": [
 				{
@@ -102,6 +105,7 @@
 	{
 		"type": "Push",
 		"description": "Push maps are the newest additions to Overwatch, released with Overwatch 2. They are symmetrical with a robot at the center of the map. Each team has a block that the robot has to push to their respective ends, but only 1 team can control the robot at a time and the opposing team has to take control of the robot to push their own block.",
+		"index": 4,
 		"maps": {
 			"data": [
 				{
@@ -122,6 +126,7 @@
 	{
 		"type": "Assault",
 		"description": "Assault maps have two rectangular areas that the attackers must capture: Objective A and Objective B. Objective A is between the attacker and defender spawn rooms, and Objective B is in front of the defender spawn room.",
+		"index": 5,
 		"maps": {
 			"data": [
 				{
@@ -150,6 +155,7 @@
 	{
 		"type": "Elimination",
 		"description": "Elimination maps, or Arena maps, are small, symmetrical maps with a spawn room at each end. They are designed for intense straightforward combat. They are also used for 1v1 Duels.",
+		"index": 6,
 		"maps": {
 			"data": [
 				{
@@ -174,6 +180,7 @@
 	{
 		"type": "Deathmatch",
 		"description": "Deathmatch maps are unique because they have no spawn room. They are designed to accommodate as many fighting styles as possible. ",
+		"index": 7,
 		"maps": {
 			"data": [
 				{
@@ -198,6 +205,7 @@
 	{
 		"type": "Capture the Flag",
 		"description": "Capture the Flag maps are large, symmetrical maps with a spawn room at each end. Near each spawn room is the flag area with a flag that the other team must steal and bring to their own area.",
+		"index": 8,
 		"maps": {
 			"data": [
 				{
