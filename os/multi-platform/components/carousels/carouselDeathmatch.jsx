@@ -5,6 +5,7 @@ import Carousel from "react-native-reanimated-carousel";
 import { CarouselMain } from "../carouselMain";
 import tw from "twrnc";
 import { CarouselHeader } from "../carouselHeader";
+import { colorMap } from "../../../imageMap";
 
 export const CarouselDeathmatch = (data) => {
 	const window =
@@ -29,6 +30,8 @@ export const CarouselDeathmatch = (data) => {
 		};
 	}, []);
 
+	const bgColour = colorMap(data?.maps?.data?.length * 3, "light");
+
 	return (
 		<View style={tw`flex py-5 items-center`}>
 			<CarouselHeader {...data} />
@@ -38,7 +41,7 @@ export const CarouselDeathmatch = (data) => {
 				height={window.height}
 				style={{ borderRadius: 5 }}
 				data={[...data?.maps?.data, ...data?.maps?.data]}
-				renderItem={(carousel) => <CustomItem {...carousel} />}
+				renderItem={(carousel) => <CustomItem {...carousel} bgColour={bgColour} />}
 				customAnimation={animationStyle}
 				scrollAnimationDuration={1200}
 			/>

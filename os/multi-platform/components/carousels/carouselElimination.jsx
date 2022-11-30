@@ -3,7 +3,7 @@ import { Dimensions, Platform, View } from "react-native";
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
 import tw from "twrnc";
-import { overwatchMap } from "../../../imageMap";
+import { colorMap, overwatchMap } from "../../../imageMap";
 import { CarouselHeader } from "../carouselHeader";
 
 export const CarouselElimination = (data) => {
@@ -31,6 +31,8 @@ export const CarouselElimination = (data) => {
 		};
 	}, []);
 
+	const bgColour = colorMap(data?.maps?.data?.length * 2, "light");
+
 	return (
 		<View style={tw`flex py-5 items-center`}>
 			<CarouselHeader {...data} />
@@ -47,7 +49,16 @@ export const CarouselElimination = (data) => {
 					pressAnim.value = withTiming(0);
 				}}
 				renderItem={({ index, item }) => {
-					return <CustomItem item={item} key={index} pressAnim={pressAnim} width={window.width} />;
+					return (
+						<CustomItem
+							item={item}
+							key={index}
+							pressAnim={pressAnim}
+							width={window.width}
+							bgColour={bgColour}
+							index={index}
+						/>
+					);
 				}}
 				customAnimation={animationStyle}
 				scrollAnimationDuration={1200}
@@ -56,7 +67,7 @@ export const CarouselElimination = (data) => {
 	);
 };
 
-const CustomItem = ({ pressAnim, item, width }) => {
+const CustomItem = ({ pressAnim, item, width, index, bgColour }) => {
 	const textSize = Math.round(width / 20);
 
 	const animStyle = useAnimatedStyle(() => {
@@ -74,10 +85,12 @@ const CustomItem = ({ pressAnim, item, width }) => {
 			<Animated.Image
 				source={overwatchMap[item?.map_image] ?? null}
 				resizeMode="cover"
-				style={tw`w-full h-full bg-white`}
+				style={tw`w-full h-full bg-black`}
 			/>
 			<Animated.Text
-				style={tw`absolute text-white overflow-hidden p-2 bottom-0 right-0 bg-[#333333] rounded-lg text-[${textSize}px]`}
+				style={tw`absolute text-black overflow-hidden p-2 bottom-0 right-0 bg-[${
+					bgColour[index] ?? "#333333"
+				}] rounded-lg text-[${textSize}px]`}
 			>
 				{item?.name ?? ""}
 			</Animated.Text>

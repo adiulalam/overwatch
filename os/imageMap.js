@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import randomColor from "randomcolor";
+
 export const heroMap = {
 	"ana/profile_pic.png": require("../assets/overwatch/heroes/ana/profile_pic.png"),
 	"ana/biotic_rifle.png": require("../assets/overwatch/heroes/ana/biotic_rifle.png"),
@@ -248,4 +251,19 @@ export const weaponMap = {
 	Ability: "Ability",
 	Ultimate: "Ultimate",
 	Passive: "Passive",
+};
+
+export const colorMap = (length, mode) => {
+	const [colourArray, setColourArray] = useState([]);
+
+	useEffect(() => {
+		setColourArray(
+			randomColor({
+				count: length ?? 10,
+				luminosity: mode ?? "light",
+			})
+		);
+	}, []);
+
+	return colourArray;
 };

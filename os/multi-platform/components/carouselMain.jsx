@@ -5,7 +5,7 @@ import tw from "twrnc";
 import { overwatchMap } from "../../imageMap";
 
 export const CarouselMain = (props) => {
-	const { item, index, ...animatedViewProps } = props;
+	const { item, index, bgColour, ...animatedViewProps } = props;
 
 	const window =
 		Platform.OS === "web" && Dimensions.get("window").width > Dimensions.get("window").height
@@ -31,7 +31,9 @@ export const CarouselMain = (props) => {
 					source={overwatchMap[item?.map_image] ?? null}
 				/>
 				<Text
-					style={tw`absolute text-white overflow-hidden p-2 bottom-0 right-0 bg-[#333333] rounded-lg text-[${textSize}px]`}
+					style={tw`absolute text-black overflow-hidden p-2 bottom-0 right-0 bg-[${
+						bgColour && bgColour[index] ? bgColour[index] : "#333333"
+					}] rounded-lg text-[${textSize}px]`}
 				>
 					{item?.name ?? ""}
 				</Text>

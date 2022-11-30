@@ -5,6 +5,7 @@ import { useSharedValue } from "react-native-reanimated";
 import { CarouselMain } from "../carouselMain";
 import tw from "twrnc";
 import { CarouselHeader } from "../carouselHeader";
+import { colorMap } from "../../../imageMap";
 
 export const CarouselPush = (data) => {
 	const progressValue = useSharedValue(0);
@@ -21,6 +22,8 @@ export const CarouselPush = (data) => {
 					height: Dimensions.get("window").width * 0.5525,
 					parallaxScrollingOffset: Dimensions.get("window").width * 0.12,
 			  };
+
+	const bgColour = colorMap(data?.maps?.data?.length * 3, "light");
 
 	return (
 		<View style={tw`flex items-center pt-5`}>
@@ -39,7 +42,7 @@ export const CarouselPush = (data) => {
 					parallaxScrollingOffset: window.parallaxScrollingOffset,
 				}}
 				data={data?.maps?.data}
-				renderItem={(carousel) => <CarouselMain {...carousel} />}
+				renderItem={(carousel) => <CarouselMain {...carousel} bgColour={bgColour} />}
 			/>
 		</View>
 	);

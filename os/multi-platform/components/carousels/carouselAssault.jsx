@@ -3,7 +3,7 @@ import { Dimensions, Platform, View } from "react-native";
 import Animated, { Extrapolate, interpolate, useAnimatedStyle } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
 import tw from "twrnc";
-import { overwatchMap } from "../../../imageMap";
+import { colorMap, overwatchMap } from "../../../imageMap";
 import { CarouselHeader } from "../carouselHeader";
 
 export const CarouselAssault = (data) => {
@@ -30,6 +30,8 @@ export const CarouselAssault = (data) => {
 					height: Dimensions.get("window").width * 0.5625 * 0.98,
 			  };
 
+	const bgColour = colorMap(data?.maps?.data?.length * 2, "light");
+
 	return (
 		<View style={tw`flex py-5 items-center`}>
 			<CarouselHeader {...data} />
@@ -40,7 +42,16 @@ export const CarouselAssault = (data) => {
 				height={window.height}
 				data={[...data?.maps?.data, ...data?.maps?.data]}
 				renderItem={({ index, item, animationValue }) => {
-					return <Item key={index} width={window.width} animationValue={animationValue} item={item} />;
+					return (
+						<Item
+							key={index}
+							index={index}
+							width={window.width}
+							animationValue={animationValue}
+							item={item}
+							bgColour={bgColour}
+						/>
+					);
 				}}
 				customAnimation={animationStyle}
 				scrollAnimationDuration={1200}
@@ -49,7 +60,7 @@ export const CarouselAssault = (data) => {
 	);
 };
 
-const Item = ({ width, item, animationValue }) => {
+const Item = ({ width, item, animationValue, index, bgColour }) => {
 	const textSize = Math.round(width / 20);
 
 	const leftStyle = useAnimatedStyle(() => {
@@ -115,7 +126,9 @@ const Item = ({ width, item, animationValue }) => {
 					resizeMode="cover"
 				/>
 				<Animated.Text
-					style={tw`absolute text-white overflow-hidden p-2 bottom-0 right-0 bg-[#333333] rounded-lg text-[${textSize}px]`}
+					style={tw`absolute text-black overflow-hidden p-2 bottom-0 right-0 bg-[${
+						bgColour[index] ?? "#333333"
+					}] rounded-lg text-[${textSize}px]`}
 				>
 					{item?.name ?? ""}
 				</Animated.Text>

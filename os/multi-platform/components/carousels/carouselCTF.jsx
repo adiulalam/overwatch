@@ -4,6 +4,7 @@ import Carousel from "react-native-reanimated-carousel";
 import { CarouselMain } from "../carouselMain";
 import tw from "twrnc";
 import { CarouselHeader } from "../carouselHeader";
+import { colorMap } from "../../../imageMap";
 
 export const CarouselCTF = (data) => {
 	const window =
@@ -16,6 +17,7 @@ export const CarouselCTF = (data) => {
 					width: Dimensions.get("window").width * 0.98,
 					height: Dimensions.get("window").width * 0.5625 * 0.98,
 			  };
+	const bgColour = colorMap(data?.maps?.data?.length * 3, "light");
 
 	return (
 		<View style={tw`flex items-center py-5`}>
@@ -26,7 +28,7 @@ export const CarouselCTF = (data) => {
 				loop={true}
 				vertical={true}
 				data={data?.maps?.data}
-				renderItem={(carousel) => <CarouselMain {...carousel} />}
+				renderItem={(carousel) => <CarouselMain {...carousel} bgColour={bgColour} />}
 			/>
 		</View>
 	);
