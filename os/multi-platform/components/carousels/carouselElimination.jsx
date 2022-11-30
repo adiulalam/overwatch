@@ -3,14 +3,9 @@ import { Dimensions, Platform, View } from "react-native";
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
 import tw from "twrnc";
+import { CarouselHeader } from "../carouselHeader";
 
-export const CarouselElimination = () => {
-	const ImageItems = [
-		require("../../../assets/overwatch/heroes/ana/profile_pic.png"),
-		require("../../../assets/overwatch/heroes/ashe/profile_pic.png"),
-		require("../../../assets/overwatch/heroes/baptiste/profile_pic.png"),
-	];
-
+export const CarouselElimination = (data) => {
 	const window =
 		Platform.OS === "web" && Dimensions.get("window").width > Dimensions.get("window").height
 			? {
@@ -37,12 +32,13 @@ export const CarouselElimination = () => {
 
 	return (
 		<View style={tw`flex py-5 items-center`}>
+			<CarouselHeader {...data} />
 			<Carousel
 				loop={true}
 				style={{ width: window.width, borderRadius: 5 }}
 				width={window.width}
 				height={window.height}
-				data={[...ImageItems, ...ImageItems]}
+				data={[...data?.maps?.data, ...data?.maps?.data]}
 				onScrollBegin={() => {
 					pressAnim.value = withTiming(1);
 				}}
@@ -50,7 +46,7 @@ export const CarouselElimination = () => {
 					pressAnim.value = withTiming(0);
 				}}
 				renderItem={({ index, item }) => {
-					return <CustomItem source={item} key={index} pressAnim={pressAnim} />;
+					return <CustomItem item={item} key={index} pressAnim={pressAnim} />;
 				}}
 				customAnimation={animationStyle}
 				scrollAnimationDuration={1200}
@@ -59,7 +55,7 @@ export const CarouselElimination = () => {
 	);
 };
 
-const CustomItem = ({ pressAnim, source }) => {
+const CustomItem = ({ pressAnim, item }) => {
 	const animStyle = useAnimatedStyle(() => {
 		const scale = interpolate(pressAnim.value, [0, 1], [1, 0.9]);
 		const borderRadius = interpolate(pressAnim.value, [0, 1], [0, 30]);
@@ -73,8 +69,8 @@ const CustomItem = ({ pressAnim, source }) => {
 	return (
 		<Animated.View style={[{ flex: 1, overflow: "hidden" }, animStyle]}>
 			<Animated.Image
-				source={source}
-				resizeMode="center"
+				source={{ uri: item?.map_image ?? null }}
+				resizeMode="cover"
 				style={{ width: "100%", height: "100%", backgroundColor: "white" }}
 			/>
 		</Animated.View>

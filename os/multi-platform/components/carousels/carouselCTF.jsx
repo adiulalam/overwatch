@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import { Dimensions, Platform, View } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
-import { SBItem } from "../components/SBItem";
+import { CarouselMain } from "../carouselMain";
 import tw from "twrnc";
+import { CarouselHeader } from "../carouselHeader";
 
-export const CarouselCTF = () => {
-	const data = useRef([...new Array(6).keys()]).current;
+export const CarouselCTF = (data) => {
 	const window =
 		Platform.OS === "web" && Dimensions.get("window").width > Dimensions.get("window").height
 			? {
@@ -19,13 +19,14 @@ export const CarouselCTF = () => {
 
 	return (
 		<View style={tw`flex items-center py-5`}>
+			<CarouselHeader {...data} />
 			<Carousel
 				width={window.width}
 				height={window.height}
 				loop={true}
 				vertical={true}
-				data={data}
-				renderItem={({ index }) => <SBItem key={index} index={index} />}
+				data={data?.maps?.data}
+				renderItem={(carousel) => <CarouselMain {...carousel} />}
 			/>
 		</View>
 	);

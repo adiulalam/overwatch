@@ -2,10 +2,11 @@ import React, { useCallback } from "react";
 import { Dimensions, Platform, View } from "react-native";
 import { interpolate } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
-import { SBItem } from "./SBItem";
+import { CarouselMain } from "../carouselMain";
 import tw from "twrnc";
+import { CarouselHeader } from "../carouselHeader";
 
-export const CarouselControl = () => {
+export const CarouselControl = (data) => {
 	const window =
 		Platform.OS === "web" && Dimensions.get("window").width > Dimensions.get("window").height
 			? {
@@ -35,6 +36,7 @@ export const CarouselControl = () => {
 
 	return (
 		<View style={tw`flex py-5 items-center`}>
+			<CarouselHeader {...data} />
 			<Carousel
 				loop
 				style={{
@@ -43,10 +45,8 @@ export const CarouselControl = () => {
 				}}
 				width={window.width}
 				height={window.height}
-				data={[...new Array(6).keys()]}
-				renderItem={({ index }) => {
-					return <SBItem key={index} index={index} />;
-				}}
+				data={data?.maps?.data}
+				renderItem={(carousel) => <CarouselMain {...carousel} />}
 				customAnimation={animationStyle}
 			/>
 		</View>

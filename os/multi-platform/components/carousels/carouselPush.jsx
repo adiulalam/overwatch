@@ -1,11 +1,12 @@
 import React from "react";
-import { Dimensions, Platform, View } from "react-native";
+import { Dimensions, Platform, Text, View } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 import { useSharedValue } from "react-native-reanimated";
-import { SBItem } from "./SBItem";
+import { CarouselMain } from "../carouselMain";
 import tw from "twrnc";
+import { CarouselHeader } from "../carouselHeader";
 
-export const CarouselPush = () => {
+export const CarouselPush = (data) => {
 	const progressValue = useSharedValue(0);
 
 	const window =
@@ -21,15 +22,15 @@ export const CarouselPush = () => {
 					parallaxScrollingOffset: Dimensions.get("window").width * 0.12,
 			  };
 
-	const colors = ["#26292E", "#899F9C", "#B3C680", "#5C6265", "#F5D399", "#F1F1F1"];
-
 	return (
-		<View style={tw`flex items-center `}>
+		<View style={tw`flex items-center pt-5`}>
+			<CarouselHeader {...data} />
 			<Carousel
 				width={window.width}
 				height={window.height}
 				loop={true}
 				pagingEnabled={true}
+				style={{ bottom: Platform.OS === "web" ? "4%" : "3%" }}
 				snapEnabled={true}
 				onProgressChange={(_, absoluteProgress) => (progressValue.value = absoluteProgress)}
 				mode="parallax"
@@ -37,8 +38,8 @@ export const CarouselPush = () => {
 					parallaxScrollingScale: 0.9,
 					parallaxScrollingOffset: window.parallaxScrollingOffset,
 				}}
-				data={colors}
-				renderItem={({ index }) => <SBItem index={index} />}
+				data={data?.maps?.data}
+				renderItem={(carousel) => <CarouselMain {...carousel} />}
 			/>
 		</View>
 	);

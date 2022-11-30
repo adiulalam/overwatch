@@ -2,10 +2,11 @@ import React, { useCallback } from "react";
 import { Dimensions, Platform, View } from "react-native";
 import Animated, { interpolate, interpolateColor, useAnimatedStyle } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
-import { SBItem } from "../components/SBItem";
+import { CarouselMain } from "../carouselMain";
 import tw from "twrnc";
+import { CarouselHeader } from "../carouselHeader";
 
-export const CarouselDeathmatch = () => {
+export const CarouselDeathmatch = (data) => {
 	const window =
 		Platform.OS === "web" && Dimensions.get("window").width > Dimensions.get("window").height
 			? {
@@ -30,15 +31,14 @@ export const CarouselDeathmatch = () => {
 
 	return (
 		<View style={tw`flex py-5 items-center`}>
+			<CarouselHeader {...data} />
 			<Carousel
 				loop={true}
 				width={window.width}
 				height={window.height}
 				style={{ borderRadius: 5 }}
-				data={[...new Array(6).keys()]}
-				renderItem={({ index, animationValue }) => {
-					return <CustomItem key={index} index={index} animationValue={animationValue} />;
-				}}
+				data={[...data?.maps?.data, ...data?.maps?.data]}
+				renderItem={(carousel) => <CustomItem {...carousel} />}
 				customAnimation={animationStyle}
 				scrollAnimationDuration={1200}
 			/>
@@ -46,7 +46,8 @@ export const CarouselDeathmatch = () => {
 	);
 };
 
-const CustomItem = ({ index, animationValue }) => {
+const CustomItem = (props) => {
+	const { item, index, animationValue } = props;
 	const maskStyle = useAnimatedStyle(() => {
 		const backgroundColor = interpolateColor(
 			animationValue.value,
@@ -61,7 +62,7 @@ const CustomItem = ({ index, animationValue }) => {
 
 	return (
 		<View style={{ flex: 1 }}>
-			<SBItem key={index} index={index} style={{ borderRadius: 5 }} />
+			<CarouselMain {...props} />
 			<Animated.View
 				pointerEvents="none"
 				style={[

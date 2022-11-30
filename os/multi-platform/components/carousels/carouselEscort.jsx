@@ -1,12 +1,11 @@
-import React, { useRef } from "react";
-import { Dimensions, Platform, View } from "react-native";
+import React from "react";
+import { Dimensions, Platform, Text, View } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
-import { SBItem } from "./SBItem";
-import { FadeInRight } from "react-native-reanimated";
+import { CarouselMain } from "../carouselMain";
 import tw from "twrnc";
+import { CarouselHeader } from "../carouselHeader";
 
-export const CarouselEscort = () => {
-	const data = useRef([...new Array(6).keys()]).current;
+export const CarouselEscort = (data) => {
 	const window =
 		Platform.OS === "web" && Dimensions.get("window").width > Dimensions.get("window").height
 			? {
@@ -20,6 +19,7 @@ export const CarouselEscort = () => {
 
 	return (
 		<View style={tw`flex items-center py-5`}>
+			<CarouselHeader {...data} />
 			<Carousel
 				style={{
 					width: "100%",
@@ -32,19 +32,13 @@ export const CarouselEscort = () => {
 				snapEnabled={true}
 				mode={"horizontal-stack"}
 				loop={true}
-				data={data}
+				data={data?.maps?.data}
 				modeConfig={{
 					snapDirection: "left",
-					stackInterval: data.length * 3,
+					stackInterval: data?.maps?.data?.length * 3,
 				}}
 				customConfig={() => ({ type: "positive", viewCount: data.length })}
-				renderItem={({ index }) => (
-					<SBItem
-						index={index}
-						key={index}
-						entering={FadeInRight.delay((data.length - index) * 100).duration(200)}
-					/>
-				)}
+				renderItem={(carousel) => <CarouselMain {...carousel} />}
 			/>
 		</View>
 	);

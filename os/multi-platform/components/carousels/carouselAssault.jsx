@@ -3,8 +3,9 @@ import { Dimensions, Platform, View } from "react-native";
 import Animated, { Extrapolate, interpolate, useAnimatedStyle } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
 import tw from "twrnc";
+import { CarouselHeader } from "../carouselHeader";
 
-export const CarouselAssault = () => {
+export const CarouselAssault = (data) => {
 	const animationStyle = useCallback((value) => {
 		"worklet";
 
@@ -16,12 +17,6 @@ export const CarouselAssault = () => {
 			zIndex,
 		};
 	}, []);
-
-	const ImageItems = [
-		require("../../../assets/overwatch/heroes/ana/profile_pic.png"),
-		require("../../../assets/overwatch/heroes/ashe/profile_pic.png"),
-		require("../../../assets/overwatch/heroes/baptiste/profile_pic.png"),
-	];
 
 	const window =
 		Platform.OS === "web" && Dimensions.get("window").width > Dimensions.get("window").height
@@ -36,23 +31,26 @@ export const CarouselAssault = () => {
 
 	return (
 		<View style={tw`flex py-5 items-center`}>
+			<CarouselHeader {...data} />
 			<Carousel
 				loop={true}
 				style={{ width: window.width, backgroundColor: "white", borderRadius: 5 }}
 				width={window.width}
 				height={window.height}
-				data={[...ImageItems, ...ImageItems]}
+				data={[...data?.maps?.data, ...data?.maps?.data]}
 				renderItem={({ index, item, animationValue }) => {
-					return <Item key={index} width={window.width} animationValue={animationValue} imageSource={item} />;
+					return <Item key={index} width={window.width} animationValue={animationValue} item={item} />;
 				}}
 				customAnimation={animationStyle}
-				scrollAnimationDuration={1000}
+				scrollAnimationDuration={1200}
 			/>
 		</View>
 	);
 };
 
-const Item = ({ width, imageSource, animationValue }) => {
+const Item = ({ width, item, animationValue }) => {
+	const textSize = Math.round(width / 20);
+
 	const leftStyle = useAnimatedStyle(() => {
 		const left = interpolate(animationValue.value, [-1, 0, 1], [-(width / 2), 0, 0], Extrapolate.CLAMP);
 		return {
@@ -83,16 +81,20 @@ const Item = ({ width, imageSource, animationValue }) => {
 				]}
 			>
 				<Animated.Image
-					source={imageSource}
+					source={{ uri: item?.map_image ?? null }}
 					style={{
 						width: width,
 						height: "100%",
 						left: 0,
 						position: "absolute",
-						// backgroundColor: "white",
 					}}
-					resizeMode="contain"
+					resizeMode="cover"
 				/>
+				<Animated.Text
+					style={tw`absolute text-white overflow-hidden p-2 bg-[#333333] rounded-lg text-[${textSize}px]`}
+				>
+					{item?.name ?? ""}
+				</Animated.Text>
 			</Animated.View>
 			<Animated.View
 				style={[
@@ -107,15 +109,14 @@ const Item = ({ width, imageSource, animationValue }) => {
 				]}
 			>
 				<Animated.Image
-					source={imageSource}
+					source={{ uri: item?.map_image ?? null }}
 					style={{
 						width: width,
 						height: "100%",
 						right: 0,
 						position: "absolute",
-						// backgroundColor: "white",
 					}}
-					resizeMode="contain"
+					resizeMode="cover"
 				/>
 			</Animated.View>
 		</View>

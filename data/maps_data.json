@@ -120,7 +120,7 @@
 		}
 	},
 	{
-		"type": "Assault (Only Custom Games)",
+		"type": "Assault",
 		"description": "Assault maps have two rectangular areas that the attackers must capture: Objective A and Objective B. Objective A is between the attacker and defender spawn rooms, and Objective B is in front of the defender spawn room.",
 		"maps": {
 			"data": [
