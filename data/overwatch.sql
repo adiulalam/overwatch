@@ -16,3 +16,4 @@ CREATE TABLE overwatch.ability (
 	fk_hero_uuid UUID NOT NULL,
 	FOREIGN KEY (fk_hero_uuid ) REFERENCES overwatch.hero (hero_uuid)
 );
+
