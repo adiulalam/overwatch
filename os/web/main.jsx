@@ -12,7 +12,7 @@ const Drawer = createDrawerNavigator();
 export const WebMain = () => {
 	return (
 		<NavigationContainer theme={DarkTheme}>
-			<Drawer.Navigator initialRouteName="Maps">
+			<Drawer.Navigator initialRouteName="Heroes">
 				<Drawer.Screen
 					name="Heroes"
 					component={Heroes}
