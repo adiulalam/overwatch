@@ -5,7 +5,7 @@ import { NativeWindStyleSheet } from "nativewind";
 import { WebMain } from "./os/web/main";
 import { PhoneMain } from "./os/phone/main";
 import { client, HeroesContext } from "./connection/client";
-import { overwatchHeroes } from "./connection/query";
+import { getOverwatchData } from "./connection/query";
 import { ApolloProvider, useQuery } from "@apollo/client";
 import tw from "twrnc";
 
@@ -14,7 +14,7 @@ NativeWindStyleSheet.setOutput({
 });
 
 export default function App() {
-	const { loading, error, data } = useQuery(overwatchHeroes, { client });
+	const { loading, error, data } = useQuery(getOverwatchData, { client });
 
 	if (loading)
 		return (

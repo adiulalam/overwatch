@@ -18,7 +18,7 @@ export const CarouselEscort = (data) => {
 					height: Dimensions.get("window").width * 0.5625 * 0.95,
 			  };
 
-	const bgColour = colorMap(data?.maps?.data?.length * 3, "light");
+	const bgColour = colorMap(data?.maps?.length * 3, "light");
 
 	return (
 		<View style={tw`flex items-center py-5`}>
@@ -35,10 +35,10 @@ export const CarouselEscort = (data) => {
 				snapEnabled={true}
 				mode={"horizontal-stack"}
 				loop={true}
-				data={data?.maps?.data}
+				data={data?.maps}
 				modeConfig={{
 					snapDirection: "left",
-					stackInterval: data?.maps?.data?.length * 3,
+					stackInterval: data?.maps?.length * 3,
 				}}
 				customConfig={() => ({ type: "positive", viewCount: data.length })}
 				renderItem={(carousel) => <CarouselMain {...carousel} bgColour={bgColour} />}

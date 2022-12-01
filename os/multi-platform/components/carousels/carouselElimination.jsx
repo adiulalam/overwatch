@@ -31,7 +31,7 @@ export const CarouselElimination = (data) => {
 		};
 	}, []);
 
-	const bgColour = colorMap(data?.maps?.data?.length * 2, "light");
+	const bgColour = colorMap(data?.maps?.length * 2, "light");
 
 	return (
 		<View style={tw`flex py-5 items-center`}>
@@ -41,7 +41,7 @@ export const CarouselElimination = (data) => {
 				style={{ width: window.width, borderRadius: 5 }}
 				width={window.width}
 				height={window.height}
-				data={[...data?.maps?.data, ...data?.maps?.data]}
+				data={[...data?.maps, ...data?.maps]}
 				onScrollBegin={() => {
 					pressAnim.value = withTiming(1);
 				}}

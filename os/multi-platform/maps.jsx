@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ScrollView } from "react-native";
 import tw from "twrnc";
+import { HeroesContext } from "../../connection/client";
 import { CarouselEscort } from "./components/carousels/carouselEscort";
 import { CarouselPush } from "./components/carousels/carouselPush";
 import { CarouselHybrid } from "./components/carousels/carouselHybrid";
@@ -11,10 +12,11 @@ import { CarouselDeathmatch } from "./components/carousels/carouselDeathmatch";
 import { CarouselCTF } from "./components/carousels/carouselCTF";
 
 export const Maps = () => {
-	const data = require("../../data/maps_data.json");
+	const { overwatch_maps } = useContext(HeroesContext);
+
 	return (
 		<ScrollView style={tw`flex bg-black`}>
-			{data.map((element, i) =>
+			{overwatch_maps.map((element, i) =>
 				element?.type === "Push" ? (
 					<CarouselPush key={i} {...element} />
 				) : element?.type === "Escort" ? (

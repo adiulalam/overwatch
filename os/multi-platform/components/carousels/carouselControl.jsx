@@ -35,7 +35,7 @@ export const CarouselControl = (data) => {
 		};
 	}, []);
 
-	const bgColour = colorMap(data?.maps?.data?.length * 3, "light");
+	const bgColour = colorMap(data?.maps?.length * 3, "light");
 
 	return (
 		<View style={tw`flex py-5 items-center`}>
@@ -48,7 +48,7 @@ export const CarouselControl = (data) => {
 				}}
 				width={window.width}
 				height={window.height}
-				data={data?.maps?.data}
+				data={data?.maps}
 				renderItem={(carousel) => <CarouselMain {...carousel} bgColour={bgColour} />}
 				customAnimation={animationStyle}
 			/>

@@ -17,7 +17,7 @@ export const CarouselCTF = (data) => {
 					width: Dimensions.get("window").width * 0.98,
 					height: Dimensions.get("window").width * 0.5625 * 0.98,
 			  };
-	const bgColour = colorMap(data?.maps?.data?.length * 3, "light");
+	const bgColour = colorMap(data?.maps?.length * 3, "light");
 
 	return (
 		<View style={tw`flex items-center py-5`}>
@@ -27,7 +27,7 @@ export const CarouselCTF = (data) => {
 				height={window.height}
 				loop={true}
 				vertical={true}
-				data={data?.maps?.data}
+				data={data?.maps}
 				renderItem={(carousel) => <CarouselMain {...carousel} bgColour={bgColour} />}
 			/>
 		</View>

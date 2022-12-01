@@ -30,7 +30,7 @@ export const CarouselDeathmatch = (data) => {
 		};
 	}, []);
 
-	const bgColour = colorMap(data?.maps?.data?.length * 3, "light");
+	const bgColour = colorMap(data?.maps?.length * 3, "light");
 
 	return (
 		<View style={tw`flex py-5 items-center`}>
@@ -40,7 +40,7 @@ export const CarouselDeathmatch = (data) => {
 				width={window.width}
 				height={window.height}
 				style={{ borderRadius: 5 }}
-				data={[...data?.maps?.data, ...data?.maps?.data]}
+				data={[...data?.maps, ...data?.maps]}
 				renderItem={(carousel) => <CustomItem {...carousel} bgColour={bgColour} />}
 				customAnimation={animationStyle}
 				scrollAnimationDuration={1200}

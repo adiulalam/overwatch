@@ -30,7 +30,7 @@ export const CarouselAssault = (data) => {
 					height: Dimensions.get("window").width * 0.5625 * 0.98,
 			  };
 
-	const bgColour = colorMap(data?.maps?.data?.length * 2, "light");
+	const bgColour = colorMap(data?.maps?.length * 2, "light");
 
 	return (
 		<View style={tw`flex py-5 items-center`}>
@@ -40,7 +40,7 @@ export const CarouselAssault = (data) => {
 				style={{ width: window.width, backgroundColor: "white", borderRadius: 5 }}
 				width={window.width}
 				height={window.height}
-				data={[...data?.maps?.data, ...data?.maps?.data]}
+				data={[...data?.maps, ...data?.maps]}
 				renderItem={({ index, item, animationValue }) => {
 					return (
 						<Item

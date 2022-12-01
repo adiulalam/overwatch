@@ -23,7 +23,7 @@ export const CarouselPush = (data) => {
 					parallaxScrollingOffset: Dimensions.get("window").width * 0.12,
 			  };
 
-	const bgColour = colorMap(data?.maps?.data?.length * 3, "light");
+	const bgColour = colorMap(data?.maps?.length * 3, "light");
 
 	return (
 		<View style={tw`flex items-center pt-5`}>
@@ -41,7 +41,7 @@ export const CarouselPush = (data) => {
 					parallaxScrollingScale: 0.9,
 					parallaxScrollingOffset: window.parallaxScrollingOffset,
 				}}
-				data={data?.maps?.data}
+				data={data?.maps}
 				renderItem={(carousel) => <CarouselMain {...carousel} bgColour={bgColour} />}
 			/>
 		</View>

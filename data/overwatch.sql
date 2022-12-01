@@ -22,8 +22,6 @@ CREATE TABLE overwatch.map_mode (
 	type text NOT NULL,
 	description text NOT NULL,
 	index integer NOT NULL,
-	fk_hero_uuid UUID NOT NULL,
-	FOREIGN KEY (fk_hero_uuid ) REFERENCES overwatch.hero (hero_uuid)
 );
 
 CREATE TABLE overwatch.map (
