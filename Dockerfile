@@ -1,4 +1,3 @@
-# pull base image
 FROM node:16.18.0-buster-slim
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
@@ -10,13 +9,6 @@ WORKDIR /overwatch
 ENV PATH /overwatch/.bin:$PATH
 COPY ./package.json ./
 RUN npm install
-
-
-# WORKDIR /overwatch/app
-
-# COPY ./ .
-
-# RUN yarn
 
 ENTRYPOINT ["npm", "run"]
 CMD ["web"]
