@@ -13,7 +13,7 @@ export const Heroes = ({ navigation, route }) => {
 	const [colourArray, setColourArray] = useState([]);
 	const [index, setIndex] = useState(route?.params?.currentIndex?.current);
 
-	const { overwatch_heroes } = useContext(HeroesContext);
+	const { Heroes } = useContext(HeroesContext);
 
 	useEffect(() => {
 		setIndex(route?.params?.currentIndex?.current);
@@ -37,7 +37,7 @@ export const Heroes = ({ navigation, route }) => {
 			<Carousel
 				layout="default"
 				ref={isCarousel}
-				data={overwatch_heroes}
+				data={Heroes}
 				renderItem={(carousel) => CarouselCardItem(carousel, navigation, colourArray)}
 				width={SLIDER_WIDTH}
 				sliderWidth={SLIDER_WIDTH}
@@ -48,7 +48,7 @@ export const Heroes = ({ navigation, route }) => {
 				style={{ height: "90%" }}
 			/>
 			<Pagination
-				dotsLength={overwatch_heroes?.length}
+				dotsLength={Heroes?.length}
 				activeDotIndex={index}
 				containerStyle={{ flexWrap: "wrap", padding: 3, height: "10%" }}
 				dotStyle={{

@@ -19,7 +19,7 @@ export const PhoneMain = () => {
 	const isCarousel = useRef(null);
 	const currentIndex = useRef(0);
 
-	const { overwatch_heroes } = useContext(HeroesContext);
+	const { Heroes: overwatch_heroes } = useContext(HeroesContext);
 
 	return (
 		<NavigationContainer theme={DarkTheme}>

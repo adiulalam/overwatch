@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const getOverwatchData = gql`
 	query ListData {
-		overwatch_heroes: overwatch_hero(order_by: { name: asc }) {
+		Heroes: overwatch_hero(order_by: { name: asc }) {
 			hero_uuid
 			name
 			hero_image
@@ -16,7 +16,7 @@ export const getOverwatchData = gql`
 				ability_image
 			}
 		}
-		overwatch_maps: overwatch_map_mode(order_by: { index: asc }) {
+		Maps: overwatch_map_mode(order_by: { index: asc }) {
 			map_mode_uuid
 			type
 			description

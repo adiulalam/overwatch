@@ -12,12 +12,12 @@ export const Heroes = () => {
 	const [showHeroDetailKey, setShowHeroDetailKey] = useState(null);
 	const [colourArray, setColourArray] = useState([]);
 
-	const { overwatch_heroes } = useContext(HeroesContext);
+	const { Heroes } = useContext(HeroesContext);
 
 	useEffect(() => {
 		setColourArray(
 			randomColor({
-				count: overwatch_heroes?.length,
+				count: Heroes?.length,
 				luminosity: "light",
 			})
 		);
@@ -25,7 +25,7 @@ export const Heroes = () => {
 
 	return (
 		<View style={tw`flex flex-row flex-wrap justify-evenly bg-black p-2`}>
-			{overwatch_heroes?.map((hero, index) => (
+			{Heroes?.map((hero, index) => (
 				<View key={index} style={tw`flex h-119 w-69 rounded-xl m-2 bg-[${colourArray[index] ?? "#FFFFFF"}]`}>
 					<CardHeader hero_name={hero?.name} />
 					<Pressable

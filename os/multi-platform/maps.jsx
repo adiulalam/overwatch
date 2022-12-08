@@ -12,11 +12,11 @@ import { CarouselDeathmatch } from "./components/carousels/carouselDeathmatch";
 import { CarouselCTF } from "./components/carousels/carouselCTF";
 
 export const Maps = () => {
-	const { overwatch_maps } = useContext(HeroesContext);
+	const { Maps } = useContext(HeroesContext);
 
 	return (
 		<ScrollView style={tw`flex bg-black`}>
-			{overwatch_maps.map((element, i) =>
+			{Maps.map((element, i) =>
 				element?.type === "Push" ? (
 					<CarouselPush key={i} {...element} />
 				) : element?.type === "Escort" ? (
