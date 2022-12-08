@@ -1,6 +1,9 @@
 import { View, Text } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import Ionicons from "@expo/vector-icons/Ionicons";
 const { data } = require("./data.json");
+
+//todo implement deep-diff and _.differenceWith
 
 const MapsTab = createMaterialTopTabNavigator();
 const Maps = ({ navigation, route }) => {
@@ -37,14 +40,16 @@ const Heroes = ({ navigation, route }) => {
 	const heroes = route?.params?.Heroes;
 	console.log(heroes);
 	return (
-		// <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-		// 	<Text>Home!</Text>
-		// </View>
-
 		<HerosTab.Navigator
 			screenOptions={{ tabBarItemStyle: { width: 80 }, tabBarScrollEnabled: true, swipeEnabled: true }}
 		>
-			{/* <HerosTab.Screen name="Heroes" component={HeroesScreen} /> */}
+			<HerosTab.Screen
+				name="Add Hero"
+				component={HeroesScreen}
+				options={{
+					tabBarIcon: () => <Ionicons name="add" color={"green"} size={20} />,
+				}}
+			/>
 
 			{heroes.map((e, i) => (
 				<HerosTab.Screen
