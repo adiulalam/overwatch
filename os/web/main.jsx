@@ -6,7 +6,7 @@ import { NavigationContainer, DarkTheme } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Dimensions, Image, View } from "react-native";
 import tw from "twrnc";
-import { Admin } from "./admin/admin";
+import { Admin } from "./admin/main";
 
 const Drawer = createDrawerNavigator();
 
