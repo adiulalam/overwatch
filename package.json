@@ -21,6 +21,7 @@
 		"deep-diff": "^1.0.2",
 		"expo": "~47.0.3",
 		"expo-status-bar": "~1.4.2",
+		"expo-updates": "^0.15.6",
 		"graphql": "^15.8.0",
 		"lodash": "^4.17.21",
 		"nativewind": "^2.0.11",
