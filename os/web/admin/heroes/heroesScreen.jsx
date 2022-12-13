@@ -1,10 +1,10 @@
-import { View, Text, TextInput, ScrollView } from "react-native";
+import { View, Text, TextInput, ScrollView, Button } from "react-native";
 import tw from "twrnc";
 import { useEffect, useState } from "react";
 import { Input } from "../component/input";
-import DropDownPicker from "react-native-dropdown-picker";
 import { DropDown } from "../component/dropdown";
-
+import { diff, addedDiff, deletedDiff, updatedDiff, detailedDiff } from "deep-object-diff";
+const _ = require("lodash");
 //todo implement deep-diff and _.differenceWith
 
 export const HeroesScreen = ({ route }) => {
@@ -40,6 +40,11 @@ export const HeroesScreen = ({ route }) => {
 		});
 	};
 
+	const handleSubmit = () => {
+		const result = diff({ ...route?.params?.hero }, heroData);
+		console.log(result);
+	};
+
 	return (
 		<ScrollView style={tw`flex flex-col p-2`}>
 			<View style={tw`flex items-center justify-center`}>
@@ -69,6 +74,7 @@ export const HeroesScreen = ({ route }) => {
 						/>
 					)
 				)}
+				<Button onPress={handleSubmit} title="Submit" color="#841584" />
 			</View>
 		</ScrollView>
 	);

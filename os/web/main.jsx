@@ -55,18 +55,6 @@ export const WebMain = () => {
 					component={Admin}
 					options={{
 						headerTintColor: "white",
-						// drawerIcon: () => (
-						// 	<View>
-						// 		<Image
-						// 			style={tw`w-[${(Dimensions.get("window").width / 100) * 3}px] h-[${
-						// 				(Dimensions.get("window").width / 100) * 3
-						// 			}px]`}
-						// 			source={{
-						// 				uri: "https://cdn.dribbble.com/users/825214/screenshots/4212974/attachments/962927/kings_row-02.jpg",
-						// 			}}
-						// 		/>
-						// 	</View>
-						// ),
 					}}
 				/>
 			</Drawer.Navigator>

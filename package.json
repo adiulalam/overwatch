@@ -18,7 +18,7 @@
 		"@types/react": "^18.0.25",
 		"@types/react-native": "^0.70.7",
 		"autoprefixer": "^10.4.13",
-		"deep-diff": "^1.0.2",
+		"deep-object-diff": "^1.1.9",
 		"expo": "~47.0.3",
 		"expo-status-bar": "~1.4.2",
 		"expo-updates": "^0.15.6",
