@@ -1,14 +1,36 @@
-import { View, Text, TextInput, ScrollView, Button } from "react-native";
+import { View, ScrollView, Button, Text } from "react-native";
 import tw from "twrnc";
 import { useEffect, useState } from "react";
 import { Input } from "../component/input";
 import { DropDown } from "../component/dropdown";
-import { diff, addedDiff, deletedDiff, updatedDiff, detailedDiff } from "deep-object-diff";
-const _ = require("lodash");
-//todo implement deep-diff and _.differenceWith
+import { diff } from "deep-object-diff";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import _ from "lodash";
+
+const AbilitiesTab = createMaterialTopTabNavigator();
+
+function NotAvailable() {
+	return <View></View>;
+}
+
+function AbilitiesScreen({ route }) {
+	return (
+		<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+			<Text style={{ color: "white" }}>Settings!</Text>
+		</View>
+	);
+}
 
 export const HeroesScreen = ({ route }) => {
-	const [heroData, setHeroData] = useState({});
+	const [heroData, setHeroData] = useState({
+		name: "",
+		hero_image: "",
+		type: "",
+		difficulty: "",
+		description: "",
+	});
+	const abilities = [...(route?.params?.hero?.abilities ?? [])];
 
 	const [typeOpen, setTypeOpen] = useState(false);
 	const [typeValue, setTypeValue] = useState(null);
@@ -27,9 +49,19 @@ export const HeroesScreen = ({ route }) => {
 	]);
 
 	useEffect(() => {
-		setHeroData({ ...route?.params?.hero });
-		setTypeValue(route?.params?.hero?.type);
-		setDifficultyValue(route?.params?.hero?.difficulty);
+		setHeroData(
+			route?.name === "Add Hero"
+				? {
+						name: "",
+						hero_image: "",
+						type: null,
+						difficulty: null,
+						description: "",
+				  }
+				: { ...route?.params?.hero }
+		);
+		setTypeValue(route?.params?.hero?.type ?? null);
+		setDifficultyValue(route?.params?.hero?.difficulty ?? null);
 		return () => heroData;
 	}, [route?.params?.hero]);
 
@@ -42,40 +74,68 @@ export const HeroesScreen = ({ route }) => {
 
 	const handleSubmit = () => {
 		const result = diff({ ...route?.params?.hero }, heroData);
-		console.log(result);
+		let isEmpty = false;
+		Object.entries(result).map(([key, value]) => (value === null || value === "" ? (isEmpty = true) : null));
+		if (_.isEmpty(result)) isEmpty = true;
+
+		console.log(isEmpty, result);
 	};
 
 	return (
-		<ScrollView style={tw`flex flex-col p-2`}>
-			<View style={tw`flex items-center justify-center`}>
-				{Object?.keys(heroData ?? {})?.map((element, i) =>
-					element === "abilities" ? null : element === "hero_uuid" ? (
-						<Input element={element} value={heroData[element]} key={i} editable={false} />
-					) : element === "type" || element === "difficulty" ? (
-						<DropDown
+		<>
+			<ScrollView style={tw`flex flex-col p-2`}>
+				<AbilitiesTab.Navigator
+					screenOptions={{ tabBarItemStyle: { width: 100 }, tabBarScrollEnabled: true, swipeEnabled: false }}
+				>
+					<AbilitiesTab.Screen
+						name={route?.name === "Add Hero" ? "Add Hero" : `${heroData?.name} - Add Ability`}
+						component={route?.name === "Add Hero" ? NotAvailable : AbilitiesScreen}
+						options={{
+							tabBarIcon: () => <Ionicons name="add" color={"green"} size={20} />,
+							tabBarStyle: { display: route?.name === "Add Hero" ? "none" : "flex" },
+						}}
+					/>
+
+					{abilities.map((e, i) => (
+						<AbilitiesTab.Screen
+							name={`${heroData?.name} - ${e?.name} [${i}]`}
 							key={i}
-							element={element}
-							open={element === "type" ? typeOpen : difficultyOpen}
-							value={element === "type" ? typeValue : difficultyValue}
-							items={element === "type" ? typeItems : difficultyItems}
-							setOpen={element === "type" ? setTypeOpen : setDifficultyOpen}
-							setValue={element === "type" ? setTypeValue : setDifficultyValue}
-							setItems={element === "type" ? setTypeItems : setDifficultyItems}
-							handleTextChange={handleTextChange}
+							component={AbilitiesScreen}
+							initialParams={{ ability: e, abilityTabIndex: i }}
 						/>
-					) : (
-						<Input
-							element={element}
-							value={heroData[element]}
-							key={i}
-							handleTextChange={handleTextChange}
-							numberOfLines={element === "description" ? 6 : 1}
-							multiline={element === "description" ? true : false}
-						/>
-					)
-				)}
-				<Button onPress={handleSubmit} title="Submit" color="#841584" />
-			</View>
-		</ScrollView>
+					))}
+				</AbilitiesTab.Navigator>
+
+				<View style={tw`flex items-center justify-center`}>
+					{Object?.keys(heroData ?? {})?.map((element, i) =>
+						element === "abilities" ? null : element === "hero_uuid" ? (
+							<Input element={element} value={heroData[element]} key={i} editable={false} />
+						) : element === "type" || element === "difficulty" ? (
+							<DropDown
+								key={i}
+								element={element}
+								open={element === "type" ? typeOpen : difficultyOpen}
+								value={element === "type" ? typeValue : difficultyValue}
+								items={element === "type" ? typeItems : difficultyItems}
+								setOpen={element === "type" ? setTypeOpen : setDifficultyOpen}
+								setValue={element === "type" ? setTypeValue : setDifficultyValue}
+								setItems={element === "type" ? setTypeItems : setDifficultyItems}
+								handleTextChange={handleTextChange}
+							/>
+						) : (
+							<Input
+								element={element}
+								value={heroData[element]}
+								key={i}
+								handleTextChange={handleTextChange}
+								numberOfLines={element === "description" ? 6 : 1}
+								multiline={element === "description" ? true : false}
+							/>
+						)
+					)}
+					<Button onPress={handleSubmit} title="Submit" color="#841584" />
+				</View>
+			</ScrollView>
+		</>
 	);
 };

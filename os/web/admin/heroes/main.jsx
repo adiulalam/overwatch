@@ -1,16 +1,10 @@
-import { View, Text, TextInput } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import tw from "twrnc";
-import { useEffect, useState } from "react";
 import { HeroesScreen } from "./heroesScreen";
 
-//todo implement deep-diff and _.differenceWith
-
 const HeroesTab = createMaterialTopTabNavigator();
-export const Heroes = ({ navigation, route }) => {
-	const heroes = route?.params?.Heroes;
-	// console.log(heroes);
+export const Heroes = ({ route }) => {
+	const heroes = [...route?.params?.Heroes];
 	return (
 		<HeroesTab.Navigator
 			screenOptions={{ tabBarItemStyle: { width: 80 }, tabBarScrollEnabled: true, swipeEnabled: false }}
