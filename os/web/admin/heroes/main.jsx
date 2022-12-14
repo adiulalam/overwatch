@@ -3,7 +3,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { HeroesScreen } from "./heroesScreen";
 
 const HeroesTab = createMaterialTopTabNavigator();
-export const Heroes = ({ route }) => {
+export const MutateHeroes = ({ route }) => {
 	const heroes = [...route?.params?.Heroes];
 	return (
 		<HeroesTab.Navigator

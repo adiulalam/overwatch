@@ -23,13 +23,7 @@ function AbilitiesScreen({ route }) {
 }
 
 export const HeroesScreen = ({ route }) => {
-	const [heroData, setHeroData] = useState({
-		name: "",
-		hero_image: "",
-		type: "",
-		difficulty: "",
-		description: "",
-	});
+	const [heroData, setHeroData] = useState({});
 	const abilities = [...(route?.params?.hero?.abilities ?? [])];
 
 	const [typeOpen, setTypeOpen] = useState(false);
@@ -88,7 +82,7 @@ export const HeroesScreen = ({ route }) => {
 					screenOptions={{ tabBarItemStyle: { width: 100 }, tabBarScrollEnabled: true, swipeEnabled: false }}
 				>
 					<AbilitiesTab.Screen
-						name={route?.name === "Add Hero" ? "Add Hero" : `${heroData?.name} - Add Ability`}
+						name={route?.name === "Add Hero" ? "Add Ability" : `${heroData?.name} - Add Ability`}
 						component={route?.name === "Add Hero" ? NotAvailable : AbilitiesScreen}
 						options={{
 							tabBarIcon: () => <Ionicons name="add" color={"green"} size={20} />,

@@ -4,7 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 const { data } = require("./data.json");
 import tw from "twrnc";
 import { useEffect, useState } from "react";
-import { Heroes } from "./heroes/main";
+import { MutateHeroes } from "./heroes/main";
 
 //todo implement deep-diff and _.differenceWith
 
@@ -41,7 +41,7 @@ export const Admin = () => {
 				<MainTab.Screen
 					name={e}
 					key={i}
-					component={e === "Heroes" ? Heroes : Maps}
+					component={e === "Heroes" ? MutateHeroes : Maps}
 					initialParams={{ [e]: data[e], mainTabIndex: i }}
 				/>
 			))}

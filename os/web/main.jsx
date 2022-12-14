@@ -11,8 +11,24 @@ import { Admin } from "./admin/main";
 const Drawer = createDrawerNavigator();
 
 export const WebMain = () => {
+	const linking = {
+		config: {
+			screens: {
+				NotFound: "*",
+				Heroes: "heroes",
+				Maps: "maps",
+				Admin: {
+					screens: {
+						MutateHeroes: {
+							path: "admin",
+						},
+					},
+				},
+			},
+		},
+	};
 	return (
-		<NavigationContainer theme={DarkTheme}>
+		<NavigationContainer theme={DarkTheme} linking={linking}>
 			<Drawer.Navigator initialRouteName="Admin">
 				<Drawer.Screen
 					name="Heroes"
