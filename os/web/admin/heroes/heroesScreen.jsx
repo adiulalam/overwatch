@@ -7,6 +7,9 @@ import { diff } from "deep-object-diff";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import _ from "lodash";
+import { mutationClient } from "../../../../connection/client";
+import { heroUpdateMutation } from "../../../../connection/mutation";
+import { useMutation } from "@apollo/client";
 
 const AbilitiesTab = createMaterialTopTabNavigator();
 
@@ -24,6 +27,7 @@ function AbilitiesScreen({ route }) {
 
 export const HeroesScreen = ({ route }) => {
 	const [heroData, setHeroData] = useState({});
+	const [client, setClient] = useState("");
 	const abilities = [...(route?.params?.hero?.abilities ?? [])];
 
 	const [typeOpen, setTypeOpen] = useState(false);
@@ -56,6 +60,8 @@ export const HeroesScreen = ({ route }) => {
 		);
 		setTypeValue(route?.params?.hero?.type ?? null);
 		setDifficultyValue(route?.params?.hero?.difficulty ?? null);
+		const getClient = async () => setClient(await mutationClient());
+		getClient();
 		return () => heroData;
 	}, [route?.params?.hero]);
 
@@ -67,13 +73,34 @@ export const HeroesScreen = ({ route }) => {
 		});
 	};
 
-	const handleSubmit = () => {
+	const [getHeroMutation, { error }] = useMutation(heroUpdateMutation, { client: client });
+	const handleSubmit = async () => {
 		const result = diff({ ...route?.params?.hero }, heroData);
 		let isEmpty = false;
 		Object.entries(result).map(([key, value]) => (value === null || value === "" ? (isEmpty = true) : null));
 		if (_.isEmpty(result)) isEmpty = true;
+		if (isEmpty) {
+			console.log("Error empty object");
+			return false;
+		}
+		if (route?.name === "Add Hero") {
+			console.log("Add Hero");
+		} else if (heroData.hero_uuid.split("").length > 35) {
+			const uuid = heroData.hero_uuid;
+			const variables = {
+				variables: { pk_uuid: { hero_uuid: uuid }, _set: result },
+			};
 
-		console.log(isEmpty, result);
+			await getHeroMutation(variables);
+			if (error) {
+				console.log("Error updating heroes", error);
+				return false;
+			}
+
+			window.location.href = "/admin";
+		} else {
+			console.log("No mutation type found for heroes");
+		}
 	};
 
 	const handleImageChange = (e) => {

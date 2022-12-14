@@ -9,6 +9,7 @@ const storeData = async (value) => {
 		await AsyncStorage.setItem("@storageKey", value);
 	} catch (e) {
 		console.log("Error saving key", e);
+		return false;
 	}
 };
 
@@ -26,6 +27,7 @@ export const Settings = () => {
 				return "";
 			} catch (e) {
 				console.log("Error reading key", e);
+				return false;
 			}
 		};
 		getData();
