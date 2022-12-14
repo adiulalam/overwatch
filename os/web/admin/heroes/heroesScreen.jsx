@@ -91,6 +91,10 @@ export const HeroesScreen = ({ route }) => {
 		}
 
 		const fullName = `${heroName}/${newHeroImage + extention}`;
+
+		//Keep this clg
+		console.log({ [fullName]: `require('../assets/overwatch/heroes/${fullName})` });
+
 		setHeroData({
 			...heroData,
 			hero_image: fullName,
@@ -157,9 +161,6 @@ export const HeroesScreen = ({ route }) => {
 							color="#841584"
 						/>
 					</View>
-					{/* <View>
-						<input type="file" onChange={handleImageChange} accept="image/*" />
-					</View> */}
 				</View>
 			</ScrollView>
 		</>

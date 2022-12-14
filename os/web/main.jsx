@@ -17,6 +17,7 @@ export const WebMain = () => {
 				NotFound: "*",
 				Heroes: "heroes",
 				Maps: "maps",
+				Settings: "settings",
 				Admin: {
 					screens: {
 						Heroes: {
