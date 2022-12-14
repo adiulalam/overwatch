@@ -17,6 +17,7 @@ export const DropDown = ({ element, value, setValue, open, setOpen, items, setIt
 					setValue={setValue}
 					setItems={setItems}
 					onChangeValue={(text) => handleTextChange(text, element)}
+					containerStyle={{ textAlign: dimensionsMap.lg ? "left" : "center" }}
 				/>
 			</View>
 		</View>
