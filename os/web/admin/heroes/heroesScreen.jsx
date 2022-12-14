@@ -77,7 +77,7 @@ export const HeroesScreen = ({ route }) => {
 
 	return (
 		<>
-			<ScrollView style={tw`flex flex-col p-2`}>
+			<ScrollView style={tw`flex flex-col py-10`}>
 				<AbilitiesTab.Navigator
 					screenOptions={{ tabBarItemStyle: { width: 100 }, tabBarScrollEnabled: true, swipeEnabled: false }}
 				>
@@ -127,7 +127,13 @@ export const HeroesScreen = ({ route }) => {
 							/>
 						)
 					)}
-					<Button onPress={handleSubmit} title="Submit" color="#841584" />
+					<View style={tw`flex min-w-20`}>
+						<Button
+							onPress={handleSubmit}
+							title={route?.name === "Add Hero" ? "Add" : "Edit"}
+							color="#841584"
+						/>
+					</View>
 				</View>
 			</ScrollView>
 		</>

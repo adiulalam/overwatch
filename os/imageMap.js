@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import randomColor from "randomcolor";
+import { Dimensions } from "react-native";
 
 export const heroMap = {
 	"ana/profile_pic.png": require("../assets/overwatch/heroes/ana/profile_pic.png"),
@@ -266,4 +267,11 @@ export const colorMap = (length, mode) => {
 	}, []);
 
 	return colourArray;
+};
+
+const width = Dimensions.get("window").width ?? 0;
+export const dimensionsMap = {
+	sm: width <= 640,
+	md: width > 640 && width <= 768,
+	lg: width > 768,
 };

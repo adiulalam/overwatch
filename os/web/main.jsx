@@ -19,7 +19,7 @@ export const WebMain = () => {
 				Maps: "maps",
 				Admin: {
 					screens: {
-						MutateHeroes: {
+						Heroes: {
 							path: "admin",
 						},
 					},
