@@ -60,6 +60,7 @@ export const HeroesScreen = ({ route }) => {
 	}, [route?.params?.hero]);
 
 	const handleTextChange = (text, key) => {
+		// console.log(text);
 		setHeroData({
 			...heroData,
 			[key]: text,
@@ -73,6 +74,27 @@ export const HeroesScreen = ({ route }) => {
 		if (_.isEmpty(result)) isEmpty = true;
 
 		console.log(isEmpty, result);
+	};
+
+	const handleImageChange = (e) => {
+		const heroName = heroData?.name?.replace(/[^0-9a-z]/gi, "_")?.toLowerCase() ?? "";
+		const extention = "." + e?.target?.files?.[0]?.name.split(".").pop();
+		const newHeroImage =
+			e?.target?.files?.[0]?.name
+				?.replace(extention, "")
+				?.replace(/[^0-9a-z]/gi, "_")
+				?.toLowerCase() ?? "";
+
+		if (!heroName) {
+			console.log("No Hero Name found");
+			return (window.location.href = "/admin");
+		}
+
+		const fullName = `${heroName}/${newHeroImage + extention}`;
+		setHeroData({
+			...heroData,
+			hero_image: fullName,
+		});
 	};
 
 	return (
@@ -124,6 +146,7 @@ export const HeroesScreen = ({ route }) => {
 								handleTextChange={handleTextChange}
 								numberOfLines={element === "description" ? 6 : 1}
 								multiline={element === "description" ? true : false}
+								handleImageChange={handleImageChange}
 							/>
 						)
 					)}
@@ -134,6 +157,9 @@ export const HeroesScreen = ({ route }) => {
 							color="#841584"
 						/>
 					</View>
+					{/* <View>
+						<input type="file" onChange={handleImageChange} accept="image/*" />
+					</View> */}
 				</View>
 			</ScrollView>
 		</>
