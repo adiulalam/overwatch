@@ -10,21 +10,10 @@ import _ from "lodash";
 import { mutationClient } from "../../../../connection/client";
 import { heroInsertMutation, heroUpdateMutation } from "../../../../connection/mutation";
 import { useMutation } from "@apollo/client";
+import { NotAvailable } from "./notFound";
+import { AbilitiesScreen } from "./abilitiesScreen";
 
 const AbilitiesTab = createMaterialTopTabNavigator();
-
-function NotAvailable() {
-	return <View></View>;
-}
-
-function AbilitiesScreen({ route }) {
-	return (
-		<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-			<Text style={{ color: "white" }}>Settings!</Text>
-		</View>
-	);
-}
-
 export const HeroesScreen = ({ route }) => {
 	const [heroData, setHeroData] = useState({});
 	const [client, setClient] = useState("");
@@ -159,7 +148,11 @@ export const HeroesScreen = ({ route }) => {
 							name={`${heroData?.name} - ${e?.name} [${i}]`}
 							key={i}
 							component={AbilitiesScreen}
-							initialParams={{ ability: e, abilityTabIndex: i }}
+							initialParams={{
+								ability: e,
+								abilityTabIndex: i,
+								hero: { hero_uuid: heroData?.hero_uuid, name: heroData?.name },
+							}}
 						/>
 					))}
 				</AbilitiesTab.Navigator>
