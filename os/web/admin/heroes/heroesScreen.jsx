@@ -7,8 +7,8 @@ import { diff } from "deep-object-diff";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import _ from "lodash";
-import { client, mutationClient } from "../../../../connection/client";
-import { heroUpdateMutation } from "../../../../connection/mutation";
+import { mutationClient } from "../../../../connection/client";
+import { heroInsertMutation, heroUpdateMutation } from "../../../../connection/mutation";
 import { useMutation } from "@apollo/client";
 
 const AbilitiesTab = createMaterialTopTabNavigator();
@@ -72,7 +72,9 @@ export const HeroesScreen = ({ route }) => {
 		});
 	};
 
-	const [updateHeroMutation, { error }] = useMutation(heroUpdateMutation, { client: client });
+	const [insertHeroMutation, { data, error: insertError }] = useMutation(heroInsertMutation, { client: client });
+	const [updateHeroMutation, { error: updateError }] = useMutation(heroUpdateMutation, { client: client });
+
 	const handleSubmit = async () => {
 		const result = diff({ ...route?.params?.hero }, heroData);
 		let isEmpty = false;
@@ -84,8 +86,16 @@ export const HeroesScreen = ({ route }) => {
 		}
 
 		setClient(await mutationClient());
+
 		if (route?.name === "Add Hero") {
-			console.log("Add Hero");
+			const variables = {
+				variables: { object: result },
+			};
+			await insertHeroMutation(variables);
+			if (insertError) {
+				console.log("Error inserting heroes", insertError);
+				return false;
+			}
 		} else if (heroData.hero_uuid.split("").length > 35) {
 			const uuid = heroData.hero_uuid;
 			const variables = {
@@ -93,8 +103,8 @@ export const HeroesScreen = ({ route }) => {
 			};
 
 			await updateHeroMutation(variables);
-			if (error) {
-				console.log("Error updating heroes", error);
+			if (updateError) {
+				console.log("Error updating heroes", updateError);
 				return false;
 			}
 
