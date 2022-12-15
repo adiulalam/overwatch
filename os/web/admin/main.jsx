@@ -2,12 +2,8 @@ import { View, Text, TextInput } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
 const { data } = require("./data.json");
-import tw from "twrnc";
-import { useEffect, useState } from "react";
 import { MutateHeroes } from "./heroes/main";
 import { Settings } from "./settings/main";
-
-//todo implement deep-diff and _.differenceWith
 
 const MapsTab = createMaterialTopTabNavigator();
 const MutateMaps = ({ navigation, route }) => {

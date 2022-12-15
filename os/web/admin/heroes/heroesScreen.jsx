@@ -7,7 +7,7 @@ import { diff } from "deep-object-diff";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import _ from "lodash";
-import { mutationClient } from "../../../../connection/client";
+import { client, mutationClient } from "../../../../connection/client";
 import { heroUpdateMutation } from "../../../../connection/mutation";
 import { useMutation } from "@apollo/client";
 
@@ -60,10 +60,9 @@ export const HeroesScreen = ({ route }) => {
 		);
 		setTypeValue(route?.params?.hero?.type ?? null);
 		setDifficultyValue(route?.params?.hero?.difficulty ?? null);
-		const getClient = async () => setClient(await mutationClient());
-		getClient();
+
 		return () => heroData;
-	}, [route?.params?.hero]);
+	}, [route?.params]);
 
 	const handleTextChange = (text, key) => {
 		// console.log(text);
@@ -73,7 +72,7 @@ export const HeroesScreen = ({ route }) => {
 		});
 	};
 
-	const [getHeroMutation, { error }] = useMutation(heroUpdateMutation, { client: client });
+	const [updateHeroMutation, { error }] = useMutation(heroUpdateMutation, { client: client });
 	const handleSubmit = async () => {
 		const result = diff({ ...route?.params?.hero }, heroData);
 		let isEmpty = false;
@@ -83,6 +82,8 @@ export const HeroesScreen = ({ route }) => {
 			console.log("Error empty object");
 			return false;
 		}
+
+		setClient(await mutationClient());
 		if (route?.name === "Add Hero") {
 			console.log("Add Hero");
 		} else if (heroData.hero_uuid.split("").length > 35) {
@@ -91,7 +92,7 @@ export const HeroesScreen = ({ route }) => {
 				variables: { pk_uuid: { hero_uuid: uuid }, _set: result },
 			};
 
-			await getHeroMutation(variables);
+			await updateHeroMutation(variables);
 			if (error) {
 				console.log("Error updating heroes", error);
 				return false;
