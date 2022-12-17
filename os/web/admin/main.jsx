@@ -4,6 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 const { data } = require("./data.json");
 import { MutateHeroes } from "./heroes/main";
 import { Settings } from "./settings/main";
+import { NavigationContainer, DarkTheme } from "@react-navigation/native";
 
 const MapsTab = createMaterialTopTabNavigator();
 const MutateMaps = ({ navigation, route }) => {
@@ -29,20 +30,20 @@ function SettingsScreen() {
 
 const MainTab = createMaterialTopTabNavigator();
 
-export const Admin = () => {
-	// console.log(overwatch);
-
+export const Admin = ({ navigation, route }) => {
 	return (
-		<MainTab.Navigator screenOptions={{ swipeEnabled: false }}>
-			{Object.keys(data).map((e, i) => (
-				<MainTab.Screen
-					name={e}
-					key={i}
-					component={e === "Heroes" ? MutateHeroes : MutateMaps}
-					initialParams={{ [e]: data[e], mainTabIndex: i }}
-				/>
-			))}
-			<MainTab.Screen name={"Settings"} component={Settings} />
-		</MainTab.Navigator>
+		<NavigationContainer independent={true} theme={DarkTheme}>
+			<MainTab.Navigator screenOptions={{ swipeEnabled: false }}>
+				{Object.keys(data).map((e, i) => (
+					<MainTab.Screen
+						name={e}
+						key={i}
+						component={e === "Heroes" ? MutateHeroes : MutateMaps}
+						initialParams={{ [e]: data[e], mainTabIndex: i }}
+					/>
+				))}
+				<MainTab.Screen name={"Settings"} component={Settings} />
+			</MainTab.Navigator>
+		</NavigationContainer>
 	);
 };

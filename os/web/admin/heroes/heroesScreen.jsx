@@ -127,7 +127,6 @@ export const HeroesScreen = ({ route }) => {
 			hero_image: fullName,
 		});
 	};
-
 	return (
 		<>
 			<ScrollView style={tw`flex flex-col py-10`}>
@@ -140,6 +139,13 @@ export const HeroesScreen = ({ route }) => {
 						options={{
 							tabBarIcon: () => <Ionicons name="add" color={"green"} size={20} />,
 							tabBarStyle: { display: route?.name === "Add Hero" ? "none" : "flex" },
+						}}
+						initialParams={{
+							ability: {
+								name: "",
+								type: null,
+								ability_image: "",
+							},
 						}}
 					/>
 
@@ -188,7 +194,7 @@ export const HeroesScreen = ({ route }) => {
 					<View style={tw`flex min-w-20`}>
 						<Button
 							onPress={handleSubmit}
-							title={route?.name === "Add Hero" ? "Add" : "Edit"}
+							title={route?.name === "Add Hero" ? "Add Hero" : "Edit Hero"}
 							color="#841584"
 						/>
 					</View>
