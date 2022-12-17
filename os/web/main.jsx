@@ -23,7 +23,7 @@ export const WebMain = () => {
 	};
 	return (
 		<NavigationContainer theme={DarkTheme} linking={linking}>
-			<Drawer.Navigator initialRouteName="Admin">
+			<Drawer.Navigator initialRouteName="Heroes">
 				<Drawer.Screen
 					name="Heroes"
 					component={Heroes}
@@ -65,6 +65,9 @@ export const WebMain = () => {
 					component={Admin}
 					options={{
 						headerTintColor: "white",
+						drawerItemStyle: {
+							display: "none",
+						},
 					}}
 				/>
 			</Drawer.Navigator>

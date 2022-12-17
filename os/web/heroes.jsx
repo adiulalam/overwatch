@@ -32,6 +32,9 @@ export const Heroes = () => {
 						key={index}
 						onHoverIn={() => setShowHeroDetailKey(index)}
 						onHoverOut={() => setShowHeroDetailKey(null)}
+						onPress={() =>
+							showHeroDetailKey === null ? setShowHeroDetailKey(index) : setShowHeroDetailKey(null)
+						}
 					>
 						<CardBody
 							hero={hero}
