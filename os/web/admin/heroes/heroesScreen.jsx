@@ -35,6 +35,9 @@ export const HeroesScreen = ({ route }) => {
 		{ label: "3", value: 3 },
 	]);
 
+	const [insertHeroMutation, { data, error: insertError }] = useMutation(heroInsertMutation, { client: client });
+	const [updateHeroMutation, { error: updateError }] = useMutation(heroUpdateMutation, { client: client });
+
 	useEffect(() => {
 		setHeroData(
 			route?.name === "Add Hero"
@@ -61,8 +64,31 @@ export const HeroesScreen = ({ route }) => {
 		});
 	};
 
-	const [insertHeroMutation, { data, error: insertError }] = useMutation(heroInsertMutation, { client: client });
-	const [updateHeroMutation, { error: updateError }] = useMutation(heroUpdateMutation, { client: client });
+	const handleImageChange = (e) => {
+		const heroName = heroData?.name?.replace(/[^0-9a-z]/gi, "_")?.toLowerCase() ?? "";
+		const extention = "." + e?.target?.files?.[0]?.name.split(".").pop();
+		const newHeroImage =
+			e?.target?.files?.[0]?.name
+				?.replace(extention, "")
+				?.replace(/[^0-9a-z]/gi, "_")
+				?.toLowerCase() ?? "";
+
+		if (!heroName) {
+			console.log("No Hero Name found");
+			window.location.href = "/admin";
+			return false;
+		}
+
+		const fullName = `${heroName}/${newHeroImage + extention}`;
+
+		//Keep this clg
+		console.log({ [fullName]: `require('../assets/overwatch/heroes/${fullName})` });
+
+		setHeroData({
+			...heroData,
+			hero_image: fullName,
+		});
+	};
 
 	const handleSubmit = async () => {
 		const result = diff({ ...route?.params?.hero }, heroData);
@@ -103,30 +129,6 @@ export const HeroesScreen = ({ route }) => {
 		}
 	};
 
-	const handleImageChange = (e) => {
-		const heroName = heroData?.name?.replace(/[^0-9a-z]/gi, "_")?.toLowerCase() ?? "";
-		const extention = "." + e?.target?.files?.[0]?.name.split(".").pop();
-		const newHeroImage =
-			e?.target?.files?.[0]?.name
-				?.replace(extention, "")
-				?.replace(/[^0-9a-z]/gi, "_")
-				?.toLowerCase() ?? "";
-
-		if (!heroName) {
-			console.log("No Hero Name found");
-			return (window.location.href = "/admin");
-		}
-
-		const fullName = `${heroName}/${newHeroImage + extention}`;
-
-		//Keep this clg
-		console.log({ [fullName]: `require('../assets/overwatch/heroes/${fullName})` });
-
-		setHeroData({
-			...heroData,
-			hero_image: fullName,
-		});
-	};
 	return (
 		<>
 			<ScrollView style={tw`flex flex-col py-10`}>
@@ -134,14 +136,16 @@ export const HeroesScreen = ({ route }) => {
 					screenOptions={{ tabBarItemStyle: { width: 100 }, tabBarScrollEnabled: true, swipeEnabled: false }}
 				>
 					<AbilitiesTab.Screen
-						name={route?.name === "Add Hero" ? "Add Ability" : `${heroData?.name} - Add Ability`}
+						name={route?.name === "Add Hero" ? "Add Hero" : `${heroData?.name} - Add Ability`}
 						component={route?.name === "Add Hero" ? NotAvailable : AbilitiesScreen}
 						options={{
 							tabBarIcon: () => <Ionicons name="add" color={"green"} size={20} />,
 							tabBarStyle: { display: route?.name === "Add Hero" ? "none" : "flex" },
 						}}
 						initialParams={{
+							hero: { hero_uuid: heroData?.hero_uuid, name: heroData?.name },
 							ability: {
+								fk_hero_uuid: heroData?.hero_uuid,
 								name: "",
 								type: null,
 								ability_image: "",

@@ -11,24 +11,28 @@
 				"abilities": [
 					{
 						"ability_uuid": "18f4556c-b41e-48c9-a2e1-ad0525f3d2c2",
+						"fk_hero_uuid": "7e632fbb-347e-43ac-8d38-83eecb67d297",
 						"name": "Biotic Rifle",
 						"type": "Primary Weapon",
 						"ability_image": "ana/biotic_rifle.png"
 					},
 					{
 						"ability_uuid": "9b64a145-c8ac-405b-a4cc-93aa7469d2ea",
+						"fk_hero_uuid": "7e632fbb-347e-43ac-8d38-83eecb67d297",
 						"name": "Sleep Dart",
 						"type": "Ability",
 						"ability_image": "ana/sleep_dart.png"
 					},
 					{
 						"ability_uuid": "aac29399-6292-4cf7-8abf-07843f0dbd42",
+						"fk_hero_uuid": "7e632fbb-347e-43ac-8d38-83eecb67d297",
 						"name": "Biotic Grenade",
 						"type": "Ability",
 						"ability_image": "ana/biotic_grenade.png"
 					},
 					{
 						"ability_uuid": "9d8d57f6-8e10-4ffd-878e-09653306362a",
+						"fk_hero_uuid": "7e632fbb-347e-43ac-8d38-83eecb67d297",
 						"name": "Nano Boost",
 						"type": "Ultimate",
 						"ability_image": "ana/nano_boost.png"
@@ -45,24 +49,28 @@
 				"abilities": [
 					{
 						"ability_uuid": "34c84455-3fb1-4121-a826-b733c1d6ff6b",
+						"fk_hero_uuid": "bcdf9c34-1ce1-4944-8c19-f9404cc2214c",
 						"name": "The Viper",
 						"type": "Primary Weapon",
 						"ability_image": "ashe/the_viper.png"
 					},
 					{
 						"ability_uuid": "cf05fcc9-c1d8-4ea0-a125-208257673f12",
+						"fk_hero_uuid": "bcdf9c34-1ce1-4944-8c19-f9404cc2214c",
 						"name": "Dynamite",
 						"type": "Ability",
 						"ability_image": "ashe/dynamite.png"
 					},
 					{
 						"ability_uuid": "59354666-7746-4e48-8263-35cc974f1e04",
+						"fk_hero_uuid": "bcdf9c34-1ce1-4944-8c19-f9404cc2214c",
 						"name": "Coach Gun",
 						"type": "Ability",
 						"ability_image": "ashe/coach_gun.png"
 					},
 					{
 						"ability_uuid": "c46d11ff-eb46-4021-b3a0-e1a7d1754660",
+						"fk_hero_uuid": "bcdf9c34-1ce1-4944-8c19-f9404cc2214c",
 						"name": "B.O.B.",
 						"type": "Ultimate",
 						"ability_image": "ashe/b_o_b_.png"
@@ -79,36 +87,42 @@
 				"abilities": [
 					{
 						"ability_uuid": "c786f6ca-924f-41a2-9599-0bd299869e71",
+						"fk_hero_uuid": "b677b060-b588-4756-b749-411de735c57c",
 						"name": "Biotic Launcher",
 						"type": "Primary Weapon",
 						"ability_image": "baptiste/biotic_launcher.png"
 					},
 					{
 						"ability_uuid": "6e26f20d-90f0-4269-b911-a83bf01f5e3a",
+						"fk_hero_uuid": "b677b060-b588-4756-b749-411de735c57c",
 						"name": "Biotic Launcher",
 						"type": "Secondary Weapon",
 						"ability_image": "baptiste/biotic_launcher.png"
 					},
 					{
 						"ability_uuid": "55076390-8d0e-4153-8f18-25fa68198631",
+						"fk_hero_uuid": "b677b060-b588-4756-b749-411de735c57c",
 						"name": "Regenerative Burst",
 						"type": "Ability",
 						"ability_image": "baptiste/regenerative_burst.png"
 					},
 					{
 						"ability_uuid": "49375379-d116-4c8e-aa6c-62ab0565a4eb",
+						"fk_hero_uuid": "b677b060-b588-4756-b749-411de735c57c",
 						"name": "Immortality Field",
 						"type": "Ability",
 						"ability_image": "baptiste/immortality_field.png"
 					},
 					{
 						"ability_uuid": "1f2f357b-9b55-4c0e-bda9-69a7a9ae0ed1",
+						"fk_hero_uuid": "b677b060-b588-4756-b749-411de735c57c",
 						"name": "Amplification Matrix",
 						"type": "Ultimate",
 						"ability_image": "baptiste/amplification_matrix.png"
 					},
 					{
 						"ability_uuid": "ae82f716-126a-4a18-990e-9da4e76c6da2",
+						"fk_hero_uuid": "b677b060-b588-4756-b749-411de735c57c",
 						"name": "Exo Boots",
 						"type": "Passive",
 						"ability_image": "baptiste/exo_boots.png"
@@ -125,36 +139,42 @@
 				"abilities": [
 					{
 						"ability_uuid": "402ee4da-33bf-4a5a-8551-05850726bdb2",
+						"fk_hero_uuid": "b3872bd0-8e78-4b38-81a8-c5ae1e833f1d",
 						"name": "Configuration: Recon",
 						"type": "Primary Weapon",
 						"ability_image": "bastion/configuration__recon.png"
 					},
 					{
 						"ability_uuid": "f1100959-69da-4333-bcdf-1187c2750b15",
+						"fk_hero_uuid": "b3872bd0-8e78-4b38-81a8-c5ae1e833f1d",
 						"name": "Configuration: Assault",
 						"type": "Weapon Two",
 						"ability_image": "bastion/configuration__assault.png"
 					},
 					{
 						"ability_uuid": "b1a483d3-aaa9-423b-8246-fcc15ead0f95",
+						"fk_hero_uuid": "b3872bd0-8e78-4b38-81a8-c5ae1e833f1d",
 						"name": "Reconfigure",
 						"type": "Ability",
 						"ability_image": "bastion/reconfigure.png"
 					},
 					{
 						"ability_uuid": "015df799-af48-4764-b69e-134c4f991d68",
+						"fk_hero_uuid": "b3872bd0-8e78-4b38-81a8-c5ae1e833f1d",
 						"name": "A-36 Tactical Grenade",
 						"type": "Ability",
 						"ability_image": "bastion/a_36_tactical_grenade.png"
 					},
 					{
 						"ability_uuid": "35fa35ca-b108-42f0-93e6-88f544ead2fe",
+						"fk_hero_uuid": "b3872bd0-8e78-4b38-81a8-c5ae1e833f1d",
 						"name": "Configuration: Artillery",
 						"type": "Ultimate",
 						"ability_image": "bastion/configuration__artillery.png"
 					},
 					{
 						"ability_uuid": "a66f29d2-e73a-4a8e-8a20-9ac4ab911e5e",
+						"fk_hero_uuid": "b3872bd0-8e78-4b38-81a8-c5ae1e833f1d",
 						"name": "Ironclad",
 						"type": "Passive",
 						"ability_image": "bastion/ironclad.png"
@@ -171,24 +191,28 @@
 				"abilities": [
 					{
 						"ability_uuid": "bc934bc7-e620-4b2d-83c3-cfdc09122989",
+						"fk_hero_uuid": "0870c7b8-ca56-4b95-b468-fc0c333c14ce",
 						"name": "Peacekeeper",
 						"type": "Primary Weapon",
 						"ability_image": "cassidy/peacekeeper.png"
 					},
 					{
 						"ability_uuid": "7baf570f-aa7a-43c4-ab07-41453b51774d",
+						"fk_hero_uuid": "0870c7b8-ca56-4b95-b468-fc0c333c14ce",
 						"name": "Combat Roll",
 						"type": "Ability",
 						"ability_image": "cassidy/combat_roll.png"
 					},
 					{
 						"ability_uuid": "9cfd16e9-8afe-4cf7-8e6e-c034941f4e8c",
+						"fk_hero_uuid": "0870c7b8-ca56-4b95-b468-fc0c333c14ce",
 						"name": "Magnetic Grenade",
 						"type": "Ability",
 						"ability_image": "cassidy/magnetic_grenade.png"
 					},
 					{
 						"ability_uuid": "7ba45356-5abf-48cb-991e-63d39c3dc23e",
+						"fk_hero_uuid": "0870c7b8-ca56-4b95-b468-fc0c333c14ce",
 						"name": "Deadeye",
 						"type": "Ultimate",
 						"ability_image": "cassidy/deadeye.png"
@@ -205,36 +229,42 @@
 				"abilities": [
 					{
 						"ability_uuid": "f49faab1-8261-48a6-88b4-8cc15d318087",
+						"fk_hero_uuid": "f338abc3-ec9b-4541-880c-5fe645439abb",
 						"name": "Hand Cannon",
 						"type": "Primary Weapon",
 						"ability_image": "doomfist/hand_cannon.png"
 					},
 					{
 						"ability_uuid": "4e9c4983-c149-48d2-a33f-81d049d0cd7f",
+						"fk_hero_uuid": "f338abc3-ec9b-4541-880c-5fe645439abb",
 						"name": "Rocket Punch",
 						"type": "Secondary Weapon",
 						"ability_image": "doomfist/rocket_punch.png"
 					},
 					{
 						"ability_uuid": "b5fe0480-d16b-4f67-9c36-e302c86dc5b5",
+						"fk_hero_uuid": "f338abc3-ec9b-4541-880c-5fe645439abb",
 						"name": "Seismic Slam",
 						"type": "Ability",
 						"ability_image": "doomfist/seismic_slam.png"
 					},
 					{
 						"ability_uuid": "6b6bfda7-e306-4d7e-bdf3-e46e702153ef",
+						"fk_hero_uuid": "f338abc3-ec9b-4541-880c-5fe645439abb",
 						"name": "Power Block",
 						"type": "Ability",
 						"ability_image": "doomfist/power_block.png"
 					},
 					{
 						"ability_uuid": "ab680717-58a8-4958-bbb9-1d4797814c40",
+						"fk_hero_uuid": "f338abc3-ec9b-4541-880c-5fe645439abb",
 						"name": "Meteor Strike",
 						"type": "Ultimate",
 						"ability_image": "doomfist/meteor_strike.png"
 					},
 					{
 						"ability_uuid": "9dffacd1-30f7-4099-8cdd-86c4cfa6ee34",
+						"fk_hero_uuid": "f338abc3-ec9b-4541-880c-5fe645439abb",
 						"name": "The Best Defense...",
 						"type": "Passive",
 						"ability_image": "doomfist/the_best_defense___.png"
@@ -251,48 +281,56 @@
 				"abilities": [
 					{
 						"ability_uuid": "f0a141db-324b-4ca0-894d-fecfdd89a991",
+						"fk_hero_uuid": "85766cfe-39fe-42f9-879d-9a5b73855581",
 						"name": "Fusion Cannons",
 						"type": "Primary Weapon",
 						"ability_image": "d_va/fusion_cannons.png"
 					},
 					{
 						"ability_uuid": "16d10c3c-af1d-473e-a93a-86ee0e0a9618",
+						"fk_hero_uuid": "85766cfe-39fe-42f9-879d-9a5b73855581",
 						"name": "Boosters",
 						"type": "Ability",
 						"ability_image": "d_va/boosters.png"
 					},
 					{
 						"ability_uuid": "38d76213-8a89-42f8-97a0-c3df8cf37ee0",
+						"fk_hero_uuid": "85766cfe-39fe-42f9-879d-9a5b73855581",
 						"name": "Defense Matrix",
 						"type": "Ability",
 						"ability_image": "d_va/defense_matrix.png"
 					},
 					{
 						"ability_uuid": "bedec056-9ad2-4259-8631-053615f78bf7",
+						"fk_hero_uuid": "85766cfe-39fe-42f9-879d-9a5b73855581",
 						"name": "Micro Missiles",
 						"type": "Ability",
 						"ability_image": "d_va/micro_missiles.png"
 					},
 					{
 						"ability_uuid": "958eed2b-4b2e-4a95-910d-bdd74b769f3b",
+						"fk_hero_uuid": "85766cfe-39fe-42f9-879d-9a5b73855581",
 						"name": "Self-Destruct",
 						"type": "Ultimate",
 						"ability_image": "d_va/self_destruct.png"
 					},
 					{
 						"ability_uuid": "1696655a-d569-4b82-9dc1-bdae2bf09fc5",
+						"fk_hero_uuid": "85766cfe-39fe-42f9-879d-9a5b73855581",
 						"name": "Eject!",
 						"type": "Passive",
 						"ability_image": "d_va/eject_.png"
 					},
 					{
 						"ability_uuid": "08724f77-bb19-4a7b-9a75-904498eaa245",
+						"fk_hero_uuid": "85766cfe-39fe-42f9-879d-9a5b73855581",
 						"name": "Light Gun",
 						"type": "Ability",
 						"ability_image": "d_va/light_gun.png"
 					},
 					{
 						"ability_uuid": "5501240a-b546-4ff9-9ad0-61bd1636997d",
+						"fk_hero_uuid": "85766cfe-39fe-42f9-879d-9a5b73855581",
 						"name": "Call Mech",
 						"type": "Ultimate",
 						"ability_image": "d_va/call_mech.png"
@@ -309,36 +347,42 @@
 				"abilities": [
 					{
 						"ability_uuid": "e9868632-3f59-4a0e-b442-2930ef40ffe4",
+						"fk_hero_uuid": "66eafd7b-f129-4a30-abc4-6a4d2737382d",
 						"name": "Tri-Shot",
 						"type": "Primary Weapon",
 						"ability_image": "echo/tri_shot.png"
 					},
 					{
 						"ability_uuid": "92eea225-6db5-48f4-a4f6-9fcbd39d0731",
+						"fk_hero_uuid": "66eafd7b-f129-4a30-abc4-6a4d2737382d",
 						"name": "Sticky Bombs",
 						"type": "Secondary Weapon",
 						"ability_image": "echo/sticky_bombs.png"
 					},
 					{
 						"ability_uuid": "86fabd7b-8683-4ff0-8a54-6f638cbc999e",
+						"fk_hero_uuid": "66eafd7b-f129-4a30-abc4-6a4d2737382d",
 						"name": "Flight",
 						"type": "Ability",
 						"ability_image": "echo/flight.png"
 					},
 					{
 						"ability_uuid": "00ab316b-0429-4e13-881a-c7b711033be7",
+						"fk_hero_uuid": "66eafd7b-f129-4a30-abc4-6a4d2737382d",
 						"name": "Focusing Beam",
 						"type": "Ability",
 						"ability_image": "echo/focusing_beam.png"
 					},
 					{
 						"ability_uuid": "3bdd7507-7392-403b-9094-ff4147c4c003",
+						"fk_hero_uuid": "66eafd7b-f129-4a30-abc4-6a4d2737382d",
 						"name": "Duplicate",
 						"type": "Ultimate",
 						"ability_image": "echo/duplicate.png"
 					},
 					{
 						"ability_uuid": "92b89623-ad71-4cfb-9afd-adea95415aac",
+						"fk_hero_uuid": "66eafd7b-f129-4a30-abc4-6a4d2737382d",
 						"name": "Glide",
 						"type": "Passive",
 						"ability_image": "echo/glide.png"
@@ -355,30 +399,35 @@
 				"abilities": [
 					{
 						"ability_uuid": "5fccd050-9fcb-490c-9d6a-6a55d96d9f3b",
+						"fk_hero_uuid": "93c893ef-4d4d-442a-8691-e3ac0db849b9",
 						"name": "Shuriken",
 						"type": "Primary Weapon",
 						"ability_image": "genji/shuriken.png"
 					},
 					{
 						"ability_uuid": "ddc500c7-d42a-4c07-8d86-231b29e1375b",
+						"fk_hero_uuid": "93c893ef-4d4d-442a-8691-e3ac0db849b9",
 						"name": "Swift Strike",
 						"type": "Ability",
 						"ability_image": "genji/swift_strike.png"
 					},
 					{
 						"ability_uuid": "153d9217-13fb-499f-8383-1f984c607e4b",
+						"fk_hero_uuid": "93c893ef-4d4d-442a-8691-e3ac0db849b9",
 						"name": "Deflect",
 						"type": "Ability",
 						"ability_image": "genji/deflect.png"
 					},
 					{
 						"ability_uuid": "988d3d1f-f66d-48bd-83a0-fba7fcf48b6e",
+						"fk_hero_uuid": "93c893ef-4d4d-442a-8691-e3ac0db849b9",
 						"name": "Dragonblade",
 						"type": "Ultimate",
 						"ability_image": "genji/dragonblade.png"
 					},
 					{
 						"ability_uuid": "e138c585-c5a6-44bb-84be-f11a20b6d575",
+						"fk_hero_uuid": "93c893ef-4d4d-442a-8691-e3ac0db849b9",
 						"name": "Cyber-Agility",
 						"type": "Passive",
 						"ability_image": "genji/cyber_agility.png"
@@ -395,36 +444,42 @@
 				"abilities": [
 					{
 						"ability_uuid": "0a8727ec-a4e3-4f26-a882-c9ef34d29074",
+						"fk_hero_uuid": "7c013ba6-c20e-4c6b-a810-b636390ba3a0",
 						"name": "Storm Bow",
 						"type": "Primary Weapon",
 						"ability_image": "hanzo/storm_bow.png"
 					},
 					{
 						"ability_uuid": "66aa05bf-feb9-43e2-b0b4-2cd3b453fb06",
+						"fk_hero_uuid": "7c013ba6-c20e-4c6b-a810-b636390ba3a0",
 						"name": "Sonic Arrow",
 						"type": "Ability",
 						"ability_image": "hanzo/sonic_arrow.png"
 					},
 					{
 						"ability_uuid": "a12a8356-42e4-4fa8-875a-225ef2addd45",
+						"fk_hero_uuid": "7c013ba6-c20e-4c6b-a810-b636390ba3a0",
 						"name": "Storm Arrows",
 						"type": "Ability",
 						"ability_image": "hanzo/storm_arrows.png"
 					},
 					{
 						"ability_uuid": "b4c1b0e2-6f53-49a3-b993-17dd1fa6cfd3",
+						"fk_hero_uuid": "7c013ba6-c20e-4c6b-a810-b636390ba3a0",
 						"name": "Lunge",
 						"type": "Ability",
 						"ability_image": "hanzo/lunge.png"
 					},
 					{
 						"ability_uuid": "f45a69e9-8137-4477-9ec1-7bb9a2b13251",
+						"fk_hero_uuid": "7c013ba6-c20e-4c6b-a810-b636390ba3a0",
 						"name": "Dragonstrike",
 						"type": "Ultimate",
 						"ability_image": "hanzo/dragonstrike.png"
 					},
 					{
 						"ability_uuid": "26fb9bc6-58eb-4dd1-9a44-cf89a44126b5",
+						"fk_hero_uuid": "7c013ba6-c20e-4c6b-a810-b636390ba3a0",
 						"name": "Wall Climb",
 						"type": "Passive",
 						"ability_image": "hanzo/wall_climb.png"
@@ -441,36 +496,42 @@
 				"abilities": [
 					{
 						"ability_uuid": "30c7aee9-6014-485f-ad6a-4fd356cfb159",
+						"fk_hero_uuid": "a4a169df-23a2-4593-b23e-ce436ffbdced",
 						"name": "Scattergun",
 						"type": "Primary Weapon",
 						"ability_image": "junker_queen/scattergun.png"
 					},
 					{
 						"ability_uuid": "3530d7c0-04d2-4b60-a0eb-7557a328b415",
+						"fk_hero_uuid": "a4a169df-23a2-4593-b23e-ce436ffbdced",
 						"name": "Jagged Blade",
 						"type": "Secondary Weapon",
 						"ability_image": "junker_queen/jagged_blade.png"
 					},
 					{
 						"ability_uuid": "57d5fdd8-dbde-4c56-b32f-d7512198ba66",
+						"fk_hero_uuid": "a4a169df-23a2-4593-b23e-ce436ffbdced",
 						"name": "Commanding Shout",
 						"type": "Ability",
 						"ability_image": "junker_queen/commanding_shout.png"
 					},
 					{
 						"ability_uuid": "0257673d-7eba-49f2-af6d-6a77dccec7d5",
+						"fk_hero_uuid": "a4a169df-23a2-4593-b23e-ce436ffbdced",
 						"name": "Carnage",
 						"type": "Ability",
 						"ability_image": "junker_queen/carnage.png"
 					},
 					{
 						"ability_uuid": "5cd1f5cc-6481-4d40-ad22-de1e1025c85b",
+						"fk_hero_uuid": "a4a169df-23a2-4593-b23e-ce436ffbdced",
 						"name": "Rampage",
 						"type": "Ultimate",
 						"ability_image": "junker_queen/rampage.png"
 					},
 					{
 						"ability_uuid": "7b6ea4f3-ac3c-4dcd-b6e9-09cd9db882c7",
+						"fk_hero_uuid": "a4a169df-23a2-4593-b23e-ce436ffbdced",
 						"name": "Adrenaline Rush",
 						"type": "Passive",
 						"ability_image": "junker_queen/adrenaline_rush.png"
@@ -487,30 +548,35 @@
 				"abilities": [
 					{
 						"ability_uuid": "931a3555-643a-4f3f-8f5e-423f874c6d37",
+						"fk_hero_uuid": "17322ab2-9183-4098-814d-2ae65ba75a81",
 						"name": "Frag Launcher",
 						"type": "Primary Weapon",
 						"ability_image": "junkrat/frag_launcher.png"
 					},
 					{
 						"ability_uuid": "a3229716-dc0a-4ef3-a7f2-44c30267da1f",
+						"fk_hero_uuid": "17322ab2-9183-4098-814d-2ae65ba75a81",
 						"name": "Concussion Mine",
 						"type": "Ability",
 						"ability_image": "junkrat/concussion_mine.png"
 					},
 					{
 						"ability_uuid": "73a30d9a-1780-4de8-b8be-0a5d59de4645",
+						"fk_hero_uuid": "17322ab2-9183-4098-814d-2ae65ba75a81",
 						"name": "Steel Trap",
 						"type": "Ability",
 						"ability_image": "junkrat/steel_trap.png"
 					},
 					{
 						"ability_uuid": "cc1b0e1e-c335-4e47-b96c-86aba5b5e9bd",
+						"fk_hero_uuid": "17322ab2-9183-4098-814d-2ae65ba75a81",
 						"name": "RIP-Tire",
 						"type": "Ultimate",
 						"ability_image": "junkrat/rip_tire.png"
 					},
 					{
 						"ability_uuid": "9294439f-0a58-4f25-963c-31d24ae33369",
+						"fk_hero_uuid": "17322ab2-9183-4098-814d-2ae65ba75a81",
 						"name": "Total Mayhem",
 						"type": "Passive",
 						"ability_image": "junkrat/total_mayhem.png"
@@ -527,36 +593,42 @@
 				"abilities": [
 					{
 						"ability_uuid": "575df0ba-2144-456e-886b-af329b5c82ab",
+						"fk_hero_uuid": "5d621cdd-e774-42af-892c-17b019e25130",
 						"name": "Healing Ofuda",
 						"type": "Primary Weapon",
 						"ability_image": "kiriko/healing_ofuda.png"
 					},
 					{
 						"ability_uuid": "f87f6f98-4f58-4f49-8f67-f4404f109c57",
+						"fk_hero_uuid": "5d621cdd-e774-42af-892c-17b019e25130",
 						"name": "Kunai",
 						"type": "Secondary Weapon",
 						"ability_image": "kiriko/kunai.png"
 					},
 					{
 						"ability_uuid": "cf9fa189-7566-404b-8e7b-f061812184c5",
+						"fk_hero_uuid": "5d621cdd-e774-42af-892c-17b019e25130",
 						"name": "Swift Step",
 						"type": "Ability",
 						"ability_image": "kiriko/swift_step.png"
 					},
 					{
 						"ability_uuid": "a7945659-c80c-4556-ad71-570957a2ce75",
+						"fk_hero_uuid": "5d621cdd-e774-42af-892c-17b019e25130",
 						"name": "Protection Suzu",
 						"type": "Ability",
 						"ability_image": "kiriko/protection_suzu.png"
 					},
 					{
 						"ability_uuid": "3778b9c3-c98b-4c78-9a8e-f959a5b9e5ad",
+						"fk_hero_uuid": "5d621cdd-e774-42af-892c-17b019e25130",
 						"name": "Kitsune Rush",
 						"type": "Ultimate",
 						"ability_image": "kiriko/kitsune_rush.png"
 					},
 					{
 						"ability_uuid": "336dfdef-8982-43d6-8e38-fe07e6aa7441",
+						"fk_hero_uuid": "5d621cdd-e774-42af-892c-17b019e25130",
 						"name": "Wall Climb",
 						"type": "Passive",
 						"ability_image": "kiriko/wall_climb.png"
@@ -573,36 +645,42 @@
 				"abilities": [
 					{
 						"ability_uuid": "25f2d908-fa3f-492c-8baf-bd7bf7c9c6b5",
+						"fk_hero_uuid": "a6387976-b88c-45b2-97dc-51652a260969",
 						"name": "Sonic Amplifier",
 						"type": "Primary Weapon",
 						"ability_image": "lucio/sonic_amplifier.png"
 					},
 					{
 						"ability_uuid": "402b5c81-670b-4398-99af-78b44c3d4bf2",
+						"fk_hero_uuid": "a6387976-b88c-45b2-97dc-51652a260969",
 						"name": "Soundwave",
 						"type": "Secondary Weapon",
 						"ability_image": "lucio/soundwave.png"
 					},
 					{
 						"ability_uuid": "100431ca-6bda-4d9b-b320-0c23da06b47e",
+						"fk_hero_uuid": "a6387976-b88c-45b2-97dc-51652a260969",
 						"name": "Crossfade",
 						"type": "Ability",
 						"ability_image": "lucio/crossfade.png"
 					},
 					{
 						"ability_uuid": "bd84cf9f-3444-420d-ac27-e633ff9126aa",
+						"fk_hero_uuid": "a6387976-b88c-45b2-97dc-51652a260969",
 						"name": "Amp It Up",
 						"type": "Ability",
 						"ability_image": "lucio/amp_it_up.png"
 					},
 					{
 						"ability_uuid": "fb051f0f-7f1e-43b1-a0e6-4f04fe0c674b",
+						"fk_hero_uuid": "a6387976-b88c-45b2-97dc-51652a260969",
 						"name": "Sound Barrier",
 						"type": "Ultimate",
 						"ability_image": "lucio/sound_barrier.png"
 					},
 					{
 						"ability_uuid": "9613e4d0-0333-4829-b7d3-7c9817057dbb",
+						"fk_hero_uuid": "a6387976-b88c-45b2-97dc-51652a260969",
 						"name": "Wall Ride",
 						"type": "Passive",
 						"ability_image": "lucio/wall_ride.png"
@@ -619,24 +697,28 @@
 				"abilities": [
 					{
 						"ability_uuid": "f1f9f7ec-77a2-485d-96fb-0af79ae172e2",
+						"fk_hero_uuid": "18a46b56-da66-4905-8a49-54b8d96d09d3",
 						"name": "Endothermic Blaster",
 						"type": "Primary Weapon",
 						"ability_image": "mei/endothermic_blaster.png"
 					},
 					{
 						"ability_uuid": "422f5743-9f11-4efd-8725-a0190155aeb3",
+						"fk_hero_uuid": "18a46b56-da66-4905-8a49-54b8d96d09d3",
 						"name": "Cryo-Freeze",
 						"type": "Ability",
 						"ability_image": "mei/cryo_freeze.png"
 					},
 					{
 						"ability_uuid": "df51cab4-5fd5-40b9-87d9-72a98d86f2a0",
+						"fk_hero_uuid": "18a46b56-da66-4905-8a49-54b8d96d09d3",
 						"name": "Ice Wall",
 						"type": "Ability",
 						"ability_image": "mei/ice_wall.png"
 					},
 					{
 						"ability_uuid": "815801f7-7e1f-4793-9b2b-aa66adfd0714",
+						"fk_hero_uuid": "18a46b56-da66-4905-8a49-54b8d96d09d3",
 						"name": "Blizzard",
 						"type": "Ultimate",
 						"ability_image": "mei/blizzard.png"
@@ -653,36 +735,42 @@
 				"abilities": [
 					{
 						"ability_uuid": "ce69e1e5-642f-4741-a371-300aa4307fca",
+						"fk_hero_uuid": "14f14bcf-5d15-4db9-b79d-9fce6d863ec5",
 						"name": "Caduceus Staff",
 						"type": "Primary Weapon",
 						"ability_image": "mercy/caduceus_staff.png"
 					},
 					{
 						"ability_uuid": "655a03a0-2796-4e69-8f22-bca51f271940",
+						"fk_hero_uuid": "14f14bcf-5d15-4db9-b79d-9fce6d863ec5",
 						"name": "Caduceus Blaster",
 						"type": "Secondary Weapon",
 						"ability_image": "mercy/caduceus_blaster.png"
 					},
 					{
 						"ability_uuid": "4b29f965-0447-42b4-b274-fdf0d43fec79",
+						"fk_hero_uuid": "14f14bcf-5d15-4db9-b79d-9fce6d863ec5",
 						"name": "Guardian Angel",
 						"type": "Ability",
 						"ability_image": "mercy/guardian_angel.png"
 					},
 					{
 						"ability_uuid": "5d1bf334-7ab9-4c99-a0a8-d55795f8a6ff",
+						"fk_hero_uuid": "14f14bcf-5d15-4db9-b79d-9fce6d863ec5",
 						"name": "Resurrect",
 						"type": "Ability",
 						"ability_image": "mercy/resurrect.png"
 					},
 					{
 						"ability_uuid": "b6d0576e-717f-4716-a58d-a7ea27aaeaa3",
+						"fk_hero_uuid": "14f14bcf-5d15-4db9-b79d-9fce6d863ec5",
 						"name": "Valkyrie",
 						"type": "Ultimate",
 						"ability_image": "mercy/valkyrie.png"
 					},
 					{
 						"ability_uuid": "aedd6791-f70e-451c-8de4-be5dd8c58b09",
+						"fk_hero_uuid": "14f14bcf-5d15-4db9-b79d-9fce6d863ec5",
 						"name": "Angelic Descent",
 						"type": "Passive",
 						"ability_image": "mercy/angelic_descent.png"
@@ -699,24 +787,28 @@
 				"abilities": [
 					{
 						"ability_uuid": "8df83fd2-efb1-496b-8684-ec60f416d0f1",
+						"fk_hero_uuid": "ad15a77a-61b4-4cba-b8de-423e86787593",
 						"name": "Biotic Grasp",
 						"type": "Primary Weapon",
 						"ability_image": "moira/biotic_grasp.png"
 					},
 					{
 						"ability_uuid": "f38bdab8-9b54-4c7d-8c56-f73adeb8606a",
+						"fk_hero_uuid": "ad15a77a-61b4-4cba-b8de-423e86787593",
 						"name": "Biotic Orb",
 						"type": "Ability",
 						"ability_image": "moira/biotic_orb.png"
 					},
 					{
 						"ability_uuid": "cb18226b-fe7a-4a85-a8c3-1e5edba5f95b",
+						"fk_hero_uuid": "ad15a77a-61b4-4cba-b8de-423e86787593",
 						"name": "Fade",
 						"type": "Ability",
 						"ability_image": "moira/fade.png"
 					},
 					{
 						"ability_uuid": "a717ee2e-456d-4735-ba5f-7215a242a3c8",
+						"fk_hero_uuid": "ad15a77a-61b4-4cba-b8de-423e86787593",
 						"name": "Coalescence",
 						"type": "Ultimate",
 						"ability_image": "moira/coalescence.png"
@@ -733,30 +825,35 @@
 				"abilities": [
 					{
 						"ability_uuid": "9ad01c43-60c4-451f-b0fa-02bceecd0573",
+						"fk_hero_uuid": "ded1e3ac-08ea-4e86-be9a-ab49b7a39a38",
 						"name": "Augmented Fusion Driver",
 						"type": "Primary Weapon",
 						"ability_image": "orisa/augmented_fusion_driver.png"
 					},
 					{
 						"ability_uuid": "136a679d-51c9-4cc4-aa40-79906acf5ae4",
+						"fk_hero_uuid": "ded1e3ac-08ea-4e86-be9a-ab49b7a39a38",
 						"name": "Energy Javelin",
 						"type": "Secondary Weapon",
 						"ability_image": "orisa/energy_javelin.png"
 					},
 					{
 						"ability_uuid": "c68caac0-5697-4e19-91a6-0005c0b6eb03",
+						"fk_hero_uuid": "ded1e3ac-08ea-4e86-be9a-ab49b7a39a38",
 						"name": "Fortify",
 						"type": "Ability",
 						"ability_image": "orisa/fortify.png"
 					},
 					{
 						"ability_uuid": "afe5efa9-69b0-40f9-8e89-d07d7a34a253",
+						"fk_hero_uuid": "ded1e3ac-08ea-4e86-be9a-ab49b7a39a38",
 						"name": "Javelin Spin",
 						"type": "Ability",
 						"ability_image": "orisa/javelin_spin.png"
 					},
 					{
 						"ability_uuid": "cc3e9e84-5269-41fe-9f6d-d51d0a782027",
+						"fk_hero_uuid": "ded1e3ac-08ea-4e86-be9a-ab49b7a39a38",
 						"name": "Terra Surge",
 						"type": "Ultimate",
 						"ability_image": "orisa/terra_surge.png"
@@ -773,30 +870,35 @@
 				"abilities": [
 					{
 						"ability_uuid": "0dfd0bff-d582-44c9-83dc-ce5c844275f0",
+						"fk_hero_uuid": "56cd59d5-b3a9-4958-a9e1-1bb9a8464a2a",
 						"name": "Rocket Launcher",
 						"type": "Primary Weapon",
 						"ability_image": "pharah/rocket_launcher.png"
 					},
 					{
 						"ability_uuid": "abb519c5-384b-4df4-86da-089d206d1fb6",
+						"fk_hero_uuid": "56cd59d5-b3a9-4958-a9e1-1bb9a8464a2a",
 						"name": "Jump Jet",
 						"type": "Ability",
 						"ability_image": "pharah/jump_jet.png"
 					},
 					{
 						"ability_uuid": "d0cc0746-bc70-438d-b361-adb0a543ddc5",
+						"fk_hero_uuid": "56cd59d5-b3a9-4958-a9e1-1bb9a8464a2a",
 						"name": "Concussive Blast",
 						"type": "Ability",
 						"ability_image": "pharah/concussive_blast.png"
 					},
 					{
 						"ability_uuid": "8e175b58-3bb6-49a6-b92f-b01cfb0eb7d6",
+						"fk_hero_uuid": "56cd59d5-b3a9-4958-a9e1-1bb9a8464a2a",
 						"name": "Barrage",
 						"type": "Ultimate",
 						"ability_image": "pharah/barrage.png"
 					},
 					{
 						"ability_uuid": "77b7b04b-bac0-471e-9560-89bb07ca70b9",
+						"fk_hero_uuid": "56cd59d5-b3a9-4958-a9e1-1bb9a8464a2a",
 						"name": "Hover Jets",
 						"type": "Passive",
 						"ability_image": "pharah/hover_jets.png"
@@ -813,30 +915,35 @@
 				"abilities": [
 					{
 						"ability_uuid": "932251d7-53ad-46f8-acb2-0ae82c927f09",
+						"fk_hero_uuid": "0bf6b821-78ed-42f2-bede-67574f46c7c8",
 						"name": "Hellfire Shotguns",
 						"type": "Primary Weapon",
 						"ability_image": "reaper/hellfire_shotguns.png"
 					},
 					{
 						"ability_uuid": "8ada6950-f896-43f9-a068-d33d7ae890c9",
+						"fk_hero_uuid": "0bf6b821-78ed-42f2-bede-67574f46c7c8",
 						"name": "Wraith Form",
 						"type": "Ability",
 						"ability_image": "reaper/wraith_form.png"
 					},
 					{
 						"ability_uuid": "c91ac426-e256-4343-9161-f5ff000da4d4",
+						"fk_hero_uuid": "0bf6b821-78ed-42f2-bede-67574f46c7c8",
 						"name": "Shadow Step",
 						"type": "Ability",
 						"ability_image": "reaper/shadow_step.png"
 					},
 					{
 						"ability_uuid": "38cb3766-50fd-461d-9bd1-2866dc822555",
+						"fk_hero_uuid": "0bf6b821-78ed-42f2-bede-67574f46c7c8",
 						"name": "Death Blossom",
 						"type": "Ultimate",
 						"ability_image": "reaper/death_blossom.png"
 					},
 					{
 						"ability_uuid": "17cda44c-7a93-4c31-8ece-25c8c66712a9",
+						"fk_hero_uuid": "0bf6b821-78ed-42f2-bede-67574f46c7c8",
 						"name": "The Reaping",
 						"type": "Passive",
 						"ability_image": "reaper/the_reaping.png"
@@ -853,30 +960,35 @@
 				"abilities": [
 					{
 						"ability_uuid": "7de50196-8533-4f88-a768-028420d5cc90",
+						"fk_hero_uuid": "eff5b31c-560a-44b2-b728-f38b920b995b",
 						"name": "Rocket Hammer",
 						"type": "Primary Weapon",
 						"ability_image": "reinhardt/rocket_hammer.png"
 					},
 					{
 						"ability_uuid": "05353356-b6c5-4f01-ba0d-2b153eb00973",
+						"fk_hero_uuid": "eff5b31c-560a-44b2-b728-f38b920b995b",
 						"name": "Barrier Field",
 						"type": "Ability",
 						"ability_image": "reinhardt/barrier_field.png"
 					},
 					{
 						"ability_uuid": "24331b98-6f65-40e4-8f71-c713f226a4bf",
+						"fk_hero_uuid": "eff5b31c-560a-44b2-b728-f38b920b995b",
 						"name": "Charge",
 						"type": "Ability",
 						"ability_image": "reinhardt/charge.png"
 					},
 					{
 						"ability_uuid": "813419fd-ee3e-4309-8767-7e968dada707",
+						"fk_hero_uuid": "eff5b31c-560a-44b2-b728-f38b920b995b",
 						"name": "Fire Strike",
 						"type": "Ability",
 						"ability_image": "reinhardt/fire_strike.png"
 					},
 					{
 						"ability_uuid": "0df9df18-d052-4193-87b5-f8b75d967434",
+						"fk_hero_uuid": "eff5b31c-560a-44b2-b728-f38b920b995b",
 						"name": "Earthshatter",
 						"type": "Ultimate",
 						"ability_image": "reinhardt/earthshatter.png"
@@ -893,24 +1005,28 @@
 				"abilities": [
 					{
 						"ability_uuid": "d4a1f7eb-3cd1-467d-8ad4-41e55cbc753a",
+						"fk_hero_uuid": "12f96cb5-50a0-4e3a-88c3-0468cf87f7e4",
 						"name": "Scrap Gun",
 						"type": "Primary Weapon",
 						"ability_image": "roadhog/scrap_gun.png"
 					},
 					{
 						"ability_uuid": "c11e9c4b-a8af-46f4-84c5-c1a033dc3540",
+						"fk_hero_uuid": "12f96cb5-50a0-4e3a-88c3-0468cf87f7e4",
 						"name": "Chain Hook",
 						"type": "Ability",
 						"ability_image": "roadhog/chain_hook.png"
 					},
 					{
 						"ability_uuid": "e6caeb38-22af-4956-9d29-436aade9066a",
+						"fk_hero_uuid": "12f96cb5-50a0-4e3a-88c3-0468cf87f7e4",
 						"name": "Take a Breather",
 						"type": "Ability",
 						"ability_image": "roadhog/take_a_breather.png"
 					},
 					{
 						"ability_uuid": "88d4069b-f704-4e89-9da5-78e443924e1a",
+						"fk_hero_uuid": "12f96cb5-50a0-4e3a-88c3-0468cf87f7e4",
 						"name": "Whole Hog",
 						"type": "Ultimate",
 						"ability_image": "roadhog/whole_hog.png"
@@ -927,30 +1043,35 @@
 				"abilities": [
 					{
 						"ability_uuid": "3b3e596a-db54-45e6-a8c6-191f05a825c6",
+						"fk_hero_uuid": "5428a23b-453c-4d58-a881-32754dd53b28",
 						"name": "Heavy Pulse Rifle",
 						"type": "Primary Weapon",
 						"ability_image": "soldier__76/heavy_pulse_rifle.png"
 					},
 					{
 						"ability_uuid": "8973076b-f95e-4654-892f-7568ba964036",
+						"fk_hero_uuid": "5428a23b-453c-4d58-a881-32754dd53b28",
 						"name": "Helix Rockets",
 						"type": "Secondary Weapon",
 						"ability_image": "soldier__76/helix_rockets.png"
 					},
 					{
 						"ability_uuid": "9f702b94-cba7-428b-93df-e8edba714913",
+						"fk_hero_uuid": "5428a23b-453c-4d58-a881-32754dd53b28",
 						"name": "Sprint",
 						"type": "Ability",
 						"ability_image": "soldier__76/sprint.png"
 					},
 					{
 						"ability_uuid": "524c69e8-0e09-4cba-938b-f794bc389bc0",
+						"fk_hero_uuid": "5428a23b-453c-4d58-a881-32754dd53b28",
 						"name": "Biotic Field",
 						"type": "Ability",
 						"ability_image": "soldier__76/biotic_field.png"
 					},
 					{
 						"ability_uuid": "c2ff6328-bfc0-4b90-9b1f-0d9e9e95baee",
+						"fk_hero_uuid": "5428a23b-453c-4d58-a881-32754dd53b28",
 						"name": "Tactical Visor",
 						"type": "Ultimate",
 						"ability_image": "soldier__76/tactical_visor.png"
@@ -967,36 +1088,42 @@
 				"abilities": [
 					{
 						"ability_uuid": "350ef4d6-7203-4052-9a12-d183a9cc5aa6",
+						"fk_hero_uuid": "c6690334-3934-48d7-926f-13e7a8183c5d",
 						"name": "Machine Pistol",
 						"type": "Primary Weapon",
 						"ability_image": "sombra/machine_pistol.png"
 					},
 					{
 						"ability_uuid": "d5d37a77-9e13-4f9d-82d5-d66e3bbdd8cd",
+						"fk_hero_uuid": "c6690334-3934-48d7-926f-13e7a8183c5d",
 						"name": "Hack",
 						"type": "Ability",
 						"ability_image": "sombra/hack.png"
 					},
 					{
 						"ability_uuid": "33bdd774-b4de-48d7-91f1-532743910947",
+						"fk_hero_uuid": "c6690334-3934-48d7-926f-13e7a8183c5d",
 						"name": "Stealth",
 						"type": "Ability",
 						"ability_image": "sombra/stealth.png"
 					},
 					{
 						"ability_uuid": "71b5113c-0c28-432e-b5d4-fced80b4607e",
+						"fk_hero_uuid": "c6690334-3934-48d7-926f-13e7a8183c5d",
 						"name": "Translocator",
 						"type": "Ability",
 						"ability_image": "sombra/translocator.png"
 					},
 					{
 						"ability_uuid": "96451d7c-8162-4150-9a5d-5e909e71c41d",
+						"fk_hero_uuid": "c6690334-3934-48d7-926f-13e7a8183c5d",
 						"name": "EMP",
 						"type": "Ultimate",
 						"ability_image": "sombra/emp.png"
 					},
 					{
 						"ability_uuid": "33adbd05-f214-41cc-81c7-281b211adc36",
+						"fk_hero_uuid": "c6690334-3934-48d7-926f-13e7a8183c5d",
 						"name": "Opportunist",
 						"type": "Passive",
 						"ability_image": "sombra/opportunist.png"
@@ -1013,24 +1140,28 @@
 				"abilities": [
 					{
 						"ability_uuid": "07b3a511-61aa-457b-b682-c24a56927397",
+						"fk_hero_uuid": "742d8fc2-0cea-4ee1-9535-0f2f6b3f98f7",
 						"name": "Photon Projector",
 						"type": "Primary Weapon",
 						"ability_image": "symmetra/photon_projector.png"
 					},
 					{
 						"ability_uuid": "d60b3e46-fc2e-4bf3-a285-babcf7014bcc",
+						"fk_hero_uuid": "742d8fc2-0cea-4ee1-9535-0f2f6b3f98f7",
 						"name": "Sentry Turret",
 						"type": "Ability",
 						"ability_image": "symmetra/sentry_turret.png"
 					},
 					{
 						"ability_uuid": "e6c90f8e-5c4c-42c4-8994-a937182ce05d",
+						"fk_hero_uuid": "742d8fc2-0cea-4ee1-9535-0f2f6b3f98f7",
 						"name": "Teleporter",
 						"type": "Ability",
 						"ability_image": "symmetra/teleporter.png"
 					},
 					{
 						"ability_uuid": "04da0dfe-bd3f-41ff-b413-e8a6caed7ab9",
+						"fk_hero_uuid": "742d8fc2-0cea-4ee1-9535-0f2f6b3f98f7",
 						"name": "Photon Barrier",
 						"type": "Ultimate",
 						"ability_image": "symmetra/photon_barrier.png"
@@ -1047,30 +1178,35 @@
 				"abilities": [
 					{
 						"ability_uuid": "b815c26c-7de2-4ddc-bbec-49c88544b362",
+						"fk_hero_uuid": "0268b323-3921-46f9-9b9b-4da7603354a1",
 						"name": "Rivet Gun",
 						"type": "Primary Weapon",
 						"ability_image": "torbj_rn/rivet_gun.png"
 					},
 					{
 						"ability_uuid": "ce879aa9-4da6-4bd3-a7aa-7fad8e616bf5",
+						"fk_hero_uuid": "0268b323-3921-46f9-9b9b-4da7603354a1",
 						"name": "Deploy Turret",
 						"type": "Ability",
 						"ability_image": "torbj_rn/deploy_turret.png"
 					},
 					{
 						"ability_uuid": "24abfae8-7c8d-426d-b780-b003f708ee33",
+						"fk_hero_uuid": "0268b323-3921-46f9-9b9b-4da7603354a1",
 						"name": "Overload",
 						"type": "Ability",
 						"ability_image": "torbj_rn/overload.png"
 					},
 					{
 						"ability_uuid": "7962f130-ee23-427c-87cc-4c5f6047f9d1",
+						"fk_hero_uuid": "0268b323-3921-46f9-9b9b-4da7603354a1",
 						"name": "Forge Hammer",
 						"type": "Weapon Two",
 						"ability_image": "torbj_rn/forge_hammer.png"
 					},
 					{
 						"ability_uuid": "5d5381a1-2d6e-45b7-8622-2a7c316dac3d",
+						"fk_hero_uuid": "0268b323-3921-46f9-9b9b-4da7603354a1",
 						"name": "Molten Core",
 						"type": "Ultimate",
 						"ability_image": "torbj_rn/molten_core.png"
@@ -1087,24 +1223,28 @@
 				"abilities": [
 					{
 						"ability_uuid": "c33fdb57-350d-4c2c-8d9f-00701adaacf6",
+						"fk_hero_uuid": "c5ec96b9-4f6b-4fca-ba6a-8f5aa92da3b9",
 						"name": "Pulse Pistols",
 						"type": "Primary Weapon",
 						"ability_image": "tracer/pulse_pistols.png"
 					},
 					{
 						"ability_uuid": "b1da25a4-023d-4fb3-840a-e6c7207b02e8",
+						"fk_hero_uuid": "c5ec96b9-4f6b-4fca-ba6a-8f5aa92da3b9",
 						"name": "Blink",
 						"type": "Ability",
 						"ability_image": "tracer/blink.png"
 					},
 					{
 						"ability_uuid": "59c3bb25-b57d-43e6-becd-82ae1c04dfa9",
+						"fk_hero_uuid": "c5ec96b9-4f6b-4fca-ba6a-8f5aa92da3b9",
 						"name": "Recall",
 						"type": "Ability",
 						"ability_image": "tracer/recall.png"
 					},
 					{
 						"ability_uuid": "443bd01d-189c-443a-ac6d-56c7a826553a",
+						"fk_hero_uuid": "c5ec96b9-4f6b-4fca-ba6a-8f5aa92da3b9",
 						"name": "Pulse Bomb",
 						"type": "Ultimate",
 						"ability_image": "tracer/pulse_bomb.png"
@@ -1121,24 +1261,28 @@
 				"abilities": [
 					{
 						"ability_uuid": "551e216d-7d7b-4431-916c-67ec1f432b85",
+						"fk_hero_uuid": "a228388f-d0d0-4a61-aa1b-6e39d1892f10",
 						"name": "Widow's Kiss",
 						"type": "Primary Weapon",
 						"ability_image": "widowmaker/widow_s_kiss.png"
 					},
 					{
 						"ability_uuid": "a4fc4f7e-5b07-46f5-b40e-b7bc9e09328d",
+						"fk_hero_uuid": "a228388f-d0d0-4a61-aa1b-6e39d1892f10",
 						"name": "Grappling Hook",
 						"type": "Ability",
 						"ability_image": "widowmaker/grappling_hook.png"
 					},
 					{
 						"ability_uuid": "40e224b1-0605-450c-a58a-d1afc2ef6da6",
+						"fk_hero_uuid": "a228388f-d0d0-4a61-aa1b-6e39d1892f10",
 						"name": "Venom Mine",
 						"type": "Ability",
 						"ability_image": "widowmaker/venom_mine.png"
 					},
 					{
 						"ability_uuid": "027b1796-9b87-423a-9fe9-3acc16ace9ae",
+						"fk_hero_uuid": "a228388f-d0d0-4a61-aa1b-6e39d1892f10",
 						"name": "Infra-Sight",
 						"type": "Ultimate",
 						"ability_image": "widowmaker/infra_sight.png"
@@ -1155,24 +1299,28 @@
 				"abilities": [
 					{
 						"ability_uuid": "9bfbde2c-5171-4bcc-909f-a6fb735bafa7",
+						"fk_hero_uuid": "9b368987-4926-433e-875c-b7b326077b6a",
 						"name": "Tesla Cannon",
 						"type": "Primary Weapon",
 						"ability_image": "winston/tesla_cannon.png"
 					},
 					{
 						"ability_uuid": "7e258c09-5799-4d7f-9757-89ed65897de5",
+						"fk_hero_uuid": "9b368987-4926-433e-875c-b7b326077b6a",
 						"name": "Barrier Projector",
 						"type": "Ability",
 						"ability_image": "winston/barrier_projector.png"
 					},
 					{
 						"ability_uuid": "e27a6994-94d1-4540-ab84-9d7e27133f53",
+						"fk_hero_uuid": "9b368987-4926-433e-875c-b7b326077b6a",
 						"name": "Jump Pack",
 						"type": "Ability",
 						"ability_image": "winston/jump_pack.png"
 					},
 					{
 						"ability_uuid": "f9c98ce0-5fd1-4b4a-9397-eec570c0985b",
+						"fk_hero_uuid": "9b368987-4926-433e-875c-b7b326077b6a",
 						"name": "Primal Rage",
 						"type": "Ultimate",
 						"ability_image": "winston/primal_rage.png"
@@ -1189,36 +1337,42 @@
 				"abilities": [
 					{
 						"ability_uuid": "931ac24c-2bb7-4bf1-bbe6-a9b34d0c0148",
+						"fk_hero_uuid": "17d09af9-f33d-45f7-979a-b13d72e31f7c",
 						"name": "Quad Cannons",
 						"type": "Primary Weapon",
 						"ability_image": "wrecking_ball/quad_cannons.png"
 					},
 					{
 						"ability_uuid": "feaf1707-2765-431a-98cd-acf2126e5d9c",
+						"fk_hero_uuid": "17d09af9-f33d-45f7-979a-b13d72e31f7c",
 						"name": "Grappling Claw",
 						"type": "Ability",
 						"ability_image": "wrecking_ball/grappling_claw.png"
 					},
 					{
 						"ability_uuid": "8f4de61a-88fa-422a-9316-7fbff2657717",
+						"fk_hero_uuid": "17d09af9-f33d-45f7-979a-b13d72e31f7c",
 						"name": "Roll",
 						"type": "Ability",
 						"ability_image": "wrecking_ball/roll.png"
 					},
 					{
 						"ability_uuid": "8b4c5419-8817-46a8-b450-94333f9bf338",
+						"fk_hero_uuid": "17d09af9-f33d-45f7-979a-b13d72e31f7c",
 						"name": "Adaptive Shield",
 						"type": "Ability",
 						"ability_image": "wrecking_ball/adaptive_shield.png"
 					},
 					{
 						"ability_uuid": "d274e7ef-23db-4c7c-8b11-d7fe7911b858",
+						"fk_hero_uuid": "17d09af9-f33d-45f7-979a-b13d72e31f7c",
 						"name": "Piledriver",
 						"type": "Ability",
 						"ability_image": "wrecking_ball/piledriver.png"
 					},
 					{
 						"ability_uuid": "95b4da59-49de-409c-ad7f-c8cddd4f2208",
+						"fk_hero_uuid": "17d09af9-f33d-45f7-979a-b13d72e31f7c",
 						"name": "Minefield",
 						"type": "Ultimate",
 						"ability_image": "wrecking_ball/minefield.png"
@@ -1235,30 +1389,35 @@
 				"abilities": [
 					{
 						"ability_uuid": "1dcb23f0-c2be-409c-af21-4b9a5aeefdbe",
+						"fk_hero_uuid": "22a73e6a-0903-4c63-80e4-52be25cfe5ee",
 						"name": "Particle Cannon",
 						"type": "Primary Weapon",
 						"ability_image": "zarya/particle_cannon.png"
 					},
 					{
 						"ability_uuid": "e8ae0879-8674-4804-af5a-71bf69a7931e",
+						"fk_hero_uuid": "22a73e6a-0903-4c63-80e4-52be25cfe5ee",
 						"name": "Particle Barrier",
 						"type": "Ability",
 						"ability_image": "zarya/particle_barrier.png"
 					},
 					{
 						"ability_uuid": "62ececab-8afa-44d2-9de4-6fa06ad78925",
+						"fk_hero_uuid": "22a73e6a-0903-4c63-80e4-52be25cfe5ee",
 						"name": "Projected Barrier",
 						"type": "Ability",
 						"ability_image": "zarya/projected_barrier.png"
 					},
 					{
 						"ability_uuid": "27a42332-df68-47f3-b8ba-428d285decb4",
+						"fk_hero_uuid": "22a73e6a-0903-4c63-80e4-52be25cfe5ee",
 						"name": "Graviton Surge",
 						"type": "Ultimate",
 						"ability_image": "zarya/graviton_surge.png"
 					},
 					{
 						"ability_uuid": "bac0edce-814d-424c-963a-35ebd9ce43cd",
+						"fk_hero_uuid": "22a73e6a-0903-4c63-80e4-52be25cfe5ee",
 						"name": "Energy",
 						"type": "Passive",
 						"ability_image": "zarya/energy.png"
@@ -1275,30 +1434,35 @@
 				"abilities": [
 					{
 						"ability_uuid": "784098f5-d4c2-460d-b417-91d5b27f3f83",
+						"fk_hero_uuid": "a64b7529-c947-478f-8cb9-12653a9a896b",
 						"name": "Orb of Destruction",
 						"type": "Primary Weapon",
 						"ability_image": "zenyatta/orb_of_destruction.png"
 					},
 					{
 						"ability_uuid": "859ca58e-05a6-4dd1-bd9a-83425a7ca8f6",
+						"fk_hero_uuid": "a64b7529-c947-478f-8cb9-12653a9a896b",
 						"name": "Orb of Harmony",
 						"type": "Ability",
 						"ability_image": "zenyatta/orb_of_harmony.png"
 					},
 					{
 						"ability_uuid": "f4021361-a49a-4e87-9c12-05d4361751f0",
+						"fk_hero_uuid": "a64b7529-c947-478f-8cb9-12653a9a896b",
 						"name": "Orb of Discord",
 						"type": "Ability",
 						"ability_image": "zenyatta/orb_of_discord.png"
 					},
 					{
 						"ability_uuid": "aacc9d39-82d7-4131-8a06-6e0785582d83",
+						"fk_hero_uuid": "a64b7529-c947-478f-8cb9-12653a9a896b",
 						"name": "Transcendence",
 						"type": "Ultimate",
 						"ability_image": "zenyatta/transcendence.png"
 					},
 					{
 						"ability_uuid": "1023e891-9cbb-40aa-922d-fc785a228bcb",
+						"fk_hero_uuid": "a64b7529-c947-478f-8cb9-12653a9a896b",
 						"name": "Snap Kick",
 						"type": "Passive",
 						"ability_image": "zenyatta/snap_kick.png"
