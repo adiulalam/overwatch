@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { View, Text, ScrollView, Button } from "react-native";
 import tw from "twrnc";
+import { dimensionsMap } from "../../../imageMap";
 import { DropDown } from "../component/dropdown";
 import { Input } from "../component/input";
 
@@ -65,7 +66,7 @@ export const AbilitiesScreen = ({ route }) => {
 							/>
 						)
 					)}
-					<View style={tw`flex flex-row w-1/3 justify-evenly min-w-20`}>
+					<View style={tw`flex flex-row ${dimensionsMap.lg ? " w-1/3" : "w-1/1"} justify-evenly min-w-20`}>
 						<Button
 							// onPress={handleSubmit}
 							title={
