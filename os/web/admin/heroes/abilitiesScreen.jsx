@@ -8,6 +8,7 @@ import { abilitydeleteMutation, abilityInsertMutation, abilityUpdateMutation } f
 import { dimensionsMap } from "../../../imageMap";
 import { DropDown } from "../component/dropdown";
 import { Input } from "../component/input";
+import { ConfirmationModal } from "../component/modal";
 
 export const AbilitiesScreen = ({ route }) => {
 	const [abilityData, setAbilityData] = useState({});
@@ -186,26 +187,11 @@ export const AbilitiesScreen = ({ route }) => {
 							dimensionsMap.lg ? "flex-row w-1/3" : "w-1/1 h-30"
 						} items-center justify-evenly `}
 					>
-						<Modal
-							animationType="slide"
-							transparent={true}
-							visible={modalVisible}
-							onRequestClose={() => {
-								Alert.alert("Modal has been closed.");
-								setModalVisible(!modalVisible);
-							}}
-						>
-							<View style={tw`flex-1 items-center justify-center`}>
-								<View
-									style={tw`flex flex-row ${
-										dimensionsMap.lg ? " w-1/3" : "w-1/1"
-									} h-20 items-center justify-evenly bg-black border-2 border-rose-500 rounded-lg`}
-								>
-									<Button onPress={handleDelete} title={"YES"} color="#FF0000" />
-									<Button onPress={() => setModalVisible(false)} title={"NO"} color="#006400" />
-								</View>
-							</View>
-						</Modal>
+						<ConfirmationModal
+							modalVisible={modalVisible}
+							setModalVisible={setModalVisible}
+							handleDelete={handleDelete}
+						></ConfirmationModal>
 						<View style={tw`flex p-2`}>
 							<Button
 								onPress={handleSubmit}
