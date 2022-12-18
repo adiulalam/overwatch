@@ -7,28 +7,7 @@ import { HeroesContext } from "../../../connection/client";
 import { useAuth0 } from "@auth0/auth0-react";
 import { NotAvailable } from "./notFound";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
-const MapsTab = createMaterialTopTabNavigator();
-const MutateMaps = ({ navigation, route }) => {
-	// console.log(route);
-	return (
-		// <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-		// 	<Text>Home!</Text>
-		// </View>
-
-		<MapsTab.Navigator>
-			<MapsTab.Screen name="Settings" component={SettingsScreen} />
-		</MapsTab.Navigator>
-	);
-};
-
-function SettingsScreen() {
-	return (
-		<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-			<Text style={{ color: "white" }}>Settings!</Text>
-		</View>
-	);
-}
+import { MutateMaps } from "./maps/main";
 
 const MainTab = createMaterialTopTabNavigator();
 
@@ -72,6 +51,11 @@ export const Admin = ({ navigation, route }) => {
 						component={NotAvailable}
 						listeners={{
 							tabPress: () => logout({ returnTo: window.location.origin }),
+						}}
+						options={{
+							tabBarLabel: ({ focused }) => (
+								<Text style={{ color: focused ? "red" : "aqua", fontSize: 16 }}>Logout</Text>
+							),
 						}}
 					/>
 				</MainTab.Navigator>

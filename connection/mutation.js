@@ -45,3 +45,22 @@ export const abilitydeleteMutation = gql`
 		}
 	}
 `;
+
+export const mapModeUpdateMutation = gql`
+	mutation updateMapModeMutation(
+		$pk_uuid: overwatch_map_mode_pk_columns_input = { map_mode_uuid: "" }
+		$_set: overwatch_map_mode_set_input = {}
+	) {
+		update_overwatch_map_mode_by_pk(pk_columns: $pk_uuid, _set: $_set) {
+			map_mode_uuid
+		}
+	}
+`;
+
+export const mapModeInsertMutation = gql`
+	mutation insertMapModeMutation($object: overwatch_map_mode_insert_input = {}) {
+		insert_overwatch_map_mode_one(object: $object) {
+			map_mode_uuid
+		}
+	}
+`;
