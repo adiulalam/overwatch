@@ -133,7 +133,7 @@ export const HeroesScreen = ({ route }) => {
 
 	return (
 		<>
-			<ScrollView style={tw`flex flex-col py-10`}>
+			<ScrollView style={tw`flex flex-col`}>
 				<AbilitiesTab.Navigator
 					screenOptions={{ tabBarItemStyle: { width: 100 }, tabBarScrollEnabled: true, swipeEnabled: false }}
 				>
