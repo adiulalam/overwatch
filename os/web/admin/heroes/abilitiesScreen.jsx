@@ -144,7 +144,7 @@ export const AbilitiesScreen = ({ route }) => {
 
 	return (
 		<ScrollView style={tw`flex flex-col py-10`}>
-			{!hideScreen ? (
+			{hideScreen ? (
 				<View style={tw`flex items-center justify-center`}>
 					<View style={tw`flex flex-row w-1/3 justify-around min-w-20`}>
 						<Button
