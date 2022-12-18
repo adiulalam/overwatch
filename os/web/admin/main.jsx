@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { HeroesContext } from "../../../connection/client";
 import { useAuth0 } from "@auth0/auth0-react";
 import { NotAvailable } from "./notFound";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const MapsTab = createMaterialTopTabNavigator();
 const MutateMaps = ({ navigation, route }) => {
@@ -37,8 +38,6 @@ export const Admin = ({ navigation, route }) => {
 
 	const { getAccessTokenSilently, loginWithRedirect, user, isAuthenticated, isLoading, logout } = useAuth0();
 
-	const [userToken, setUserToken] = useState("");
-
 	useEffect(() => {
 		(async function login() {
 			if (!isLoading && !user && !isAuthenticated) {
@@ -48,19 +47,14 @@ export const Admin = ({ navigation, route }) => {
 					const token = await getAccessTokenSilently({
 						audience: "hasura",
 					});
-					setUserToken(token);
+					await AsyncStorage.setItem("@UserJWTKey", `Bearer ${token}`);
 				} catch (e) {
-					console.error(e);
+					console.error("Error saving key", e);
+					return false;
 				}
 			}
 		})();
-		// eslint-disable-next-line
 	}, [isLoading, getAccessTokenSilently]);
-
-	const headers = {
-		"Content-Type": "application/json",
-		Authorization: `Bearer ${userToken ? userToken : null}`,
-	};
 
 	return (
 		isAuthenticated && (

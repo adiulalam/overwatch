@@ -3,13 +3,14 @@ import { createContext } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 const getData = async () => {
 	try {
-		const value = await AsyncStorage.getItem("@storageKey");
+		const value = await AsyncStorage.getItem("@UserJWTKey");
 		if (value !== null) {
 			return value;
 		}
 		return "";
 	} catch (e) {
 		console.log("Error reading key", e);
+		return false;
 	}
 };
 
@@ -23,7 +24,7 @@ export const mutationClient = async () => {
 		uri: "https://hasura.adiulalamadil.me/v1/graphql",
 		cache: new InMemoryCache(),
 		headers: {
-			"x-hasura-admin-secret": await getData(),
+			Authorization: await getData(),
 		},
 	});
 };
