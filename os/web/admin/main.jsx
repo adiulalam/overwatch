@@ -1,7 +1,6 @@
 import { View, Text, TextInput } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { MutateHeroes } from "./heroes/main";
-import { Settings } from "./settings/main";
 import { NavigationContainer, DarkTheme } from "@react-navigation/native";
 import { useContext, useEffect, useState } from "react";
 import { HeroesContext } from "../../../connection/client";
@@ -68,7 +67,6 @@ export const Admin = ({ navigation, route }) => {
 							initialParams={{ [e]: data[e], mainTabIndex: i }}
 						/>
 					))}
-					<MainTab.Screen name={"Settings"} component={Settings} />
 					<MainTab.Screen
 						name={"Logout"}
 						component={NotAvailable}
