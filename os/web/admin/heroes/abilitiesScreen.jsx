@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { diff } from "deep-object-diff";
-import { useEffect, useState } from "react";
-import { View, Text, ScrollView, Button, Modal } from "react-native";
+import { useState } from "react";
+import { View, ScrollView, Button, Modal } from "react-native";
 import tw from "twrnc";
 import { mutationClient } from "../../../../connection/client";
 import { abilitydeleteMutation, abilityInsertMutation, abilityUpdateMutation } from "../../../../connection/mutation";
@@ -11,12 +11,13 @@ import { Input } from "../component/input";
 import { ConfirmationModal } from "../component/modal";
 
 export const AbilitiesScreen = ({ route }) => {
-	const [abilityData, setAbilityData] = useState({});
+	const [abilityData, setAbilityData] = useState({ ...(route?.params?.ability ?? {}) });
 	const [client, setClient] = useState("");
 	const [hideScreen, setHideScreen] = useState(true);
+	const [modalVisible, setModalVisible] = useState(false);
 
 	const [typeOpen, setTypeOpen] = useState(false);
-	const [typeValue, setTypeValue] = useState(null);
+	const [typeValue, setTypeValue] = useState(route?.params?.ability?.type ?? null);
 	const [typeItems, setTypeItems] = useState([
 		{ label: "Primary Weapon", value: "Primary Weapon" },
 		{ label: "Secondary Weapon", value: "Secondary Weapon" },
@@ -31,12 +32,6 @@ export const AbilitiesScreen = ({ route }) => {
 	});
 	const [updateAbilityMutation, { error: updateError }] = useMutation(abilityUpdateMutation, { client: client });
 	const [deleteAbilityMutation, { error: deleteError }] = useMutation(abilitydeleteMutation, { client: client });
-
-	useEffect(() => {
-		setAbilityData({ ...route?.params?.ability });
-		setTypeValue(route?.params?.ability?.type ?? null);
-		return () => abilityData;
-	}, [route?.params]);
 
 	const handleTextChange = (text, key) => {
 		// console.log(text, key);
@@ -140,8 +135,6 @@ export const AbilitiesScreen = ({ route }) => {
 		window.location.href = "/admin";
 	};
 
-	const [modalVisible, setModalVisible] = useState(false);
-
 	return (
 		<ScrollView style={tw`flex flex-col py-10`}>
 			{hideScreen ? (
@@ -157,7 +150,7 @@ export const AbilitiesScreen = ({ route }) => {
 			) : (
 				<View style={tw`flex items-center justify-center`}>
 					{Object?.keys(abilityData ?? {})?.map((element, i) =>
-						element === "ability_uuid" || element === "fk_hero_uuid" ? (
+						element === "__typename" ? null : element === "ability_uuid" || element === "fk_hero_uuid" ? (
 							<Input element={element} value={abilityData[element]} key={i} editable={false} />
 						) : element === "type" ? (
 							<DropDown

@@ -15,6 +15,15 @@ export const MutateHeroes = ({ route }) => {
 				options={{
 					tabBarIcon: () => <Ionicons name="add" color={"green"} size={20} />,
 				}}
+				initialParams={{
+					hero: {
+						name: "",
+						hero_image: "",
+						type: null,
+						difficulty: null,
+						description: "",
+					},
+				}}
 			/>
 
 			{heroes.map((e, i) => (

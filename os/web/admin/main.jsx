@@ -1,10 +1,10 @@
 import { View, Text, TextInput } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import Ionicons from "@expo/vector-icons/Ionicons";
-const { data } = require("./data.json");
 import { MutateHeroes } from "./heroes/main";
 import { Settings } from "./settings/main";
 import { NavigationContainer, DarkTheme } from "@react-navigation/native";
+import { useContext } from "react";
+import { HeroesContext } from "../../../connection/client";
 
 const MapsTab = createMaterialTopTabNavigator();
 const MutateMaps = ({ navigation, route }) => {
@@ -31,6 +31,8 @@ function SettingsScreen() {
 const MainTab = createMaterialTopTabNavigator();
 
 export const Admin = ({ navigation, route }) => {
+	const data = useContext(HeroesContext);
+
 	return (
 		<NavigationContainer independent={true} theme={DarkTheme}>
 			<MainTab.Navigator screenOptions={{ swipeEnabled: false }}>

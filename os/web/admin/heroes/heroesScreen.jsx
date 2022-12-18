@@ -1,6 +1,6 @@
 import { View, ScrollView, Button, Text } from "react-native";
 import tw from "twrnc";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Input } from "../component/input";
 import { DropDown } from "../component/dropdown";
 import { diff } from "deep-object-diff";
@@ -15,12 +15,12 @@ import { AbilitiesScreen } from "./abilitiesScreen";
 
 const AbilitiesTab = createMaterialTopTabNavigator();
 export const HeroesScreen = ({ route }) => {
-	const [heroData, setHeroData] = useState({});
+	const [heroData, setHeroData] = useState({ ...(route?.params?.hero ?? {}) });
 	const [client, setClient] = useState("");
 	const abilities = [...(route?.params?.hero?.abilities ?? [])];
 
 	const [typeOpen, setTypeOpen] = useState(false);
-	const [typeValue, setTypeValue] = useState(null);
+	const [typeValue, setTypeValue] = useState(route?.params?.hero?.type ?? null);
 	const [typeItems, setTypeItems] = useState([
 		{ label: "Damage", value: "damage" },
 		{ label: "Tank", value: "tank" },
@@ -28,7 +28,7 @@ export const HeroesScreen = ({ route }) => {
 	]);
 
 	const [difficultyOpen, setDifficultyOpen] = useState(false);
-	const [difficultyValue, setDifficultyValue] = useState(null);
+	const [difficultyValue, setDifficultyValue] = useState(route?.params?.hero?.difficulty ?? null);
 	const [difficultyItems, setDifficultyItems] = useState([
 		{ label: "1", value: 1 },
 		{ label: "2", value: 2 },
@@ -37,24 +37,6 @@ export const HeroesScreen = ({ route }) => {
 
 	const [insertHeroMutation, { data, error: insertError }] = useMutation(heroInsertMutation, { client: client });
 	const [updateHeroMutation, { error: updateError }] = useMutation(heroUpdateMutation, { client: client });
-
-	useEffect(() => {
-		setHeroData(
-			route?.name === "Add Hero"
-				? {
-						name: "",
-						hero_image: "",
-						type: null,
-						difficulty: null,
-						description: "",
-				  }
-				: { ...route?.params?.hero }
-		);
-		setTypeValue(route?.params?.hero?.type ?? null);
-		setDifficultyValue(route?.params?.hero?.difficulty ?? null);
-
-		return () => heroData;
-	}, [route?.params]);
 
 	const handleTextChange = (text, key) => {
 		// console.log(text);
@@ -171,7 +153,7 @@ export const HeroesScreen = ({ route }) => {
 
 				<View style={tw`flex items-center justify-center`}>
 					{Object?.keys(heroData ?? {})?.map((element, i) =>
-						element === "abilities" ? null : element === "hero_uuid" ? (
+						element === "abilities" || element === "__typename" ? null : element === "hero_uuid" ? (
 							<Input element={element} value={heroData[element]} key={i} editable={false} />
 						) : element === "type" || element === "difficulty" ? (
 							<DropDown
