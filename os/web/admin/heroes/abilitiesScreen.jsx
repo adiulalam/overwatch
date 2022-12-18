@@ -1,10 +1,10 @@
 import { useMutation } from "@apollo/client";
 import { diff } from "deep-object-diff";
 import { useEffect, useState } from "react";
-import { View, Text, ScrollView, Button } from "react-native";
+import { View, Text, ScrollView, Button, Modal } from "react-native";
 import tw from "twrnc";
 import { mutationClient } from "../../../../connection/client";
-import { abilityInsertMutation, abilityUpdateMutation } from "../../../../connection/mutation";
+import { abilitydeleteMutation, abilityInsertMutation, abilityUpdateMutation } from "../../../../connection/mutation";
 import { dimensionsMap } from "../../../imageMap";
 import { DropDown } from "../component/dropdown";
 import { Input } from "../component/input";
@@ -29,6 +29,7 @@ export const AbilitiesScreen = ({ route }) => {
 		client: client,
 	});
 	const [updateAbilityMutation, { error: updateError }] = useMutation(abilityUpdateMutation, { client: client });
+	const [deleteAbilityMutation, { error: deleteError }] = useMutation(abilitydeleteMutation, { client: client });
 
 	useEffect(() => {
 		setAbilityData({ ...route?.params?.ability });
@@ -95,6 +96,8 @@ export const AbilitiesScreen = ({ route }) => {
 				console.log("Error inserting ability", insertError);
 				return false;
 			}
+
+			window.location.href = "/admin";
 		} else if (abilityData.ability_uuid.split("").length > 35) {
 			const uuid = abilityData.ability_uuid;
 			const variables = {
@@ -112,6 +115,31 @@ export const AbilitiesScreen = ({ route }) => {
 			console.log("No mutation type found for abilities");
 		}
 	};
+
+	const handleDelete = async () => {
+		const uuid = abilityData?.ability_uuid;
+
+		if (!uuid) {
+			console.log("Error ability uuid is empty");
+			return false;
+		}
+
+		setClient(await mutationClient());
+
+		const variables = {
+			variables: { ability_uuid: uuid },
+		};
+
+		await deleteAbilityMutation(variables);
+		if (deleteError) {
+			console.log("Error deleting ability", insertError);
+			return false;
+		}
+
+		window.location.href = "/admin";
+	};
+
+	const [modalVisible, setModalVisible] = useState(false);
 
 	return (
 		<ScrollView style={tw`flex flex-col py-10`}>
@@ -152,24 +180,55 @@ export const AbilitiesScreen = ({ route }) => {
 							/>
 						)
 					)}
-					<View style={tw`flex flex-row ${dimensionsMap.lg ? " w-1/3" : "w-1/1"} justify-evenly min-w-20`}>
-						<Button
-							onPress={handleSubmit}
-							title={route?.name.includes("Add Ability") ? "Add Ability" : "Edit Ability"}
-							color="#841584"
-						/>
-						{!route?.name.includes("Add Ability") && (
+
+					<View
+						style={tw`flex ${
+							dimensionsMap.lg ? "flex-row w-1/3" : "w-1/1 h-30"
+						} items-center justify-evenly `}
+					>
+						<Modal
+							animationType="slide"
+							transparent={true}
+							visible={modalVisible}
+							onRequestClose={() => {
+								Alert.alert("Modal has been closed.");
+								setModalVisible(!modalVisible);
+							}}
+						>
+							<View style={tw`flex-1 items-center justify-center`}>
+								<View
+									style={tw`flex flex-row ${
+										dimensionsMap.lg ? " w-1/3" : "w-1/1"
+									} h-20 items-center justify-evenly bg-black border-2 border-rose-500 rounded-lg`}
+								>
+									<Button onPress={handleDelete} title={"YES"} color="#FF0000" />
+									<Button onPress={() => setModalVisible(false)} title={"NO"} color="#006400" />
+								</View>
+							</View>
+						</Modal>
+						<View style={tw`flex p-2`}>
 							<Button
-								// onPress={handleDelete}
-								title={"Delete Ability"}
-								color="#FF0000"
+								onPress={handleSubmit}
+								title={route?.name.includes("Add Ability") ? "Add Ability" : "Edit Ability"}
+								color="#841584"
 							/>
+						</View>
+						{!route?.name.includes("Add Ability") && (
+							<View style={tw`flex p-2`}>
+								<Button
+									onPress={() => setModalVisible(true)}
+									title={"Delete Ability"}
+									color="#FF0000"
+								/>
+							</View>
 						)}
-						<Button
-							onPress={() => setHideScreen(true)}
-							title={hideScreen ? "Show Abiilty" : "Hide Abiilty"}
-							color="#006400"
-						/>
+						<View style={tw`flex p-2`}>
+							<Button
+								onPress={() => setHideScreen(true)}
+								title={hideScreen ? "Show Abiilty" : "Hide Abiilty"}
+								color="#006400"
+							/>
+						</View>
 					</View>
 				</View>
 			)}

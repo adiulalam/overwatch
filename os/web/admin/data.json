@@ -10,13 +10,6 @@
 				"description": "Ana's versatile arsenal allows her to affect heroes all over the battlefield. Her Biotic Rifle rounds and Biotic Grenades heal allies and damage or impair enemies; her sidearm tranquilizes key targets, and Nano Boost gives one of her comrades a considerable increase in power.",
 				"abilities": [
 					{
-						"ability_uuid": "18f4556c-b41e-48c9-a2e1-ad0525f3d2c2",
-						"fk_hero_uuid": "7e632fbb-347e-43ac-8d38-83eecb67d297",
-						"name": "Biotic Rifle",
-						"type": "Primary Weapon",
-						"ability_image": "ana/biotic_rifle.png"
-					},
-					{
 						"ability_uuid": "9b64a145-c8ac-405b-a4cc-93aa7469d2ea",
 						"fk_hero_uuid": "7e632fbb-347e-43ac-8d38-83eecb67d297",
 						"name": "Sleep Dart",
@@ -36,6 +29,13 @@
 						"name": "Nano Boost",
 						"type": "Ultimate",
 						"ability_image": "ana/nano_boost.png"
+					},
+					{
+						"ability_uuid": "18f4556c-b41e-48c9-a2e1-ad0525f3d2c2",
+						"fk_hero_uuid": "7e632fbb-347e-43ac-8d38-83eecb67d297",
+						"name": "Biotic Rifle",
+						"type": "Primary Weapon",
+						"ability_image": "ana/biotic_rifle.png"
 					}
 				]
 			},

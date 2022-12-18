@@ -111,6 +111,8 @@ export const HeroesScreen = ({ route }) => {
 				console.log("Error inserting heroes", insertError);
 				return false;
 			}
+
+			window.location.href = "/admin";
 		} else if (heroData.hero_uuid.split("").length > 35) {
 			const uuid = heroData.hero_uuid;
 			const variables = {

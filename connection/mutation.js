@@ -37,3 +37,11 @@ export const abilityInsertMutation = gql`
 		}
 	}
 `;
+
+export const abilitydeleteMutation = gql`
+	mutation deleteAbilityMutation($ability_uuid: uuid = "") {
+		delete_overwatch_ability_by_pk(ability_uuid: $ability_uuid) {
+			ability_uuid
+		}
+	}
+`;
