@@ -10,7 +10,7 @@ import _ from "lodash";
 import { mutationClient } from "../../../../connection/client";
 import { heroInsertMutation, heroUpdateMutation } from "../../../../connection/mutation";
 import { useMutation } from "@apollo/client";
-import { NotAvailable } from "./notFound";
+import { NotAvailable } from "../notFound";
 import { AbilitiesScreen } from "./abilitiesScreen";
 
 const AbilitiesTab = createMaterialTopTabNavigator();

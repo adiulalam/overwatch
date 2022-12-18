@@ -8,6 +8,7 @@ import { client, HeroesContext } from "./connection/client";
 import { getOverwatchData } from "./connection/query";
 import { ApolloProvider, useQuery } from "@apollo/client";
 import tw from "twrnc";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 NativeWindStyleSheet.setOutput({
 	default: "native",
@@ -33,7 +34,18 @@ export default function App() {
 	return (
 		<ApolloProvider client={client}>
 			<HeroesContext.Provider value={data}>
-				{Platform.OS === "web" ? <WebMain /> : <PhoneMain />}
+				{Platform.OS === "web" ? (
+					<Auth0Provider
+						domain={process.env.REACT_APP_AUTH0_DOMAIN_NAME}
+						clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
+						redirectUri={`${window.location.origin}/admin`}
+						audience="hasura"
+					>
+						<WebMain />
+					</Auth0Provider>
+				) : (
+					<PhoneMain />
+				)}
 			</HeroesContext.Provider>
 		</ApolloProvider>
 	);
