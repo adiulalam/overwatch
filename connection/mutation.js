@@ -18,3 +18,22 @@ export const heroInsertMutation = gql`
 		}
 	}
 `;
+
+export const abilityUpdateMutation = gql`
+	mutation updateAbilityMutation(
+		$pk_uuid: overwatch_ability_pk_columns_input = { ability_uuid: "" }
+		$_set: overwatch_ability_set_input = {}
+	) {
+		update_overwatch_ability_by_pk(pk_columns: $pk_uuid, _set: $_set) {
+			ability_uuid
+		}
+	}
+`;
+
+export const abilityInsertMutation = gql`
+	mutation insertAbilityMutation($object: overwatch_ability_insert_input = {}) {
+		insert_overwatch_ability_one(object: $object) {
+			ability_uuid
+		}
+	}
+`;

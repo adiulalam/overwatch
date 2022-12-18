@@ -1,12 +1,17 @@
+import { useMutation } from "@apollo/client";
+import { diff } from "deep-object-diff";
 import { useEffect, useState } from "react";
 import { View, Text, ScrollView, Button } from "react-native";
 import tw from "twrnc";
+import { mutationClient } from "../../../../connection/client";
+import { abilityInsertMutation, abilityUpdateMutation } from "../../../../connection/mutation";
 import { dimensionsMap } from "../../../imageMap";
 import { DropDown } from "../component/dropdown";
 import { Input } from "../component/input";
 
 export const AbilitiesScreen = ({ route }) => {
 	const [abilityData, setAbilityData] = useState({});
+	const [client, setClient] = useState("");
 	const [hideScreen, setHideScreen] = useState(true);
 
 	const [typeOpen, setTypeOpen] = useState(false);
@@ -19,6 +24,11 @@ export const AbilitiesScreen = ({ route }) => {
 		{ label: "Ultimate", value: "Ultimate" },
 		{ label: "Weapon Two", value: "Weapon Two" },
 	]);
+
+	const [insertAbilityMutation, { data, error: insertError }] = useMutation(abilityInsertMutation, {
+		client: client,
+	});
+	const [updateAbilityMutation, { error: updateError }] = useMutation(abilityUpdateMutation, { client: client });
 
 	useEffect(() => {
 		setAbilityData({ ...route?.params?.ability });
@@ -62,6 +72,47 @@ export const AbilitiesScreen = ({ route }) => {
 		});
 	};
 
+	const handleSubmit = async () => {
+		const result = diff({ ...route?.params?.ability }, abilityData);
+		let isEmpty = false;
+		Object.entries(result).map(([key, value]) => (value === null || value === "" ? (isEmpty = true) : null));
+		if (_.isEmpty(result)) isEmpty = true;
+		if (isEmpty) {
+			console.log("Error empty object");
+			return false;
+		}
+
+		setClient(await mutationClient());
+
+		if (route?.name === `${route?.params?.hero?.name} - Add Ability`) {
+			result["fk_hero_uuid"] = route?.params?.hero?.hero_uuid;
+
+			const variables = {
+				variables: { object: result },
+			};
+			await insertAbilityMutation(variables);
+			if (insertError) {
+				console.log("Error inserting ability", insertError);
+				return false;
+			}
+		} else if (abilityData.ability_uuid.split("").length > 35) {
+			const uuid = abilityData.ability_uuid;
+			const variables = {
+				variables: { pk_uuid: { ability_uuid: uuid }, _set: result },
+			};
+
+			await updateAbilityMutation(variables);
+			if (updateError) {
+				console.log("Error updating ability", updateError);
+				return false;
+			}
+
+			window.location.href = "/admin";
+		} else {
+			console.log("No mutation type found for abilities");
+		}
+	};
+
 	return (
 		<ScrollView style={tw`flex flex-col py-10`}>
 			{!hideScreen ? (
@@ -70,7 +121,7 @@ export const AbilitiesScreen = ({ route }) => {
 						<Button
 							onPress={() => setHideScreen(false)}
 							title={hideScreen ? "Show Abiilty" : "Hide Abiilty"}
-							color="#FF0000"
+							color="#006400"
 						/>
 					</View>
 				</View>
@@ -103,14 +154,21 @@ export const AbilitiesScreen = ({ route }) => {
 					)}
 					<View style={tw`flex flex-row ${dimensionsMap.lg ? " w-1/3" : "w-1/1"} justify-evenly min-w-20`}>
 						<Button
-							// onPress={handleSubmit}
+							onPress={handleSubmit}
 							title={route?.name.includes("Add Ability") ? "Add Ability" : "Edit Ability"}
 							color="#841584"
 						/>
+						{!route?.name.includes("Add Ability") && (
+							<Button
+								// onPress={handleDelete}
+								title={"Delete Ability"}
+								color="#FF0000"
+							/>
+						)}
 						<Button
 							onPress={() => setHideScreen(true)}
 							title={hideScreen ? "Show Abiilty" : "Hide Abiilty"}
-							color="#FF0000"
+							color="#006400"
 						/>
 					</View>
 				</View>

@@ -136,7 +136,7 @@ export const HeroesScreen = ({ route }) => {
 					screenOptions={{ tabBarItemStyle: { width: 100 }, tabBarScrollEnabled: true, swipeEnabled: false }}
 				>
 					<AbilitiesTab.Screen
-						name={route?.name === "Add Hero" ? "Add Hero" : `${heroData?.name} - Add Ability`}
+						name={route?.name === "Add Hero" ? "Add hero" : `${heroData?.name} - Add Ability`}
 						component={route?.name === "Add Hero" ? NotAvailable : AbilitiesScreen}
 						options={{
 							tabBarIcon: () => <Ionicons name="add" color={"green"} size={20} />,
