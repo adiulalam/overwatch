@@ -11,6 +11,7 @@ export const getOverwatchData = gql`
 			description
 			abilities {
 				ability_uuid
+				fk_hero_uuid
 				name
 				type
 				ability_image
