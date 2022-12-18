@@ -7,10 +7,16 @@ import { mapModeInsertMutation, mapModeUpdateMutation } from "../../../../connec
 import { useMutation } from "@apollo/client";
 import { diff } from "deep-object-diff";
 import _ from "lodash";
+import { NotAvailable } from "../notFound";
+import { MapsScreen } from "./mapsScreen";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
+const MapsTab = createMaterialTopTabNavigator();
 export const MapModesScreen = ({ route }) => {
 	const [mapModeData, setMapModeData] = useState({ ...(route?.params?.map_mode ?? {}) });
 	const [client, setClient] = useState("");
+	const maps = [...(route?.params?.map_mode?.maps ?? [])];
 
 	const [insertMapModeMutation, { data, error: insertError }] = useMutation(mapModeInsertMutation, {
 		client: client,
@@ -71,40 +77,39 @@ export const MapModesScreen = ({ route }) => {
 	return (
 		<>
 			<ScrollView style={tw`flex flex-col`}>
-				{/* <AbilitiesTab.Navigator
-				screenOptions={{ tabBarItemStyle: { width: 100 }, tabBarScrollEnabled: true, swipeEnabled: false }}
-			>
-				<AbilitiesTab.Screen
-					name={route?.name === "Add Hero" ? "Add hero" : `${heroData?.name} - Add Ability`}
-					component={route?.name === "Add Hero" ? NotAvailable : AbilitiesScreen}
-					options={{
-						tabBarIcon: () => <Ionicons name="add" color={"green"} size={20} />,
-						tabBarStyle: { display: route?.name === "Add Hero" ? "none" : "flex" },
-					}}
-					initialParams={{
-						hero: { hero_uuid: heroData?.hero_uuid, name: heroData?.name },
-						ability: {
-							fk_hero_uuid: heroData?.hero_uuid,
-							name: "",
-							type: null,
-							ability_image: "",
-						},
-					}}
-				/>
-
-				{abilities.map((e, i) => (
-					<AbilitiesTab.Screen
-						name={`${heroData?.name} - ${e?.name} [${i}]`}
-						key={i}
-						component={AbilitiesScreen}
+				<MapsTab.Navigator
+					screenOptions={{ tabBarItemStyle: { width: 100 }, tabBarScrollEnabled: true, swipeEnabled: false }}
+				>
+					<MapsTab.Screen
+						name={route?.name === "Add Map Mode" ? "Add map mode" : `${mapModeData?.type} - Add Map`}
+						component={route?.name === "Add Map Mode" ? NotAvailable : MapsScreen}
+						options={{
+							tabBarIcon: () => <Ionicons name="add" color={"green"} size={20} />,
+							tabBarStyle: { display: route?.name === "Add Map Mode" ? "none" : "flex" },
+						}}
 						initialParams={{
-							ability: e,
-							abilityTabIndex: i,
-							hero: { hero_uuid: heroData?.hero_uuid, name: heroData?.name },
+							map_mode: { map_mode_uuid: mapModeData?.map_mode_uuid, type: mapModeData?.type },
+							map: {
+								fk_map_mode_uuid: mapModeData?.map_mode_uuid,
+								name: "",
+								map_image: "",
+							},
 						}}
 					/>
-				))}
-			</AbilitiesTab.Navigator> */}
+
+					{maps.map((e, i) => (
+						<MapsTab.Screen
+							name={`${mapModeData?.type} - ${e?.name}`}
+							key={i}
+							component={MapsScreen}
+							initialParams={{
+								map: e,
+								mapTabIndex: i,
+								map_mode: { map_mode_uuid: mapModeData?.map_mode_uuid, type: mapModeData?.type },
+							}}
+						/>
+					))}
+				</MapsTab.Navigator>
 
 				<View style={tw`flex items-center justify-center`}>
 					{Object?.keys(mapModeData ?? {})?.map((element, i) =>

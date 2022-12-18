@@ -64,3 +64,30 @@ export const mapModeInsertMutation = gql`
 		}
 	}
 `;
+
+export const mapUpdateMutation = gql`
+	mutation updateMapMutation(
+		$pk_uuid: overwatch_map_pk_columns_input = { map_uuid: "" }
+		$_set: overwatch_map_set_input = {}
+	) {
+		update_overwatch_map_by_pk(pk_columns: $pk_uuid, _set: $_set) {
+			map_uuid
+		}
+	}
+`;
+
+export const mapInsertMutation = gql`
+	mutation insertMapMutation($object: overwatch_map_insert_input = {}) {
+		insert_overwatch_map_one(object: $object) {
+			map_uuid
+		}
+	}
+`;
+
+export const mapdeleteMutation = gql`
+	mutation deleteMapMutation($map_uuid: uuid = "") {
+		delete_overwatch_map_by_pk(map_uuid: $map_uuid) {
+			map_uuid
+		}
+	}
+`;

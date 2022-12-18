@@ -8,7 +8,7 @@ export const Input = ({ element, value, editable, handleTextChange, handleImageC
 		<View style={tw`flex ${dimensionsMap.lg ? "flex-row w-1/3" : "w-1/1"} mb-6 `}>
 			<Label element={element} />
 			<View style={tw`flex w-full`}>
-				{(element === "hero_image" || element === "ability_image") && (
+				{(element === "hero_image" || element === "ability_image" || element === "map_image") && (
 					<input type="file" onChange={(e) => handleImageChange(e)} accept="image/*" />
 				)}
 				<TextInput

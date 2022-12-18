@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { diff } from "deep-object-diff";
 import { useState } from "react";
-import { View, ScrollView, Button, Modal } from "react-native";
+import { View, ScrollView, Button } from "react-native";
 import tw from "twrnc";
 import { mutationClient } from "../../../../connection/client";
 import { abilitydeleteMutation, abilityInsertMutation, abilityUpdateMutation } from "../../../../connection/mutation";
