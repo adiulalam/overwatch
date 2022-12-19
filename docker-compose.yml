@@ -1,20 +1,16 @@
-version: '2.4'
+version: "3"
 services:
-  overwatch:
-    build:
-      context: .
-    tty: true
-    ports:
-      - '8079:19006'
-    expose:
-      - "8079"
-    volumes:
-      - ./:/overwatch:delegated
-      - ./package.json:/overwatch/package.json
-      - notused:/overwatch/node_modules
-    healthcheck:
-      disable: true
-    restart: unless-stopped
-
-volumes:
-  notused:
+    react-app:
+        container_name: overwatch
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 8075:80
+        env_file:
+            - .env
+        expose:
+            - "8075"
+        volumes:
+            - ./src:/app/src
+        restart: unless-stopped

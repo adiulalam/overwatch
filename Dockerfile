@@ -1,14 +1,12 @@
-FROM node:16.18.0-buster-slim
+FROM node:16.18.0-buster-slim as web-build
 
-ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
-ENV PATH /home/node/.npm-global/bin:$PATH
-RUN npm i --unsafe-perm --allow-root -g npm@latest expo-cli@latest
-
-RUN mkdir /overwatch
-WORKDIR /overwatch
-ENV PATH /overwatch/.bin:$PATH
-COPY ./package.json ./
+WORKDIR /app
+COPY package.json /app/
 RUN npm install
+COPY ./ /app/
+RUN npx expo export:web
 
-ENTRYPOINT ["npm", "run"]
-CMD ["web"]
+FROM nginx:stable-alpine
+COPY --from=web-build /app/web-build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
