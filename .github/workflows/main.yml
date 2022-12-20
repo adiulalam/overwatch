@@ -16,6 +16,5 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
         script: |
-          cd overwatch-content/overwatch
-          git reset --hard HEAD && git pull origin main && echo 'pulled master main'
+          cd overwatch-content/
           ./deploy-overwatch.sh
