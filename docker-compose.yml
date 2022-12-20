@@ -6,11 +6,11 @@ services:
             context: .
             dockerfile: Dockerfile
         ports:
-            - 8075:80
+            - 8079:80
         env_file:
             - .env
         expose:
-            - "8075"
+            - "8079"
         volumes:
             - ./src:/app/src
         restart: unless-stopped
