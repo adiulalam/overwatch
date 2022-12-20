@@ -18,4 +18,4 @@ jobs:
         script: |
           cd overwatch-content/overwatch
           git reset --hard HEAD && git pull origin main && echo 'pulled master main'
-          ./deploy-overwatch.sh
+          sudo ./deploy-overwatch.sh
