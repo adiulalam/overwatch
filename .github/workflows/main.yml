@@ -16,5 +16,5 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
         script: |
-          cd overwatch-content/
+          cd overwatch-content/overwatch
           ./deploy-overwatch.sh
