@@ -1,4 +1,4 @@
-FROM node:16.18.0-buster-slim as web-build
+FROM node:16 as web-build
 
 WORKDIR /app
 COPY package.json /app/
