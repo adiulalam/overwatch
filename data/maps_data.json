@@ -15,7 +15,7 @@
 				},
 				{
 					"name": "Havana",
-					"map_image": "escort/havana.png"
+					"map_image": "escort/havana.jpg"
 				},
 				{
 					"name": "Junkertown",
@@ -48,7 +48,7 @@
 				},
 				{
 					"name": "Eichenwalde",
-					"map_image": "hybrid/eichenwalde.png"
+					"map_image": "hybrid/eichenwalde.jpg"
 				},
 				{
 					"name": "Hollywood",
@@ -60,7 +60,7 @@
 				},
 				{
 					"name": "Midtown",
-					"map_image": "hybrid/midtown.png"
+					"map_image": "hybrid/midtown.jpg"
 				},
 				{
 					"name": "Numbani",
@@ -110,7 +110,7 @@
 			"data": [
 				{
 					"name": "Colosseo",
-					"map_image": "push/colosseo.png"
+					"map_image": "push/colosseo.jpg"
 				},
 				{
 					"name": "Esperança",
