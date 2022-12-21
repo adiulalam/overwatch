@@ -1,14 +1,12 @@
-FROM node:16 AS base
-WORKDIR /base
-COPY package.json ./
+FROM node:16 as web-build
+
+WORKDIR /app
+COPY package.json /app/
 RUN npm install
-COPY . ./
-ENV NODE_ENV=production
+COPY ./ /app/
 RUN npx expo export:web
 
-FROM joseluisq/static-web-server:latest
-COPY --from=base /base/web-build /public
-RUN ["chmod", "+x", "./entrypoint.sh"]
-COPY ./entrypoint.sh /
-COPY ./static-web-server.toml /
-ENTRYPOINT ["/entrypoint.sh"]
+FROM nginx:stable-alpine
+COPY --from=web-build /app/web-build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
