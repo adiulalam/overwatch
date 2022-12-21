@@ -11,5 +11,4 @@ FROM joseluisq/static-web-server:2.14
 COPY --from=base /base/web-build /public
 COPY ./entrypoint.sh /
 COPY ./static-web-server.toml /
-# RUN ["chmod", "+x", "/entrypoint.sh"]
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["bash", "-c","/entrypoint.sh"]
