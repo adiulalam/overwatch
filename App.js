@@ -1,12 +1,11 @@
 import "react-native-gesture-handler";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Platform, Text, View, ActivityIndicator } from "react-native";
 import { NativeWindStyleSheet } from "nativewind";
 import { WebMain } from "./os/web/main";
 import { PhoneMain } from "./os/phone/main";
-import { client, HeroesContext } from "./connection/client";
-import { getOverwatchData } from "./connection/query";
-import { ApolloProvider, useQuery } from "@apollo/client";
+import { HeroesContext } from "./connection/client";
+import { getOverwatchData } from "./connection/api";
 import tw from "twrnc";
 import { Auth0Provider } from "@auth0/auth0-react";
 
@@ -15,7 +14,13 @@ NativeWindStyleSheet.setOutput({
 });
 
 export default function App() {
-	const { loading, error, data } = useQuery(getOverwatchData, { client });
+	const [{ loading, error, data }, setState] = useState({ loading: true, error: null, data: null });
+
+	useEffect(() => {
+		getOverwatchData()
+			.then((data) => setState({ loading: false, error: null, data }))
+			.catch((error) => setState({ loading: false, error, data: null }));
+	}, []);
 
 	if (loading)
 		return (
@@ -32,21 +37,19 @@ export default function App() {
 		);
 
 	return (
-		<ApolloProvider client={client}>
-			<HeroesContext.Provider value={data}>
-				{Platform.OS === "web" ? (
-					<Auth0Provider
-						domain={process.env.REACT_APP_AUTH0_DOMAIN_NAME}
-						clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
-						redirectUri={`${window.location.origin}/admin`}
-						audience="hasura"
-					>
-						<WebMain />
-					</Auth0Provider>
-				) : (
-					<PhoneMain />
-				)}
-			</HeroesContext.Provider>
-		</ApolloProvider>
+		<HeroesContext.Provider value={data}>
+			{Platform.OS === "web" ? (
+				<Auth0Provider
+					domain={process.env.REACT_APP_AUTH0_DOMAIN_NAME}
+					clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
+					redirectUri={`${window.location.origin}/admin`}
+					audience="hasura"
+				>
+					<WebMain />
+				</Auth0Provider>
+			) : (
+				<PhoneMain />
+			)}
+		</HeroesContext.Provider>
 	);
 }

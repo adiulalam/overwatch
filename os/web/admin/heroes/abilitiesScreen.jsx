@@ -1,10 +1,9 @@
-import { useMutation } from "@apollo/client";
 import { diff } from "deep-object-diff";
+import _ from "lodash";
 import { useState } from "react";
 import { View, ScrollView, Button } from "react-native";
 import tw from "twrnc";
-import { mutationClient } from "../../../../connection/client";
-import { abilitydeleteMutation, abilityInsertMutation, abilityUpdateMutation } from "../../../../connection/mutation";
+import { deleteRow, insertRow, updateRow } from "../../../../connection/api";
 import { dimensionsMap } from "../../../imageMap";
 import { DropDown } from "../component/dropdown";
 import { Input } from "../component/input";
@@ -12,7 +11,6 @@ import { ConfirmationModal } from "../component/modal";
 
 export const AbilitiesScreen = ({ route }) => {
 	const [abilityData, setAbilityData] = useState({ ...(route?.params?.ability ?? {}) });
-	const [client, setClient] = useState("");
 	const [hideScreen, setHideScreen] = useState(true);
 	const [modalVisible, setModalVisible] = useState(false);
 
@@ -26,12 +24,6 @@ export const AbilitiesScreen = ({ route }) => {
 		{ label: "Ultimate", value: "Ultimate" },
 		{ label: "Weapon Two", value: "Weapon Two" },
 	]);
-
-	const [insertAbilityMutation, { data, error: insertError }] = useMutation(abilityInsertMutation, {
-		client: client,
-	});
-	const [updateAbilityMutation, { error: updateError }] = useMutation(abilityUpdateMutation, { client: client });
-	const [deleteAbilityMutation, { error: deleteError }] = useMutation(abilitydeleteMutation, { client: client });
 
 	const handleTextChange = (text, key) => {
 		// console.log(text, key);
@@ -79,37 +71,22 @@ export const AbilitiesScreen = ({ route }) => {
 			return false;
 		}
 
-		setClient(await mutationClient());
-
-		if (route?.name === `${route?.params?.hero?.name} - Add Ability`) {
-			result["fk_hero_uuid"] = route?.params?.hero?.hero_uuid;
-
-			const variables = {
-				variables: { object: result },
-			};
-			await insertAbilityMutation(variables);
-			if (insertError) {
-				console.log("Error inserting ability", insertError);
+		try {
+			if (route?.name === `${route?.params?.hero?.name} - Add Ability`) {
+				result["fk_hero_uuid"] = route?.params?.hero?.hero_uuid;
+				await insertRow("abilities", result);
+			} else if (abilityData.ability_uuid.split("").length > 35) {
+				await updateRow("abilities", abilityData.ability_uuid, result);
+			} else {
+				console.log("No mutation type found for abilities");
 				return false;
 			}
-
-			window.location.href = "/admin";
-		} else if (abilityData.ability_uuid.split("").length > 35) {
-			const uuid = abilityData.ability_uuid;
-			const variables = {
-				variables: { pk_uuid: { ability_uuid: uuid }, _set: result },
-			};
-
-			await updateAbilityMutation(variables);
-			if (updateError) {
-				console.log("Error updating ability", updateError);
-				return false;
-			}
-
-			window.location.href = "/admin";
-		} else {
-			console.log("No mutation type found for abilities");
+		} catch (error) {
+			console.log("Error saving ability", error);
+			return false;
 		}
+
+		window.location.href = "/admin";
 	};
 
 	const handleDelete = async () => {
@@ -120,15 +97,10 @@ export const AbilitiesScreen = ({ route }) => {
 			return false;
 		}
 
-		setClient(await mutationClient());
-
-		const variables = {
-			variables: { ability_uuid: uuid },
-		};
-
-		await deleteAbilityMutation(variables);
-		if (deleteError) {
-			console.log("Error deleting ability", insertError);
+		try {
+			await deleteRow("abilities", uuid);
+		} catch (error) {
+			console.log("Error deleting ability", error);
 			return false;
 		}
 
