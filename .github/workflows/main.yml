@@ -16,5 +16,10 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
         script: |
-          cd overwatch-content/
-          ./deploy-overwatch.sh
+          set -e
+          cd overwatch-content/overwatch
+          git fetch origin
+          git reset --hard origin/main
+          cp ../.env .env
+          docker compose up -d --build --remove-orphans
+          echo 'Container up and running'

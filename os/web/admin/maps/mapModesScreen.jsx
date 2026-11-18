@@ -2,9 +2,7 @@ import { ScrollView, View, Button } from "react-native";
 import tw from "twrnc";
 import { useState } from "react";
 import { Input } from "../component/input";
-import { mutationClient } from "../../../../connection/client";
-import { mapModeInsertMutation, mapModeUpdateMutation } from "../../../../connection/mutation";
-import { useMutation } from "@apollo/client";
+import { insertRow, updateRow } from "../../../../connection/api";
 import { diff } from "deep-object-diff";
 import _ from "lodash";
 import { NotAvailable } from "../notFound";
@@ -15,13 +13,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 const MapsTab = createMaterialTopTabNavigator();
 export const MapModesScreen = ({ route }) => {
 	const [mapModeData, setMapModeData] = useState({ ...(route?.params?.map_mode ?? {}) });
-	const [client, setClient] = useState("");
 	const maps = [...(route?.params?.map_mode?.maps ?? [])];
-
-	const [insertMapModeMutation, { data, error: insertError }] = useMutation(mapModeInsertMutation, {
-		client: client,
-	});
-	const [updateMapModeMutation, { error: updateError }] = useMutation(mapModeUpdateMutation, { client: client });
 
 	const handleTextChange = (text, key) => {
 		setMapModeData({
@@ -40,38 +32,22 @@ export const MapModesScreen = ({ route }) => {
 			return false;
 		}
 
-		setClient(await mutationClient());
-
-		if (route?.name === "Add Map Mode") {
-			const newIndex = route?.params?.totalModes + 1;
-			result["index"] = newIndex;
-
-			const variables = {
-				variables: { object: result },
-			};
-			await insertMapModeMutation(variables);
-			if (insertError) {
-				console.log("Error inserting map modes", insertError);
+		try {
+			if (route?.name === "Add Map Mode") {
+				result["index"] = route?.params?.totalModes + 1;
+				await insertRow("map-modes", result);
+			} else if (mapModeData.map_mode_uuid.split("").length > 35) {
+				await updateRow("map-modes", mapModeData.map_mode_uuid, result);
+			} else {
+				console.log("No mutation type found for map modes");
 				return false;
 			}
-
-			window.location.href = "/admin";
-		} else if (mapModeData.map_mode_uuid.split("").length > 35) {
-			const uuid = mapModeData.map_mode_uuid;
-			const variables = {
-				variables: { pk_uuid: { map_mode_uuid: uuid }, _set: result },
-			};
-
-			await updateMapModeMutation(variables);
-			if (updateError) {
-				console.log("Error updating map modes", updateError);
-				return false;
-			}
-
-			window.location.href = "/admin";
-		} else {
-			console.log("No mutation type found for map modes");
+		} catch (error) {
+			console.log("Error saving map mode", error);
+			return false;
 		}
+
+		window.location.href = "/admin";
 	};
 
 	return (

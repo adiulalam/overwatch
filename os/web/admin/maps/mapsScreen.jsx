@@ -1,23 +1,17 @@
-import { useMutation } from "@apollo/client";
 import { diff } from "deep-object-diff";
+import _ from "lodash";
 import { useState } from "react";
 import { View, ScrollView, Button } from "react-native";
 import tw from "twrnc";
-import { mutationClient } from "../../../../connection/client";
-import { mapdeleteMutation, mapInsertMutation, mapUpdateMutation } from "../../../../connection/mutation";
+import { deleteRow, insertRow, updateRow } from "../../../../connection/api";
 import { dimensionsMap } from "../../../imageMap";
 import { Input } from "../component/input";
 import { ConfirmationModal } from "../component/modal";
 
 export const MapsScreen = ({ route }) => {
 	const [mapData, setMapData] = useState({ ...(route?.params?.map ?? {}) });
-	const [client, setClient] = useState("");
 	const [hideScreen, setHideScreen] = useState(true);
 	const [modalVisible, setModalVisible] = useState(false);
-
-	const [updateMapMutation, { error: updateError }] = useMutation(mapUpdateMutation, { client: client });
-	const [insertMapMutation, { error: insertError }] = useMutation(mapInsertMutation, { client: client });
-	const [deleteMapMutation, { error: deleteError }] = useMutation(mapdeleteMutation, { client: client });
 
 	const handleTextChange = (text, key) => {
 		console.log(text, key);
@@ -67,37 +61,22 @@ export const MapsScreen = ({ route }) => {
 			return false;
 		}
 
-		setClient(await mutationClient());
-
-		if (route?.name === `${route?.params?.map_mode?.type} - Add Map`) {
-			result["fk_map_mode_uuid"] = route?.params?.map_mode?.map_mode_uuid;
-
-			const variables = {
-				variables: { object: result },
-			};
-			await insertMapMutation(variables);
-			if (insertError) {
-				console.log("Error inserting map", insertError);
+		try {
+			if (route?.name === `${route?.params?.map_mode?.type} - Add Map`) {
+				result["fk_map_mode_uuid"] = route?.params?.map_mode?.map_mode_uuid;
+				await insertRow("maps", result);
+			} else if (mapData?.map_uuid.split("").length > 35) {
+				await updateRow("maps", mapData.map_uuid, result);
+			} else {
+				console.log("No mutation type found for maps");
 				return false;
 			}
-
-			window.location.href = "/admin";
-		} else if (mapData?.map_uuid.split("").length > 35) {
-			const uuid = mapData?.map_uuid;
-			const variables = {
-				variables: { pk_uuid: { map_uuid: uuid }, _set: result },
-			};
-
-			await updateMapMutation(variables);
-			if (updateError) {
-				console.log("Error updating map", updateError);
-				return false;
-			}
-
-			window.location.href = "/admin";
-		} else {
-			console.log("No mutation type found for maps");
+		} catch (error) {
+			console.log("Error saving map", error);
+			return false;
 		}
+
+		window.location.href = "/admin";
 	};
 
 	const handleDelete = async () => {
@@ -108,15 +87,10 @@ export const MapsScreen = ({ route }) => {
 			return false;
 		}
 
-		setClient(await mutationClient());
-
-		const variables = {
-			variables: { map_uuid: uuid },
-		};
-
-		await deleteMapMutation(variables);
-		if (deleteError) {
-			console.log("Error deleting map", insertError);
+		try {
+			await deleteRow("maps", uuid);
+		} catch (error) {
+			console.log("Error deleting map", error);
 			return false;
 		}
 

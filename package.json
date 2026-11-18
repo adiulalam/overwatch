@@ -9,7 +9,6 @@
 		"web": "expo start --web"
 	},
 	"dependencies": {
-		"@apollo/client": "^3.7.1",
 		"@auth0/auth0-react": "^1.12.0",
 		"@expo/webpack-config": "^0.17.2",
 		"@react-native-async-storage/async-storage": "^1.17.11",
@@ -24,7 +23,6 @@
 		"expo": "~47.0.3",
 		"expo-status-bar": "~1.4.2",
 		"expo-updates": "^0.15.6",
-		"graphql": "^15.8.0",
 		"lodash": "^4.17.21",
 		"nativewind": "^2.0.11",
 		"postcss": "^8.4.18",

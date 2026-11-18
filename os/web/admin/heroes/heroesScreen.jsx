@@ -7,16 +7,13 @@ import { diff } from "deep-object-diff";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import _ from "lodash";
-import { mutationClient } from "../../../../connection/client";
-import { heroInsertMutation, heroUpdateMutation } from "../../../../connection/mutation";
-import { useMutation } from "@apollo/client";
+import { insertRow, updateRow } from "../../../../connection/api";
 import { NotAvailable } from "../notFound";
 import { AbilitiesScreen } from "./abilitiesScreen";
 
 const AbilitiesTab = createMaterialTopTabNavigator();
 export const HeroesScreen = ({ route }) => {
 	const [heroData, setHeroData] = useState({ ...(route?.params?.hero ?? {}) });
-	const [client, setClient] = useState("");
 	const abilities = [...(route?.params?.hero?.abilities ?? [])];
 
 	const [typeOpen, setTypeOpen] = useState(false);
@@ -34,9 +31,6 @@ export const HeroesScreen = ({ route }) => {
 		{ label: "2", value: 2 },
 		{ label: "3", value: 3 },
 	]);
-
-	const [insertHeroMutation, { data, error: insertError }] = useMutation(heroInsertMutation, { client: client });
-	const [updateHeroMutation, { error: updateError }] = useMutation(heroUpdateMutation, { client: client });
 
 	const handleTextChange = (text, key) => {
 		// console.log(text);
@@ -82,35 +76,21 @@ export const HeroesScreen = ({ route }) => {
 			return false;
 		}
 
-		setClient(await mutationClient());
-
-		if (route?.name === "Add Hero") {
-			const variables = {
-				variables: { object: result },
-			};
-			await insertHeroMutation(variables);
-			if (insertError) {
-				console.log("Error inserting heroes", insertError);
+		try {
+			if (route?.name === "Add Hero") {
+				await insertRow("heroes", result);
+			} else if (heroData.hero_uuid.split("").length > 35) {
+				await updateRow("heroes", heroData.hero_uuid, result);
+			} else {
+				console.log("No mutation type found for heroes");
 				return false;
 			}
-
-			window.location.href = "/admin";
-		} else if (heroData.hero_uuid.split("").length > 35) {
-			const uuid = heroData.hero_uuid;
-			const variables = {
-				variables: { pk_uuid: { hero_uuid: uuid }, _set: result },
-			};
-
-			await updateHeroMutation(variables);
-			if (updateError) {
-				console.log("Error updating heroes", updateError);
-				return false;
-			}
-
-			window.location.href = "/admin";
-		} else {
-			console.log("No mutation type found for heroes");
+		} catch (error) {
+			console.log("Error saving hero", error);
+			return false;
 		}
+
+		window.location.href = "/admin";
 	};
 
 	return (
