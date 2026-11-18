@@ -6,7 +6,6 @@ import { NavigationContainer, DarkTheme } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Dimensions, Image, View } from "react-native";
 import tw from "twrnc";
-import { Admin } from "./admin/main";
 
 const Drawer = createDrawerNavigator();
 
@@ -17,7 +16,6 @@ export const WebMain = () => {
 				NotFound: "*",
 				Heroes: "heroes",
 				Maps: "maps",
-				Admin: "admin",
 			},
 		},
 	};
@@ -58,16 +56,6 @@ export const WebMain = () => {
 								/>
 							</View>
 						),
-					}}
-				/>
-				<Drawer.Screen
-					name="Admin"
-					component={Admin}
-					options={{
-						headerTintColor: "white",
-						drawerItemStyle: {
-							display: "none",
-						},
 					}}
 				/>
 			</Drawer.Navigator>
